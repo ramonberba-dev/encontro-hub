@@ -290,7 +290,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       </div>
       <div class="hero-cta">
         <a class="btn btn-gold js-buy" href="#ingresso">Garantir minha vaga · R$ 189,90</a>
-        <span class="hero-note">1º lote · vagas limitadas</span>
+        <span class="hero-note">1º lote com o cupom INTEGROSHUB · de <s>R$ 259,90</s></span>
       </div>
     </div>
 
@@ -304,7 +304,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <div><span>Inclui</span><span>Palestras + almoço</span></div>
       </div>
       <div class="t-cut"></div>
-      <div class="t-price"><b>R$ 189,90</b><small>1º lote</small></div>
+      <div class="t-price"><b>R$ 189,90</b><small><s>R$ 259,90</s><br>cupom INTEGROSHUB</small></div>
       <div class="count" id="count" aria-label="Contagem regressiva">
         <div><b id="cd-d">--</b><span>dias</span></div>
         <div><b id="cd-h">--</b><span>horas</span></div>
@@ -504,11 +504,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
     <div class="price-box">
       <div class="price-main">
-        <span class="lote st" style="background:none;padding:0">1º lote</span>
+        <span class="lote st" style="background:none;padding:0">1º lote · de <s>R$ 259,90</s> por R$ 189,90 com o cupom INTEGROSHUB</span>
         <div class="big"><small>R$</small> 189<small>,90</small></div>
         <p class="lead" style="font-size:.95rem">Palestras, dinâmica de networking, almoço completo com bebidas e material digital.</p>
         <div class="lotes">
-          <div class="lote on"><span>1º lote</span><span><b>R$ 189,90</b> <span class="st">· à venda</span></span></div>
+          <div class="lote on"><span>1º lote · 10 ingressos · cupom <b>INTEGROSHUB</b></span><span><b>R$ 189,90</b> <span class="st">· à venda</span></span></div>
         </div>
         <div class="vagas">
           <small><span class="js-vagas">45</span> lugares no total. Quando acabar, acabou: o salão tem limite.</small>
@@ -591,7 +591,7 @@ const CONFIG = {
 /* =================================== */
 
 const wa = (msg) => "https://wa.me/" + CONFIG.WHATSAPP + "?text=" + encodeURIComponent(msg);
-const buyHref = CONFIG.SYMPLA_URL || wa("Olá, Ramon! Quero garantir minha vaga no 1º Encontro do Hub (14/11, Coco Bambu Niterói) no 1º lote de R$ 189,90.");
+const buyHref = CONFIG.SYMPLA_URL || wa("Olá, Ramon! Quero garantir minha vaga no 1º Encontro do Hub (14/11, Coco Bambu Niterói) no 1º lote, com o cupom INTEGROSHUB (R$ 189,90).");
 document.querySelectorAll(".js-buy").forEach(a => {
   if (a.getAttribute("href") === "#ingresso" && !CONFIG.SYMPLA_URL) return;
   a.href = buyHref; a.target = "_blank"; a.rel = "noopener";
