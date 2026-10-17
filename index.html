@@ -656,6 +656,17 @@ tick(); setInterval(tick, 1000);
 .cupom-badge{display:inline-block;margin-top:2px;background:var(--ouro);color:#2A1018;font-size:.78rem;font-weight:600;letter-spacing:.06em;padding:6px 12px;border-radius:999px}
 @media (max-width:560px){.cupom-code{width:100%}}
 </style>
+<style id="preco-css">
+.ticket .t-price{position:relative;flex-wrap:wrap;row-gap:6px}
+.ticket .t-price b{white-space:nowrap;transition:color .4s}
+.ticket .t-price b.drop{color:#1F7A4D}
+.ticket .t-price small{transition:opacity .4s}
+.ticket .t-price small.hide-old{opacity:0}
+.cupom-flash{position:absolute;left:0;top:-30px;background:#5A2439;color:#F5EEE6;font:600 .72rem var(--body);letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;opacity:0;transform:translateY(6px);pointer-events:none}
+.cupom-flash.on{animation:cupom-pisca 1.4s ease-in-out forwards}
+@keyframes cupom-pisca{0%{opacity:0;transform:translateY(6px)}12%{opacity:1;transform:none}30%{opacity:.25}45%{opacity:1}60%{opacity:.25}75%,100%{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.cupom-flash.on{animation:none;opacity:1}}
+</style>
 <style id="motion">
 /* Motion enxuto: só a faixa dourada correndo e o preço que conta até R$ 189,90. Nada mais se mexe. */
 .mo-ribbon{background:var(--ouro);color:var(--bordo-deep);overflow:hidden;border-block:1px solid rgba(62,23,39,.25)}
@@ -686,7 +697,32 @@ tick(); setInterval(tick, 1000);
   }
   const counters = [];
   const tp = document.querySelector(".ticket .t-price b");
-  if (tp) counters.push({el:tp, run:() => countUp(tp, 189.9, 2, "R$ ", 120)});
+  if (tp) counters.push({el:tp, run:() => {
+    const box = tp.parentElement, small = box.querySelector("small");
+    let flash = box.querySelector(".cupom-flash");
+    if (!flash){ flash = document.createElement("span"); flash.className = "cupom-flash"; flash.textContent = "Com o cupom INTEGROSHUB"; box.append(flash); }
+    if (small) small.classList.add("hide-old");
+    const roll = (from, to, dur, done) => {
+      const t0 = performance.now();
+      const step = t => {
+        const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        tp.textContent = "R$ " + fmt(from + (to - from) * e, 2);
+        if (p < 1) requestAnimationFrame(step); else if (done) done();
+      };
+      requestAnimationFrame(step);
+    };
+    roll(120, 259.9, 1300, () => setTimeout(() => {
+      flash.classList.add("on");
+      setTimeout(() => {
+        tp.classList.add("drop");
+        roll(259.9, 189.9, 1500, () => {
+          tp.classList.remove("drop");
+          flash.classList.remove("on");
+          if (small) small.classList.remove("hide-old");
+        });
+      }, 1400);
+    }, 500));
+  }});
   const big = document.querySelector(".price-main .big");
   if (big) {
     const tn = [...big.childNodes].find(n => n.nodeType === 3 && /\d/.test(n.textContent));
