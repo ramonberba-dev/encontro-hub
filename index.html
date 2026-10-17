@@ -315,6 +315,20 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   </div>
 </header>
 
+<section class="cupom" id="cupom" aria-label="Cupom de desconto">
+  <div class="wrap cupom-in">
+    <div class="cupom-txt">
+      <span class="cupom-tag">Cupom limitado · só 10 usos</span>
+      <p class="cupom-h">De <s>R$ 259,90</s> por <b>R$ 189,90</b> no 1º lote</p>
+      <p class="cupom-sub">Digite o cupom no carrinho, antes de pagar. Quando os 10 cupons acabarem, o ingresso volta para R$ 259,90.</p>
+    </div>
+    <button class="cupom-code" type="button" id="cupom-copy" aria-label="Copiar o cupom INTEGROSHUB">
+      <span class="cupom-label">Seu cupom</span>
+      <strong>INTEGROSHUB</strong>
+      <span class="cupom-act" id="cupom-msg">Toque para copiar</span>
+    </button>
+  </div>
+</section>
 <div class="mo-ribbon" aria-hidden="true"><div class="track"><span>IA para o seu negócio</span><span>Caixa é bênção</span><span>Fé, família e negócios</span><span>Networking com método</span><span>Almoço no Coco Bambu</span><span>Sábado, 14 de novembro</span><span>Plaza Niterói</span><span>IA para o seu negócio</span><span>Caixa é bênção</span><span>Fé, família e negócios</span><span>Networking com método</span><span>Almoço no Coco Bambu</span><span>Sábado, 14 de novembro</span><span>Plaza Niterói</span></div></div>
 <div class="strip">
   <div class="wrap">
@@ -513,6 +527,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <div class="vagas">
           <small><span class="js-vagas">45</span> lugares no total. Quando acabar, acabou: o salão tem limite.</small>
         </div>
+        <span class="cupom-badge">Use o cupom INTEGROSHUB · só 10 usos</span>
         <a class="btn btn-accent js-buy" href="#" target="_blank" rel="noopener">Comprar ingresso</a>
         <small style="color:var(--muted)">Pague com Pix e garanta sua vaga na hora, com compra segura pelo site da VOX, apoiadora do Hub. Prefere cartão? Chame no WhatsApp (21) 99658-8197 que enviamos o link de pagamento.</small>
       </div>
@@ -563,7 +578,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 <div class="sticky" role="region" aria-label="Comprar ingresso">
   <div class="wrap">
-    <div class="s-info"><b>R$ 189,90 · 1º lote</b><span>14/11 · Coco Bambu Niterói · almoço incluso</span></div>
+    <div class="s-info"><b>R$ 189,90 com cupom</b><span>INTEGROSHUB · só 10 usos · 14/11</span></div>
     <a class="btn btn-gold js-buy" href="#" target="_blank" rel="noopener">Garantir vaga</a>
   </div>
 </div>
@@ -624,6 +639,23 @@ function tick(){
 tick(); setInterval(tick, 1000);
 </script>
 
+<style id="cupom-css">
+.cupom{background:var(--ouro);color:#2A1018;padding-block:26px;border-bottom:1px solid rgba(62,23,39,.25)}
+.cupom-in{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.cupom-txt{display:grid;gap:6px;min-width:0;flex:1 1 360px}
+.cupom-tag{justify-self:start;background:#5A2439;color:#F5EEE6;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:6px 12px;border-radius:999px}
+.cupom-h{font-family:var(--display);font-size:clamp(1.5rem,3.6vw,2.1rem);line-height:1.15;color:#3E1727}
+.cupom-h s{opacity:.7}
+.cupom-h b{font-weight:700}
+.cupom-sub{font-size:.9rem;color:#3E1727;opacity:.85;max-width:56ch}
+.cupom-code{flex:0 0 auto;display:grid;justify-items:center;gap:2px;background:#FFF8EE;border:2px dashed #5A2439;border-radius:16px;padding:14px 26px;cursor:pointer;color:#3E1727;font-family:var(--body)}
+.cupom-code:focus-visible{outline:3px solid #5A2439;outline-offset:3px}
+.cupom-code strong{font-family:"Courier New",monospace;font-size:1.6rem;letter-spacing:.12em;color:#5A2439}
+.cupom-label{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.8}
+.cupom-act{font-size:.78rem;font-weight:500}
+.cupom-badge{display:inline-block;margin-top:2px;background:var(--ouro);color:#2A1018;font-size:.78rem;font-weight:600;letter-spacing:.06em;padding:6px 12px;border-radius:999px}
+@media (max-width:560px){.cupom-code{width:100%}}
+</style>
 <style id="motion">
 /* Motion enxuto: só a faixa dourada correndo e o preço que conta até R$ 189,90. Nada mais se mexe. */
 .mo-ribbon{background:var(--ouro);color:var(--bordo-deep);overflow:hidden;border-block:1px solid rgba(62,23,39,.25)}
@@ -711,4 +743,18 @@ tick(); setInterval(tick, 1000);
 })();
 </script>
 
+<script id="cupom-js">
+(function(){
+  var b = document.getElementById("cupom-copy"), m = document.getElementById("cupom-msg");
+  if (!b) return;
+  b.addEventListener("click", function(){
+    var ok = function(){ m.textContent = "Copiado! Cole no carrinho"; setTimeout(function(){ m.textContent = "Toque para copiar"; }, 2600); };
+    var fallback = function(){
+      var r = document.createRange(); r.selectNodeContents(b.querySelector("strong"));
+      var s = getSelection(); s.removeAllRanges(); s.addRange(r); m.textContent = "Selecionado: copie e cole no carrinho";
+    };
+    try { navigator.clipboard.writeText("INTEGROSHUB").then(ok, fallback); } catch (e) { fallback(); }
+  });
+})();
+</script>
 </body></html>
