@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Capa do ingresso</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500&display=swap">
+<style>
+:root{--bordo:#4A1C2F;--bordo-deep:#3E1727;--ouro:#B89F77;--creme:#F5EEE6;--muted:#D9C7B9;
+  --display:"Playfair Display",Georgia,serif;--body:"Poppins","Segoe UI",sans-serif}
+*{box-sizing:border-box;margin:0}
+html,body{width:1080px;height:1080px;overflow:hidden;background:var(--bordo)}
+.card{position:relative;width:1080px;height:1080px;padding:96px 100px;color:var(--creme);font-family:var(--body);
+  background:radial-gradient(ellipse 70% 60% at 88% 8%,rgba(184,159,119,.28),transparent 60%),
+             radial-gradient(ellipse 60% 55% at 0% 100%,rgba(112,141,129,.22),transparent 60%),var(--bordo);overflow:hidden;display:flex;flex-direction:column}
+.mark{position:absolute;right:-90px;bottom:-110px;width:560px;height:560px;opacity:.08}
+.brand{display:flex;align-items:center;gap:20px}
+.brand b{display:block;font-weight:300;letter-spacing:.42em;font-size:30px}
+.brand i{font-family:var(--display);font-size:26px;color:var(--muted)}
+.eyebrow{margin-top:86px;font-size:24px;letter-spacing:.24em;text-transform:uppercase;color:var(--ouro);font-weight:500}
+h1{font-family:var(--display);font-weight:600;font-size:104px;line-height:1.02;margin-top:22px;letter-spacing:-.01em}
+h1 em{font-style:italic;font-weight:500;color:var(--ouro)}
+.rule{width:120px;height:3px;background:var(--ouro);margin-top:44px}
+.facts{margin-top:auto;display:grid;grid-template-columns:auto 1fr;gap:20px 34px;align-items:end}
+.date{font-family:var(--display);font-weight:700;font-size:150px;line-height:.82;color:var(--ouro)}
+.date small{display:block;font-size:34px;font-style:italic;font-weight:500;color:var(--creme);margin-top:16px}
+.info{font-size:30px;line-height:1.55;color:var(--creme);padding-bottom:6px}
+.info span{color:var(--muted)}
+.tag{position:absolute;top:96px;right:100px;border:2px solid var(--ouro);color:var(--ouro);border-radius:999px;padding:12px 26px;font-size:22px;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+</style></head>
+<body><div class="card">
+<svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M9 6h7v15h16V6h7v36h-7V27H16v15H9z" fill="#F5EEE6"/><path d="M21.5 11h5v6h5.5v4.5h-5.5V37h-5V21.5H16V17h5.5z" fill="#B89F77"/></svg>
+<div class="brand">
+  <svg width="74" height="74" viewBox="0 0 48 48" aria-hidden="true"><path d="M9 6h7v15h16V6h7v36h-7V27H16v15H9z" fill="#F5EEE6"/><path d="M21.5 11h5v6h5.5v4.5h-5.5V37h-5V21.5H16V17h5.5z" fill="#B89F77"/></svg>
+  <div><b>HUB</b><i>de Empreendedores Católicos</i></div>
+</div>
+<span class="tag">Ingresso · 1º lote</span>
+<p class="eyebrow">1º Encontro do Hub · Niterói</p>
+<h1>IA, negócios e fé <em>à mesma mesa.</em></h1>
+<div class="rule"></div>
+<div class="facts">
+  <div class="date">14<small>de novembro</small></div>
+  <div class="info">Sábado · 10h às 14h<br>Coco Bambu Niterói<br><span>Palestras + almoço completo</span></div>
+</div>
+</div></body></html>
