@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Seu ingresso · Encontro do Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap">
+<style>
+:root{--bordo:#4A1C2F;--ouro:#B89F77;--creme:#F5EEE6;--muted:#D9C7B9;--ink:#2B1E23;--line:#CDBDB0;
+  --display:"Playfair Display",Georgia,serif;--body:"Poppins","Segoe UI",system-ui,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bordo);color:var(--creme);font-family:var(--body)}
+body{background:radial-gradient(ellipse 70% 50% at 90% 0%,rgba(184,159,119,.25),transparent 60%),var(--bordo);padding:calc(20px + env(safe-area-inset-top,0px)) 16px calc(28px + env(safe-area-inset-bottom,0px))}
+.wrap{max-width:420px;margin:0 auto;display:grid;gap:18px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand b{display:block;font-weight:300;letter-spacing:.42em;font-size:.85rem}
+.brand i{font-family:var(--display);font-size:.95rem;color:var(--muted)}
+.ticket{background:var(--creme);color:var(--ink);border-radius:20px;padding:24px 22px;position:relative;box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.ticket::before,.ticket::after{content:"";position:absolute;width:24px;height:24px;border-radius:50%;background:var(--bordo);top:var(--cut,62%)}
+.ticket::before{left:-12px}.ticket::after{right:-12px}
+.label{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#7A5F36;font-weight:500}
+h1{font-family:var(--display);font-weight:600;font-size:1.9rem;line-height:1.1;margin:6px 0 2px;color:#5A2439}
+.sub{color:#6E5D63;font-size:.92rem}
+.rows{display:grid;gap:6px;margin-top:16px;font-size:.92rem}
+.rows div{display:flex;justify-content:space-between;gap:12px}
+.rows span:first-child{color:#6E5D63}
+.rows span:last-child{font-weight:500;text-align:right}
+.cut{border-top:2px dashed var(--line);margin:18px -22px}
+.qr{display:grid;place-items:center;gap:10px}
+#qr{background:#fff;padding:12px;border-radius:12px;line-height:0}
+#qr img,#qr canvas{width:220px!important;height:220px!important;max-width:100%}
+.code{font:600 .8rem "Courier New",monospace;letter-spacing:.05em;color:var(--ink);word-break:break-all;text-align:center}
+.hint{font-size:.85rem;color:var(--muted);text-align:center;line-height:1.5}
+.err h1{color:#5A2439}
+a{color:var(--ouro)}
+</style>
+</head><body>
+<div class="wrap">
+  <div class="brand">
+    <svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><path d="M9 6h7v15h16V6h7v36h-7V27H16v15H9z" fill="#F5EEE6"/><path d="M21.5 11h5v6h5.5v4.5h-5.5V37h-5V21.5H16V17h5.5z" fill="#B89F77"/></svg>
+    <div><b>HUB</b><i>de Empreendedores Católicos</i></div>
+  </div>
+
+  <article class="ticket" id="ticket">
+    <span class="label" id="lbl">Ingresso</span>
+    <h1 id="who">Carregando…</h1>
+    <div class="sub">1º Encontro do Hub de Empreendedores Católicos</div>
+    <div class="rows">
+      <div><span>Data</span><span>Sábado, 14/11/2026</span></div>
+      <div><span>Horário</span><span>10h às 14h</span></div>
+      <div><span>Local</span><span>Coco Bambu Niterói</span></div>
+      <div><span>Pedido</span><span id="ped">–</span></div>
+    </div>
+    <div class="cut"></div>
+    <div class="qr">
+      <div id="qr" aria-label="QR Code do ingresso"></div>
+      <div class="code" id="code"></div>
+    </div>
+  </article>
+
+  <p class="hint">Mostre este QR Code na entrada. Ele vale para <b>uma pessoa</b> e só pode ser usado uma vez.<br>
+  Plaza Shopping, 4º piso · Rua XV de Novembro, 8 · Centro · Niterói/RJ<br>
+  Dúvidas: WhatsApp (21) 99658-8197</p>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const PORTARIA_URL = "https://claude.ai/artifact/3cWR4VGqfT63zWuGrsrjU6";
+let raw = location.hash.slice(1);
+try { raw = decodeURIComponent(raw); } catch (e) {}
+const code = raw.toUpperCase().replace(/\s+/g, "");
+const m = code.match(/^(\d+)-(\d+)-(\d+)-([A-Z]{1,14})-([A-Z2-7]{10})$/);
+const $ = id => document.getElementById(id);
+if (!m) {
+  $("ticket").classList.add("err");
+  $("lbl").textContent = "Link incompleto";
+  $("who").textContent = "Ingresso não encontrado";
+  $("ped").textContent = "–";
+  $("qr").style.display = "none";
+  $("code").textContent = "Abra o link exatamente como chegou no seu e-mail ou WhatsApp.";
+} else {
+  const nome = m[4][0] + m[4].slice(1).toLowerCase();
+  $("lbl").textContent = `Ingresso ${m[2]} de ${m[3]}`;
+  $("who").textContent = nome;
+  $("ped").textContent = "#" + m[1];
+  $("code").textContent = code;
+  document.title = `Ingresso de ${nome} · Encontro do Hub`;
+  new QRCode($("qr"), { text: PORTARIA_URL + "#" + code, width: 440, height: 440, colorDark: "#2B1E23", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.M });
+}
+</script>
+</body></html>
