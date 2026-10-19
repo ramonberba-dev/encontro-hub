@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sua experiência no Hub</title>
+<meta name="description" content="Conte um pouco sobre você para personalizarmos a sua experiência no 1º Encontro do Hub de Empreendedores Católicos.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&display=swap">
+<style>
+:root{
+  --bordo:#5A2439;--bordo-deep:#3E1727;--ouro:#B89F77;--ouro-forte:#8C7146;--salvia:#708D81;
+  --bg:#F6F2EF;--surface:#FFFFFF;--surface-2:#EFE7E1;--fg:#2B1E23;--muted:#6E5D63;--line:#DCCFC6;
+  --hero-bg:#4A1C2F;--hero-fg:#F5EEE6;--hero-muted:#D9C7B9;--accent:var(--bordo);--accent-ink:#FFFFFF;
+  --gold-ink:#7A5F36;--radius:14px;--err:#A3362F;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1A1013;--surface:#24161B;--surface-2:#2D1C22;--fg:#F1E8E3;--muted:#BFAFB4;--line:#43303A;
+  --hero-bg:#2C111C;--accent:#C9A97A;--accent-ink:#2A1018;--gold-ink:#D6BC8F;--err:#E58A80;
+}}
+:root[data-theme="dark"]{
+  --bg:#1A1013;--surface:#24161B;--surface-2:#2D1C22;--fg:#F1E8E3;--muted:#BFAFB4;--line:#43303A;
+  --hero-bg:#2C111C;--accent:#C9A97A;--accent-ink:#2A1018;--gold-ink:#D6BC8F;--err:#E58A80;
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font-family:Poppins,"Segoe UI",system-ui,sans-serif;font-size:16px;line-height:1.5}
+.hero{background:radial-gradient(ellipse 80% 60% at 90% 0%,rgba(184,159,119,.30),transparent 60%),radial-gradient(ellipse 70% 60% at 0% 100%,rgba(112,141,129,.20),transparent 60%),var(--hero-bg);color:var(--hero-fg);padding:28px 16px 70px}
+.wrap{max-width:640px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px}
+.brand b{display:block;font-weight:300;letter-spacing:.42em;font-size:15px}
+.brand i{display:block;font-family:"Playfair Display",Georgia,serif;font-size:14px;color:var(--hero-muted)}
+.hero h1{font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:clamp(30px,7vw,44px);line-height:1.08;margin-top:34px}
+.hero h1 em{color:#D8BE92}
+.hero p{color:var(--hero-muted);margin-top:14px;max-width:52ch}
+.pill{display:inline-flex;gap:8px;align-items:center;margin-top:20px;border:1px solid rgba(216,190,146,.6);border-radius:999px;padding:6px 14px;font-size:13px;letter-spacing:.08em;color:#F1E3CC}
+main{margin-top:-44px;padding:0 16px 60px}
+form,.done{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px 20px;box-shadow:0 18px 50px -30px rgba(62,23,39,.45)}
+@media (min-width:640px){form,.done{padding:34px 36px}}
+.progress{height:4px;border-radius:4px;background:var(--surface-2);overflow:hidden;margin-bottom:24px}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ouro),var(--accent));transition:width .35s ease}
+fieldset{border:0;padding:0;margin:0 0 30px}
+legend{font-family:"Playfair Display",Georgia,serif;font-size:22px;color:var(--accent);font-weight:500;margin-bottom:4px;padding:0}
+.lg-sub{color:var(--muted);font-size:14px;margin-bottom:16px}
+.f{margin-top:16px}
+label.t,.q{display:block;font-weight:500;font-size:15px;margin-bottom:6px}
+.opt{font-weight:400;color:var(--muted);font-size:13px}
+input[type=text],input[type=tel],input[type=email],textarea,select{width:100%;font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-height:48px}
+textarea{min-height:84px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--ouro);outline-offset:1px;border-color:transparent}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.chips span{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:9px 15px;font-size:14px;background:var(--bg);transition:background .15s,color .15s,border-color .15s;user-select:none}
+.chips input:checked+span{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.chips input:focus-visible+span{outline:2px solid var(--ouro);outline-offset:2px}
+.row2{display:grid;gap:16px}
+@media (min-width:560px){.row2{grid-template-columns:1fr 1fr}}
+.hidden{display:none}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted);margin-top:8px}
+.consent input{width:20px;height:20px;margin-top:2px;accent-color:var(--bordo);flex:none}
+button{font:inherit;cursor:pointer;border:0}
+.btn{width:100%;min-height:54px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:17px;margin-top:22px;transition:transform .15s,opacity .15s}
+.btn:active{transform:scale(.98)}
+.btn[disabled]{opacity:.6;cursor:wait}
+.err{color:var(--err);font-size:14px;margin-top:10px;min-height:1em}
+.invalid{border-color:var(--err)!important}
+.done{text-align:center}
+.done h2{font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:32px;color:var(--accent);margin-top:14px}
+.done p{color:var(--muted);margin-top:10px}
+.done .verse{font-family:"Playfair Display",Georgia,serif;font-style:italic;margin-top:22px;color:var(--gold-ink)}
+.wa{display:inline-block;margin-top:18px;color:var(--accent);font-weight:600}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
+footer a{color:inherit}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><path d="M9 6h7v15h16V6h7v36h-7V27H16v15H9z" fill="#F5EEE6"/><path d="M21.5 11h5v6h5.5v4.5h-5.5V37h-5V21.5H16V17h5.5z" fill="#B89F77"/></svg>
+      <div><b>HUB</b><i>de Empreendedores Católicos</i></div>
+    </div>
+    <h1>Queremos preparar o encontro <em>pensando em você.</em></h1>
+    <p>Para personalizar a sua experiência (a mesa, as conexões e os exemplos das palestras), precisamos de algumas informações rápidas. Leva uns 2 minutos.</p>
+    <span class="pill">1º Encontro · Sáb 14/11 · Coco Bambu Niterói</span>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <form id="f" novalidate>
+      <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+
+      <fieldset>
+        <legend>Quem é você</legend>
+        <p class="lg-sub">Para o seu crachá e para falarmos com você.</p>
+        <div class="f"><label class="t" for="nome">Nome completo</label><input id="nome" name="nome" type="text" autocomplete="name" required></div>
+        <div class="row2">
+          <div class="f"><label class="t" for="cracha">Como gosta de ser chamado(a)? <span class="opt">no crachá</span></label><input id="cracha" name="cracha" type="text" autocomplete="nickname"></div>
+          <div class="f"><label class="t" for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(21) 99999-9999" required></div>
+        </div>
+        <div class="row2">
+          <div class="f"><label class="t" for="instagram">Instagram <span class="opt">opcional</span></label><input id="instagram" name="instagram" type="text" placeholder="@seuperfil" autocapitalize="off"></div>
+          <div class="f"><label class="t" for="pedido">Nº do pedido <span class="opt">opcional</span></label><input id="pedido" name="pedido" type="text" inputmode="numeric"></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Seu trabalho</legend>
+        <p class="lg-sub">Para sentarmos você perto de quem pode somar.</p>
+        <div class="f"><span class="q">Hoje você é…</span>
+          <div class="chips" data-name="atuacao" data-required>
+            <label><input type="radio" name="atuacao" value="Empreendedor(a) com negócio próprio"><span>Empreendedor(a)</span></label>
+            <label><input type="radio" name="atuacao" value="Profissional liberal / autônomo(a)"><span>Profissional liberal / autônomo(a)</span></label>
+            <label><input type="radio" name="atuacao" value="CLT"><span>CLT</span></label>
+            <label><input type="radio" name="atuacao" value="Servidor(a) público(a)"><span>Servidor(a) público(a)</span></label>
+            <label><input type="radio" name="atuacao" value="Estudante"><span>Estudante</span></label>
+            <label><input type="radio" name="atuacao" value="Outro"><span>Outro</span></label>
+          </div>
+          <input class="hidden" id="atuacao_outro" name="atuacao_outro" type="text" placeholder="Conte o que você faz" style="margin-top:10px" aria-label="Qual é a sua atuação?">
+        </div>
+        <div class="f"><label class="t" for="negocio">Qual é o seu negócio ou profissão?</label><input id="negocio" name="negocio" type="text" placeholder="Ex.: loja de roupas, advogada, dentista, consultor de TI" required></div>
+        <div class="row2">
+          <div class="f"><label class="t" for="ramo">Ramo</label>
+            <select id="ramo" name="ramo"><option value="">Escolha</option><option>Comércio / varejo</option><option>Serviços</option><option>Saúde</option><option>Educação</option><option>Tecnologia</option><option>Alimentação</option><option>Indústria</option><option>Jurídico / contábil / financeiro</option><option>Construção / imóveis</option><option>Marketing / comunicação</option><option>Igreja / terceiro setor</option><option>Outro</option></select>
+            <input class="hidden" id="ramo_outro" name="ramo_outro" type="text" placeholder="Qual é o seu ramo?" style="margin-top:8px" aria-label="Qual é o seu ramo?"></div>
+          <div class="f"><label class="t" for="equipe">Tamanho da equipe</label>
+            <select id="equipe" name="equipe"><option value="">Escolha</option><option>Trabalho sozinho(a)</option><option>2 a 5 pessoas</option><option>6 a 20 pessoas</option><option>21 a 50 pessoas</option><option>Mais de 50</option></select></div>
+        </div>
+        <div class="row2">
+          <div class="f"><label class="t" for="mora">Onde você mora? <span class="opt">bairro e cidade</span></label><input id="mora" name="mora" type="text" placeholder="Ex.: Icaraí, Niterói"></div>
+          <div class="f"><label class="t" for="trabalha">Onde você trabalha? <span class="opt">bairro e cidade</span></label><input id="trabalha" name="trabalha" type="text" placeholder="Ex.: Centro, Rio"></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Sua família</legend>
+        <p class="lg-sub">O tema do encontro é ter mais tempo com quem você ama.</p>
+        <div class="f"><span class="q">Estado civil</span>
+          <div class="chips" data-name="estado_civil">
+            <label><input type="radio" name="estado_civil" value="Solteiro(a)"><span>Solteiro(a)</span></label>
+            <label><input type="radio" name="estado_civil" value="Namorando / noivo(a)"><span>Namorando / noivo(a)</span></label>
+            <label><input type="radio" name="estado_civil" value="Casado(a)"><span>Casado(a)</span></label>
+            <label><input type="radio" name="estado_civil" value="Separado(a) / viúvo(a)"><span>Separado(a) / viúvo(a)</span></label>
+          </div>
+        </div>
+        <div class="f"><span class="q">Filhos</span>
+          <div class="chips" data-name="filhos">
+            <label><input type="radio" name="filhos" value="Não tenho"><span>Não tenho</span></label>
+            <label><input type="radio" name="filhos" value="1"><span>1</span></label>
+            <label><input type="radio" name="filhos" value="2"><span>2</span></label>
+            <label><input type="radio" name="filhos" value="3 ou mais"><span>3 ou mais</span></label>
+          </div>
+        </div>
+        <div class="f hidden" id="idadesBox"><span class="q">Idade dos filhos <span class="opt">pode marcar mais de uma</span></span>
+          <div class="chips" data-name="idades_filhos">
+            <label><input type="checkbox" name="idades_filhos" value="0 a 5 anos"><span>0 a 5 anos</span></label>
+            <label><input type="checkbox" name="idades_filhos" value="6 a 12 anos"><span>6 a 12 anos</span></label>
+            <label><input type="checkbox" name="idades_filhos" value="13 a 17 anos"><span>13 a 17 anos</span></label>
+            <label><input type="checkbox" name="idades_filhos" value="18 ou mais"><span>18 ou mais</span></label>
+          </div>
+        </div>
+        <div class="f"><label class="t" for="paroquia">Paróquia, comunidade ou movimento <span class="opt">opcional</span></label><input id="paroquia" name="paroquia" type="text"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Seu momento</legend>
+        <p class="lg-sub">Para as palestras falarem da sua realidade.</p>
+        <div class="f"><span class="q">Quanto tempo por semana vai para tarefas burocráticas?</span>
+          <div class="chips" data-name="tempo_burocracia">
+            <label><input type="radio" name="tempo_burocracia" value="Menos de 5 h"><span>Menos de 5 h</span></label>
+            <label><input type="radio" name="tempo_burocracia" value="5 a 10 h"><span>5 a 10 h</span></label>
+            <label><input type="radio" name="tempo_burocracia" value="10 a 20 h"><span>10 a 20 h</span></label>
+            <label><input type="radio" name="tempo_burocracia" value="Mais de 20 h"><span>Mais de 20 h</span></label>
+          </div>
+        </div>
+        <div class="f"><span class="q">Seus maiores desafios hoje <span class="opt">até 3</span></span>
+          <div class="chips" data-name="desafios" data-max="3">
+            <label><input type="checkbox" name="desafios" value="Falta de tempo"><span>Falta de tempo</span></label>
+            <label><input type="checkbox" name="desafios" value="Equilíbrio família e trabalho"><span>Equilíbrio família e trabalho</span></label>
+            <label><input type="checkbox" name="desafios" value="Caixa e finanças"><span>Caixa e finanças</span></label>
+            <label><input type="checkbox" name="desafios" value="Vendas e clientes"><span>Vendas e clientes</span></label>
+            <label><input type="checkbox" name="desafios" value="Equipe e liderança"><span>Equipe e liderança</span></label>
+            <label><input type="checkbox" name="desafios" value="Organização e processos"><span>Organização e processos</span></label>
+            <label><input type="checkbox" name="desafios" value="Usar tecnologia e IA"><span>Usar tecnologia e IA</span></label>
+            <label><input type="checkbox" name="desafios" value="Viver a fé no trabalho"><span>Viver a fé no trabalho</span></label>
+          </div>
+        </div>
+        <div class="f"><span class="q">Você já usa inteligência artificial?</span>
+          <div class="chips" data-name="uso_ia">
+            <label><input type="radio" name="uso_ia" value="Nunca usei"><span>Nunca usei</span></label>
+            <label><input type="radio" name="uso_ia" value="Já testei"><span>Já testei</span></label>
+            <label><input type="radio" name="uso_ia" value="Uso às vezes"><span>Uso às vezes</span></label>
+            <label><input type="radio" name="uso_ia" value="Uso todo dia"><span>Uso todo dia</span></label>
+          </div>
+        </div>
+        <div class="f"><label class="t" for="expectativa">O que você quer levar desse encontro?</label><textarea id="expectativa" name="expectativa" placeholder="Uma frase já ajuda muito."></textarea></div>
+        <div class="f"><label class="t" for="conexao">Que tipo de pessoa você gostaria de conhecer lá? <span class="opt">opcional</span></label><input id="conexao" name="conexao" type="text" placeholder="Ex.: contadores, donos de restaurante, quem trabalha com eventos"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>O almoço</legend>
+        <div class="f"><label class="t" for="restricao">Alguma restrição alimentar ou alergia? <span class="opt">deixe em branco se não tiver</span></label><input id="restricao" name="restricao" type="text" placeholder="Ex.: sem lactose, alergia a camarão, vegetariano"></div>
+      </fieldset>
+
+      <label class="consent"><input type="checkbox" id="lgpd" name="lgpd" value="sim" required><span>Autorizo o Hub de Empreendedores Católicos a usar estas informações para organizar o encontro e as conexões entre os participantes. Elas não serão compartilhadas com terceiros.</span></label>
+      <label class="consent"><input type="checkbox" id="imagem" name="uso_imagem" value="Autorizo" required><span>Autorizo o uso da minha imagem (fotos e vídeos feitos durante o encontro) nas redes sociais e materiais de divulgação do Hub de Empreendedores Católicos, sem fins de venda da imagem.</span></label>
+      <input type="text" name="site_url" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+      <button class="btn" id="send" type="submit">Enviar minhas respostas</button>
+      <p class="err" id="err" role="alert"></p>
+    </form>
+
+    <div class="done hidden" id="done" tabindex="-1">
+      <svg width="64" height="64" viewBox="0 0 48 48" aria-hidden="true"><path d="M9 6h7v15h16V6h7v36h-7V27H16v15H9z" fill="var(--accent)"/><path d="M21.5 11h5v6h5.5v4.5h-5.5V37h-5V21.5H16V17h5.5z" fill="#B89F77"/></svg>
+      <h2>Obrigado, <span id="who">você</span>!</h2>
+      <p>Recebemos tudo. Vamos preparar o seu lugar com carinho.<br>Nos vemos no sábado, 14/11, às 10h, no Coco Bambu Niterói.</p>
+      <p class="verse">"Se o Senhor não edificar a casa, em vão trabalham os que a edificam." (Sl 127,1)</p>
+    </div>
+  </div>
+</main>
+<footer>Dúvidas: <a href="https://wa.me/5521996588197">WhatsApp (21) 99658-8197</a> · <a href="https://www.instagram.com/hub.catolico/">@hub.catolico</a></footer>
+
+<script>
+// Endereço do Google Apps Script que grava na planilha (preencher após publicar o script)
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbxFjilBjp56a9aXS9aVcIQx0sSd8ybLqqIqyoANyaa_lFajzfXAXMDm9i1GWvfhrcuFVg/exec";
+const WA = "5521996588197";
+const form = document.getElementById("f"), bar = document.getElementById("bar"), err = document.getElementById("err");
+
+// nº do pedido vindo do link do e-mail (?pedido=123), só número
+const p = new URLSearchParams(location.search).get("pedido");
+if (p && /^\d{1,10}$/.test(p)) form.pedido.value = p;
+
+// filhos -> mostra idades
+form.addEventListener("change", e => {
+  if (e.target.name === "filhos") {
+    const has = e.target.value !== "Não tenho";
+    document.getElementById("idadesBox").classList.toggle("hidden", !has);
+    if (!has) form.querySelectorAll('[name=idades_filhos]').forEach(c => c.checked = false);
+  }
+  // "Outro" abre uma caixa para digitar
+  if (e.target.name === "ramo" || e.target.name === "atuacao") {
+    const extra = document.getElementById(e.target.name + "_outro");
+    const on = val(e.target.name) === "Outro";
+    extra.classList.toggle("hidden", !on);
+    if (on) extra.focus(); else extra.value = "";
+  }
+  const box = e.target.closest("[data-max]");
+  if (box && e.target.checked) {
+    const on = box.querySelectorAll("input:checked");
+    if (on.length > +box.dataset.max) e.target.checked = false;
+  }
+  progress();
+});
+form.addEventListener("input", e => { e.target.classList.remove("invalid"); progress(); });
+
+const TRACK = ["nome","whatsapp","atuacao","negocio","ramo","mora","trabalha","estado_civil","filhos","tempo_burocracia","desafios","uso_ia","expectativa"];
+function val(name){ const els = form.querySelectorAll(`[name="${name}"]`);
+  if (els[0] && (els[0].type === "radio" || els[0].type === "checkbox")) return [...els].filter(x => x.checked).map(x => x.value).join(", ");
+  return (els[0]?.value || "").trim(); }
+function progress(){ const n = TRACK.filter(k => val(k)).length; bar.style.width = Math.round(n / TRACK.length * 100) + "%"; }
+
+function collect(){
+  const names = [...new Set([...form.elements].map(e => e.name).filter(Boolean))].filter(n => n !== "site_url");
+  const o = {}; names.forEach(n => o[n] = val(n));
+  ["ramo", "atuacao"].forEach(k => { if (o[k] === "Outro" && o[k + "_outro"]) o[k] = "Outro: " + o[k + "_outro"]; delete o[k + "_outro"]; });
+  return o;
+}
+function check(o){
+  form.querySelectorAll(".invalid").forEach(x => x.classList.remove("invalid"));
+  const bad = [];
+  if (!o.nome) bad.push(form.nome);
+  if (o.whatsapp.replace(/\D/g, "").length < 10) bad.push(form.whatsapp);
+  if (!o.negocio) bad.push(form.negocio);
+  bad.forEach(x => x.classList.add("invalid"));
+  if (!o.atuacao) { err.textContent = "Marque o que você é hoje (empreendedor, CLT…)."; return false; }
+  for (const k of ["atuacao", "ramo"]) if (o[k] === "Outro") {
+    const x = document.getElementById(k + "_outro"); x.classList.add("invalid"); x.focus();
+    err.textContent = k === "ramo" ? "Escreva qual é o seu ramo." : "Conte o que você faz hoje."; return false;
+  }
+  if (bad.length) { err.textContent = "Preencha nome, WhatsApp e seu negócio ou profissão."; bad[0].focus(); return false; }
+  if (!form.lgpd.checked || !form.uso_imagem.checked) { err.textContent = "Marque as duas autorizações no fim do formulário para enviar."; return false; }
+  err.textContent = ""; return true;
+}
+function finish(o){
+  document.getElementById("who").textContent = (o.cracha || o.nome.split(" ")[0] || "você");
+  form.classList.add("hidden");
+  const d = document.getElementById("done"); d.classList.remove("hidden"); d.focus();
+  window.scrollTo({top: 0, behavior: "smooth"});
+}
+function whatsappFallback(o){
+  const lines = Object.entries(o).filter(([k,v]) => v && k !== "lgpd").map(([k,v]) => `${k.replace(/_/g," ")}: ${v}`);
+  location.href = `https://wa.me/${WA}?text=` + encodeURIComponent("Formulário do 1º Encontro do Hub\n\n" + lines.join("\n"));
+}
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  if (form.site_url.value) return;               // robô
+  const o = collect(); if (!check(o)) return;
+  const btn = document.getElementById("send"); btn.disabled = true; btn.textContent = "Enviando…";
+  if (!ENDPOINT) { whatsappFallback(o); return; }
+  try {
+    await fetch(ENDPOINT, {method: "POST", mode: "no-cors", headers: {"Content-Type": "text/plain;charset=utf-8"},
+                           body: JSON.stringify({...o, enviado_em: new Date().toISOString()})});
+    finish(o);
+  } catch (_) {
+    btn.disabled = false; btn.textContent = "Enviar minhas respostas";
+    err.innerHTML = 'Não conseguimos enviar agora. <a href="#" id="wa">Enviar pelo WhatsApp</a>';
+    document.getElementById("wa").onclick = ev => { ev.preventDefault(); whatsappFallback(o); };
+  }
+});
+progress();
+</script>
+</body>
+</html>
