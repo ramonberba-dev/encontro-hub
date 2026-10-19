@@ -667,6 +667,16 @@ tick(); setInterval(tick, 1000);
 @keyframes cupom-pisca{0%{opacity:0;transform:translateY(6px)}12%{opacity:1;transform:none}30%{opacity:.25}45%{opacity:1}60%{opacity:.25}75%,100%{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.cupom-flash.on{animation:none;opacity:1}}
 </style>
+<style id="bio-css">
+.speaker .bio{display:grid;gap:12px;position:relative;overflow:hidden;transition:max-height .7s cubic-bezier(.2,.8,.2,1)}
+.speaker .bio.clamped{-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 55%,transparent 100%)}
+.speaker .bio.open{-webkit-mask-image:none;mask-image:none}
+.speaker .more{justify-self:start;background:none;border:0;padding:4px 0;font:500 .9rem var(--body);color:var(--accent);cursor:pointer;display:inline-flex;align-items:center;gap:6px;text-decoration:underline;text-underline-offset:4px}
+.speaker .more:focus-visible{outline:2px solid var(--ouro);outline-offset:3px;border-radius:4px}
+.speaker .more svg{width:14px;height:14px;transition:transform .4s}
+.speaker .more[aria-expanded="true"] svg{transform:rotate(180deg)}
+@media (prefers-reduced-motion:reduce){.speaker .bio{transition:none}}
+</style>
 <style id="motion">
 /* Motion enxuto: só a faixa dourada correndo e o preço que conta até R$ 189,90. Nada mais se mexe. */
 .mo-ribbon{background:var(--ouro);color:var(--bordo-deep);overflow:hidden;border-block:1px solid rgba(62,23,39,.25)}
@@ -791,6 +801,51 @@ tick(); setInterval(tick, 1000);
     };
     try { navigator.clipboard.writeText("INTEGROSHUB").then(ok, fallback); } catch (e) { fallback(); }
   });
+})();
+</script>
+<script id="bio-js">
+(function(){
+  var cards = [].slice.call(document.querySelectorAll(".speaker"));
+  if (!cards.length) return;
+  var bios = cards.map(function(card){
+    var talk = card.querySelector(".talk"); if (!talk) return null;
+    var bio = document.createElement("div"); bio.className = "bio";
+    var n = talk.nextElementSibling;
+    while (n){ var next = n.nextElementSibling; if (n.tagName === "P") bio.appendChild(n); n = next; }
+    card.appendChild(bio); return bio;
+  }).filter(Boolean);
+  function layout(){
+    bios.forEach(function(b){ b.style.maxHeight = "none"; });
+    var base = Math.min.apply(null, bios.map(function(b){ return b.scrollHeight; }));
+    bios.forEach(function(b){
+      var card = b.parentElement, btn = card.querySelector(".more");
+      if (b.scrollHeight > base + 40){
+        if (!btn){
+          btn = document.createElement("button"); btn.type = "button"; btn.className = "more";
+          btn.innerHTML = '<span>Ver mais</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
+          btn.setAttribute("aria-expanded", "false");
+          btn.addEventListener("click", function(){
+            var open = b.classList.toggle("open");
+            b.style.maxHeight = (open ? b.scrollHeight : base) + "px";
+            b.classList.toggle("clamped", !open);
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+            btn.querySelector("span").textContent = open ? "Ver menos" : "Ver mais";
+            if (!open) card.scrollIntoView({block: "nearest", behavior: "smooth"});
+          });
+          card.appendChild(btn);
+        }
+        var isOpen = b.classList.contains("open");
+        b.style.maxHeight = (isOpen ? b.scrollHeight : base) + "px";
+        b.classList.toggle("clamped", !isOpen);
+      } else {
+        b.style.maxHeight = "none"; b.classList.remove("clamped");
+        if (btn) btn.remove();
+      }
+    });
+  }
+  layout();
+  var t; addEventListener("resize", function(){ clearTimeout(t); t = setTimeout(layout, 200); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
 })();
 </script>
 </body></html>
