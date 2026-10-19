@@ -421,29 +421,16 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">O almoço</span>
-      <h2>Cardápio do encontro</h2>
-      <p class="lead">Servido pelo Coco Bambu Niterói no salão privativo. Bebidas não alcoólicas e café inclusos no ingresso.</p>
+      <h2>Almoço completo no Coco Bambu</h2>
+      <p class="lead">Incluso no ingresso, no salão do Coco Bambu Niterói. Depois da compra, você recebe as instruções do encontro e o cardápio completo.</p>
     </div>
-    <div class="menu-wrap">
-      <div class="menu-card">
-        <h3>Almoço do Hub</h3>
-        <p class="m-sub">14 de novembro · Coco Bambu Niterói</p>
-        <div class="course"><span class="eyebrow">Entrada</span><ul><li>Salada Caesar</li><li>Pastel de queijo</li></ul></div>
-        <div class="course"><span class="eyebrow">Prato principal</span><ul><li>Camarão Praia de Olinda</li><li>Carne de sol do sertão</li></ul></div>
-        <div class="course"><span class="eyebrow">Sobremesa</span><ul><li>Cocada ao forno</li><li>Churros com doce de leite</li></ul></div>
-        <div class="course"><span class="eyebrow">Bebidas</span><ul><li>Água com e sem gás</li><li>Coca-Cola e Guaraná<small>normal e zero</small></li><li>Café coado</li></ul></div>
-        <p class="included">Tem restrição alimentar? Avise na inscrição.</p>
-      </div>
-      <div>
-        <div class="gallery g3">
-          <figure class="ph wide" data-photo="camarao" style="margin:0"><figcaption>Camarão Praia de Olinda</figcaption></figure>
-          <figure class="ph" data-photo="carnesol" style="margin:0"><figcaption>Carne de sol do sertão</figcaption></figure>
-          <figure class="ph" data-photo="caesar" style="margin:0"><figcaption>Salada Caesar</figcaption></figure>
-          <figure class="ph" data-photo="cocada" style="margin:0"><figcaption>Cocada ao forno</figcaption></figure>
-        </div>
-        <p class="credit">Fotos: divulgação Coco Bambu.</p>
-      </div>
+    <div class="pratos">
+      <figure class="ph" data-photo="camarao" style="margin:0"><figcaption>Camarão Praia de Olinda</figcaption></figure>
+      <figure class="ph" data-photo="carnesol" style="margin:0"><figcaption>Carne de sol do sertão</figcaption></figure>
+      <figure class="ph" data-photo="caesar" style="margin:0"><figcaption>Salada Caesar</figcaption></figure>
+      <figure class="ph" data-photo="cocada" style="margin:0"><figcaption>Cocada ao forno</figcaption></figure>
     </div>
+    <p class="credit">Fotos: divulgação Coco Bambu.</p>
   </div>
 </section>
 
@@ -675,6 +662,12 @@ tick(); setInterval(tick, 1000);
 .speaker .more svg{width:14px;height:14px;transition:transform .4s}
 .speaker .more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media (prefers-reduced-motion:reduce){.speaker .bio{transition:none}}
+</style>
+<style id="pratos-css">
+.pratos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.pratos .ph{aspect-ratio:1/1}
+.pratos .ph figcaption{font-size:.72rem;padding:5px 8px;left:8px;right:8px;bottom:8px}
+@media (max-width:640px){.pratos{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
 </style>
 <style id="motion">
 /* Motion enxuto: só a faixa dourada correndo e o preço que conta até R$ 189,90. Nada mais se mexe. */
