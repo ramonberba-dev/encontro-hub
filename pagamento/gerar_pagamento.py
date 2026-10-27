@@ -25,11 +25,11 @@ def crc16(dados):
             crc &= 0xFFFF
     return f"{crc:04X}"
 
-def pix():
+def pix(valor=VALOR, txid=TXID):
     conta = campo("00", "br.gov.bcb.pix") + campo("01", CHAVE)
     corpo = (campo("00", "01") + campo("26", conta) + campo("52", "0000") + campo("53", "986")
-             + campo("54", VALOR) + campo("58", "BR") + campo("59", NOME) + campo("60", CIDADE)
-             + campo("62", campo("05", TXID)) + "6304")
+             + campo("54", valor) + campo("58", "BR") + campo("59", NOME) + campo("60", CIDADE)
+             + campo("62", campo("05", txid)) + "6304")
     return corpo + crc16(corpo)
 
 def qr_svg(texto):

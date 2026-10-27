@@ -322,7 +322,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="cupom-txt">
       <span class="cupom-tag">1ª leva esgotada · últimos cupons</span>
       <p class="cupom-h">De <s>R$ 259,90</s> por <b>R$ 189,90</b> no 1º lote</p>
-      <p class="cupom-sub">Digite o cupom no carrinho, antes de pagar. Os 10 primeiros cupons acabaram e liberamos só mais alguns. Quando estes acabarem, o ingresso vira de lote e volta para R$ 259,90.</p>
+      <p class="cupom-sub">Digite o cupom na página de pagamento. Os 10 primeiros cupons acabaram e liberamos só mais alguns. Quando estes acabarem, o ingresso vira de lote e volta para R$ 259,90.</p>
     </div>
     <button class="cupom-code" type="button" id="cupom-copy" aria-label="Copiar o cupom INTEGROSHUB">
       <span class="cupom-label">Seu cupom</span>
@@ -517,7 +517,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         </div>
         <span class="cupom-badge">Últimos cupons INTEGROSHUB · antes da virada de lote</span>
         <a class="btn btn-accent js-buy" href="#" target="_blank" rel="noopener">Comprar ingresso</a>
-        <small style="color:var(--muted)">Pague com Pix e garanta sua vaga na hora, com compra segura pelo site da VOX, apoiadora do Hub. Prefere cartão? Chame no WhatsApp (21) 99658-8197 que enviamos o link de pagamento.</small>
+        <small style="color:var(--muted)">Pague com Pix ou cartão direto com o Hub. Depois, envie o comprovante pelo WhatsApp e receba seu ingresso com QR Code.</small>
       </div>
       <div class="price-inc">
         <span class="eyebrow">Está incluso</span>
@@ -574,7 +574,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <script>
 /* ===== Configuração: edite aqui ===== */
 const CONFIG = {
-  SYMPLA_URL: "https://usevox.com.br/produtos/ingresso-1-encontro-do-hub-de-empreendedores-catolicos-1-lote-jql9y/", // página de compra do ingresso no site da VOX
+  SYMPLA_URL: "comprar/", // página de compra direta (Pix copia e cola, cartão e envio do comprovante)
   WHATSAPP: "5521996588197",
   VAGAS: 45,
   EVENTO: "2026-11-14T10:00:00-03:00",
@@ -597,7 +597,7 @@ const wa = (msg) => "https://wa.me/" + CONFIG.WHATSAPP + "?text=" + encodeURICom
 const buyHref = CONFIG.SYMPLA_URL || wa("Olá, Ramon! Quero garantir minha vaga no 1º Encontro do Hub (14/11, Coco Bambu Niterói) no 1º lote, com o cupom INTEGROSHUB (R$ 189,90).");
 document.querySelectorAll(".js-buy").forEach(a => {
   if (a.getAttribute("href") === "#ingresso" && !CONFIG.SYMPLA_URL) return;
-  a.href = buyHref; a.target = "_blank"; a.rel = "noopener";
+  a.href = buyHref; a.removeAttribute("target");
 });
 document.getElementById("sponsor-btn").href = wa("Olá, Ramon! Tenho interesse em ser Benfeitor do 1º Encontro do Hub (14/11). Pode me passar os detalhes das cotas?");
 document.querySelectorAll(".js-vagas").forEach(e => e.textContent = CONFIG.VAGAS);
@@ -794,10 +794,10 @@ tick(); setInterval(tick, 1000);
   var b = document.getElementById("cupom-copy"), m = document.getElementById("cupom-msg");
   if (!b) return;
   b.addEventListener("click", function(){
-    var ok = function(){ m.textContent = "Copiado! Cole no carrinho"; setTimeout(function(){ m.textContent = "Toque para copiar"; }, 2600); };
+    var ok = function(){ m.textContent = "Copiado! Cole na página de pagamento"; setTimeout(function(){ m.textContent = "Toque para copiar"; }, 2600); };
     var fallback = function(){
       var r = document.createRange(); r.selectNodeContents(b.querySelector("strong"));
-      var s = getSelection(); s.removeAllRanges(); s.addRange(r); m.textContent = "Selecionado: copie e cole no carrinho";
+      var s = getSelection(); s.removeAllRanges(); s.addRange(r); m.textContent = "Selecionado: copie e cole na página de pagamento";
     };
     try { navigator.clipboard.writeText("INTEGROSHUB").then(ok, fallback); } catch (e) { fallback(); }
   });
