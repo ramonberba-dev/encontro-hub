@@ -10,8 +10,8 @@ from gerar_pagamento import pix, qr_svg, CHAVE  # noqa: E402
 CHEIO, CUPOM = "259.90", "189.90"
 CARTAO_CHEIO = "https://link.infinitepay.io/ramon-berba-vieira/VC1DLTItSQ-FYFvhSyvI0-259,90"   # link InfinitePay de R$ 259,90
 CARTAO_CUPOM = "https://link.infinitepay.io/ramon-berba-vieira/VC1DLTItSQ-gRvUP3ZZtd-189,90"   # link InfinitePay de R$ 189,90
-PARCELA_CHEIO = ""  # ex.: "Em até 2x sem juros de R$ 129,95" (só se o link permitir)
-PARCELA_CUPOM = ""  # ex.: "Em até 2x sem juros de R$ 94,95"
+PARCELA_CHEIO = "Em até 2x sem juros de R$ 129,95"
+PARCELA_CUPOM = "Em até 2x sem juros de R$ 94,95"
 
 if __name__ == "__main__":
     pix_cheio, pix_cupom = pix(CHEIO, "HUB1411CHEIO"), pix(CUPOM, "HUB1411CUPOM")
