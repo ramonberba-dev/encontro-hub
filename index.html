@@ -265,6 +265,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   </defs>
 </svg>
 
+<div class="aviso-lote" role="note"><span><span class="aviso-pulso" aria-hidden="true"></span><b>Virada de lote chegando</b> · Últimos cupons de desconto disponíveis</span><a href="#cupom">Pegar meu cupom</a></div>
+
 <header class="hero">
   <div class="wrap">
     <div>
@@ -318,9 +320,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <section class="cupom" id="cupom" aria-label="Cupom de desconto">
   <div class="wrap cupom-in">
     <div class="cupom-txt">
-      <span class="cupom-tag">Cupom limitado · só 10 usos</span>
+      <span class="cupom-tag">Virada de lote · últimos cupons</span>
       <p class="cupom-h">De <s>R$ 259,90</s> por <b>R$ 189,90</b> no 1º lote</p>
-      <p class="cupom-sub">Digite o cupom no carrinho, antes de pagar. Quando os 10 cupons acabarem, o ingresso volta para R$ 259,90.</p>
+      <p class="cupom-sub">Digite o cupom no carrinho, antes de pagar. Estes são os últimos cupons do 1º lote: quando acabarem, o ingresso vira de lote e volta para R$ 259,90.</p>
     </div>
     <button class="cupom-code" type="button" id="cupom-copy" aria-label="Copiar o cupom INTEGROSHUB">
       <span class="cupom-label">Seu cupom</span>
@@ -508,12 +510,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <div class="big"><small>R$</small> 189<small>,90</small></div>
         <p class="lead" style="font-size:.95rem">Palestras, dinâmica de networking, almoço completo com bebidas e material digital.</p>
         <div class="lotes">
-          <div class="lote on"><span>1º lote · 10 ingressos · cupom <b>INTEGROSHUB</b></span><span><b>R$ 189,90</b> <span class="st">· à venda</span></span></div>
+          <div class="lote on"><span>1º lote · cupom <b>INTEGROSHUB</b></span><span><b>R$ 189,90</b> <span class="st">· últimos cupons</span></span></div>
         </div>
         <div class="vagas">
           <small><span class="js-vagas">45</span> lugares no total. Quando acabar, acabou: o salão tem limite.</small>
         </div>
-        <span class="cupom-badge">Use o cupom INTEGROSHUB · só 10 usos</span>
+        <span class="cupom-badge">Últimos cupons INTEGROSHUB · antes da virada de lote</span>
         <a class="btn btn-accent js-buy" href="#" target="_blank" rel="noopener">Comprar ingresso</a>
         <small style="color:var(--muted)">Pague com Pix e garanta sua vaga na hora, com compra segura pelo site da VOX, apoiadora do Hub. Prefere cartão? Chame no WhatsApp (21) 99658-8197 que enviamos o link de pagamento.</small>
       </div>
@@ -564,7 +566,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 <div class="sticky" role="region" aria-label="Comprar ingresso">
   <div class="wrap">
-    <div class="s-info"><b>R$ 189,90 com cupom</b><span>INTEGROSHUB · só 10 usos · 14/11</span></div>
+    <div class="s-info"><b>R$ 189,90 com cupom</b><span>Últimos cupons · INTEGROSHUB · 14/11</span></div>
     <a class="btn btn-gold js-buy" href="#" target="_blank" rel="noopener">Garantir vaga</a>
   </div>
 </div>
@@ -626,6 +628,12 @@ tick(); setInterval(tick, 1000);
 </script>
 
 <style id="cupom-css">
+.aviso-lote{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 14px;background:#5A2439;color:#F5EEE6;font:500 .88rem var(--body);padding:10px 16px;text-align:center;border-bottom:1px solid rgba(184,159,119,.45)}
+.aviso-lote b{color:var(--ouro);font-weight:600}
+.aviso-lote a{color:#2A1018;background:var(--ouro);font-weight:600;font-size:.8rem;padding:5px 12px;border-radius:999px;text-decoration:none;white-space:nowrap}
+.aviso-pulso{display:inline-block;vertical-align:middle;margin:0 8px 2px 0;width:9px;height:9px;border-radius:50%;background:var(--ouro);box-shadow:0 0 0 0 rgba(184,159,119,.7);animation:aviso-pulsa 1.8s infinite}
+@keyframes aviso-pulsa{70%{box-shadow:0 0 0 10px rgba(184,159,119,0)}100%{box-shadow:0 0 0 0 rgba(184,159,119,0)}}
+@media (prefers-reduced-motion:reduce){.aviso-pulso{animation:none}}
 .cupom{background:var(--ouro);color:#2A1018;padding-block:26px;border-bottom:1px solid rgba(62,23,39,.25)}
 .cupom-in{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
 .cupom-txt{display:grid;gap:6px;min-width:0;flex:1 1 360px}
