@@ -33,7 +33,20 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-
 h1,h2{font-family:var(--display);font-weight:600;line-height:1.15;margin:0;text-wrap:balance}
 p{margin:0}
 .wrap{max-width:560px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
-header{background:var(--hero-bg);color:var(--hero-fg);padding-block:34px 70px}
+header{position:relative;overflow:hidden;background:var(--hero-bg);color:var(--hero-fg);padding-block:34px 70px}
+header .wrap{position:relative}
+.fantasma{position:absolute;right:-6%;top:0;height:100%;width:62%;object-fit:cover;object-position:30% 20%;opacity:.09;filter:grayscale(1) contrast(1.05);mix-blend-mode:luminosity;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%,#000 80%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 45%,#000 80%,transparent 100%);pointer-events:none}
+@media (min-width:700px){.fantasma{width:48%;right:4%}}
+.galeria{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 16px 18px}
+.galeria h3{font:600 .72rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink);margin:0 0 8px}
+.galeria h3+.fotos{margin-bottom:14px}
+.fotos{display:grid;gap:6px}
+.fotos.tres{grid-template-columns:repeat(3,1fr)}
+.fotos.quatro{grid-template-columns:repeat(4,1fr)}
+.fotos figure{margin:0;min-width:0}
+.fotos.tres img{aspect-ratio:4/3}
+.fotos img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px}
+.fotos figcaption{font-size:.68rem;color:var(--muted);text-align:center;margin-top:3px;line-height:1.25}
 .brand{display:flex;align-items:center;gap:10px}
 .brand b{display:block;font-weight:500;letter-spacing:.28em;font-size:.95rem}
 .brand i{display:block;font-family:var(--display);font-size:.95rem;color:var(--hero-muted)}
@@ -76,6 +89,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
 </head>
 <body>
 <header>
+  <img class="fantasma" src="fotos/ramon-palestrando.jpg" alt="" aria-hidden="true">
   <div class="wrap">
     <div class="brand">
       <svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true">
@@ -96,6 +110,22 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
     <div><small>Seu valor com o cupom especial</small><s>R$ 259,90</s></div>
     <b>R$ 182,00</b>
   </div>
+
+  <section class="galeria" aria-label="O espaço e o almoço">
+    <h3>O espaço · vista para a Baía de Guanabara</h3>
+    <div class="fotos tres">
+      <figure><img src="fotos/salao.jpg" alt="Salão do Coco Bambu com mesas e janelas para a baía" loading="lazy"></figure>
+      <figure><img src="fotos/ambiente2.jpg" alt="Salão com mesas de madeira e janelões" loading="lazy"></figure>
+      <figure><img src="fotos/ambiente1.jpg" alt="Vista da janela para a ponte Rio-Niterói" loading="lazy"></figure>
+    </div>
+    <h3>O almoço incluso</h3>
+    <div class="fotos quatro">
+      <figure><img src="fotos/caesar.jpg" alt="" loading="lazy"><figcaption>Salada Caesar</figcaption></figure>
+      <figure><img src="fotos/camarao.jpg" alt="" loading="lazy"><figcaption>Camarão Praia de Olinda</figcaption></figure>
+      <figure><img src="fotos/carnesol.jpg" alt="" loading="lazy"><figcaption>Carne de sol do sertão</figcaption></figure>
+      <figure><img src="fotos/cocada.jpg" alt="" loading="lazy"><figcaption>Cocada ao forno</figcaption></figure>
+    </div>
+  </section>
 
   <section class="card" aria-labelledby="t-pix">
     <h2 id="t-pix"><span class="num">1</span>Pague por Pix</h2>
