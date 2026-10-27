@@ -85,6 +85,17 @@ input,select{width:100%;margin-top:6px;font:400 1rem var(--body);color:var(--fg)
 footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36px}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--bordo);color:#F5EEE6;padding:10px 18px;border-radius:999px;font-size:.9rem;opacity:0;transition:.25s;pointer-events:none}
 .toast.on{opacity:1;transform:translate(-50%,0)}
+.prazo{margin-top:16px;background:var(--bordo-deep);color:#F5EEE6;border-radius:16px;padding:16px 18px;text-align:center}
+.prazo-msg{font:600 .74rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--ouro)}
+.prazo-sub{font-size:.82rem;color:#D9C7B9;margin-top:2px}
+.relogio{display:grid;grid-template-columns:repeat(4,1fr) 1.15fr;gap:6px;margin-top:12px}
+.relogio div{background:rgba(245,238,230,.08);border:1px solid rgba(184,159,119,.35);border-radius:10px;padding:8px 4px}
+.relogio .ms b{color:var(--ouro)}
+.relogio b{display:block;font-family:var(--display);font-size:clamp(1.25rem,5.6vw,1.7rem);line-height:1.1;font-variant-numeric:tabular-nums;color:#F5EEE6}
+.relogio span{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#D9C7B9}
+.prazo.prorrogado .prazo-msg{animation:prazo-pisca 1.6s ease-in-out 3}
+@keyframes prazo-pisca{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.prazo.prorrogado .prazo-msg{animation:none}}
 </style>
 </head>
 <body>
@@ -110,6 +121,18 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
     <div><small>Seu valor com o cupom especial</small><s>R$ 259,90</s></div>
     <b>R$ 182,00</b>
   </div>
+
+  <section class="prazo" id="prazo" aria-label="Prazo do convite">
+    <p class="prazo-msg" id="prazo-msg">Convite válido por tempo limitado</p>
+    <p class="prazo-sub" id="prazo-sub">Garanta seu desconto antes que o tempo acabe</p>
+    <div class="relogio" role="timer" aria-live="off">
+      <div><b id="pz-d">2</b><span>dias</span></div>
+      <div><b id="pz-h">00</b><span>horas</span></div>
+      <div><b id="pz-m">00</b><span>min</span></div>
+      <div><b id="pz-s">00</b><span>seg</span></div>
+      <div class="ms"><b id="pz-ms">000</b><span>ms</span></div>
+    </div>
+  </section>
 
   <section class="galeria" aria-label="O espaço e o almoço">
     <h3>O espaço · vista para a Baía de Guanabara</h3>
@@ -194,6 +217,33 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
       "Vou enviar o comprovante aqui na conversa.";
     this.href = "https://wa.me/" + ZAP + "?text=" + encodeURIComponent(msg);
   });
+
+  // Contagem do convite: 48h a partir da primeira visita; ao acabar, prorroga +24h quantas vezes for preciso.
+  var H = 3600000, inicio = Date.now();
+  try {
+    var salvo = parseInt(localStorage.getItem("hubConviteInicio"), 10);
+    if (salvo && salvo <= Date.now()) inicio = salvo; else localStorage.setItem("hubConviteInicio", String(inicio));
+  } catch (e) {}
+  var caixa = document.getElementById("prazo"), msg = document.getElementById("prazo-msg"), sub = document.getElementById("prazo-sub");
+  var el = { d: document.getElementById("pz-d"), h: document.getElementById("pz-h"), m: document.getElementById("pz-m"), s: document.getElementById("pz-s"), ms: document.getElementById("pz-ms") };
+  var ultimaRodada = -1;
+  function dois(n){ return (n < 10 ? "0" : "") + n; }
+  function tique(){
+    var passado = Date.now() - inicio, rodada = 0, fim = inicio + 48 * H;
+    if (passado >= 48 * H){ rodada = Math.floor((passado - 48 * H) / (24 * H)) + 1; fim = inicio + 48 * H + rodada * 24 * H; }
+    if (rodada !== ultimaRodada){
+      ultimaRodada = rodada;
+      if (rodada > 0){ msg.textContent = "Prorrogamos seu convite"; sub.textContent = "Liberamos mais 24 horas para você garantir o desconto"; caixa.classList.add("prorrogado"); }
+      else { msg.textContent = "Convite válido por tempo limitado"; sub.textContent = "Garanta seu desconto antes que o tempo acabe"; caixa.classList.remove("prorrogado"); }
+    }
+    var falta = Math.max(0, fim - Date.now()), r = Math.floor(falta / 1000), ms = falta % 1000;
+    el.ms.textContent = (ms < 100 ? (ms < 10 ? "00" : "0") : "") + ms;
+    el.d.textContent = Math.floor(r / 86400);
+    el.h.textContent = dois(Math.floor(r % 86400 / 3600));
+    el.m.textContent = dois(Math.floor(r % 3600 / 60));
+    el.s.textContent = dois(r % 60);
+  }
+  (function quadro(){ tique(); requestAnimationFrame(quadro); })();
 })();
 </script>
 </body>
