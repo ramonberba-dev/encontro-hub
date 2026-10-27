@@ -19,6 +19,8 @@ TROCAS = [
     ('"Pagamento: R$ 182,00 por "', '"Pagamento: R$ 189,90 por "'),
     ('<label><input type="radio" name="cupom" value="WVEIGA"> WVEIGA</label>\n      <label><input type="radio" name="cupom" value="RBERBA"> RBERBA</label>',
      '<label><input type="radio" name="cupom" value="INTEGROSHUB" checked> INTEGROSHUB</label>'),
+    ('src="fotos/ramon-palestrando.jpg"', 'src="./fotos/kevin-eger.jpg"'),
+    ("object-position:30% 20%;opacity:.09;", "object-position:55% 18%;opacity:.17;"),
     ('src="fotos/', 'src="../pagamento/fotos/'),
     ('"hubConviteInicio"', '"hubConviteInicioIntegros"'),
 ]
