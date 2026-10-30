@@ -158,6 +158,45 @@ td:first-child{color:var(--muted);width:40%}
 .texto-msg{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:14.5px;margin-top:10px}
 .toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 90px);transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 18px;border-radius:999px;font-size:14px;z-index:40;max-width:90vw;text-align:center}
 .demo{background:var(--ouro);color:#2A1018;text-align:center;font-size:13px;font-weight:600;padding:6px}
+
+/* portaria */
+.btn-validar{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:62px;border-radius:18px;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:19px;margin-top:12px}
+.btn-validar svg{width:26px;height:26px}
+.selo.entrou{background:#DCEBFF;color:#1D4E89}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .selo.entrou{background:#1C2B40;color:#A9CBFF}}
+:root[data-theme="dark"] .selo.entrou{background:#1C2B40;color:#A9CBFF}
+.entrada-linha{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:14px}
+.entrada-linha span{flex:1;color:var(--muted)}
+.btn-entrada{background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:600;font-size:14px;white-space:nowrap}
+.link-peq{color:var(--muted);text-decoration:underline;font-size:13px;padding:6px}
+#telaValidar{position:fixed;inset:0;z-index:30;background:#120A0D;color:#F5EEE6;display:flex;flex-direction:column;overflow:auto}
+.val-topo{display:flex;align-items:center;gap:10px;padding:calc(env(safe-area-inset-top) + 10px) 16px 10px}
+.val-topo b{flex:1;font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:21px}
+.val-topo small{display:block;font-family:Poppins,sans-serif;font-size:13px;color:#D9C7B9}
+.camera{position:relative;margin:0 16px;border-radius:20px;overflow:hidden;background:#000;aspect-ratio:1/1;max-height:56vh}
+.camera video{width:100%;height:100%;object-fit:cover;display:block}
+.mira{position:absolute;inset:14%;border:3px solid rgba(216,190,146,.95);border-radius:18px;box-shadow:0 0 0 999px rgba(0,0,0,.25)}
+.cam-msg{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;font-size:15px;color:#F1E3CC}
+.val-corpo{padding:14px 16px calc(env(safe-area-inset-bottom) + 24px)}
+.val-corpo input{background:#24161B;color:#F5EEE6;border-color:#43303A}
+.val-corpo .btn.claro{background:#2D1C22;color:#F5EEE6}
+.val-linha{display:flex;gap:8px;margin-top:10px}
+.val-linha input{flex:1}
+.val-linha button{flex:none;border-radius:12px;background:var(--ouro);color:#2A1018;font-weight:600;padding:0 16px}
+.res-busca{margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.res-busca button{text-align:left;background:#24161B;border:1px solid #43303A;border-radius:14px;padding:12px 14px;color:#F5EEE6}
+.res-busca small{display:block;color:#BFAFB4;font-size:13px}
+.quem{font-size:13px;color:#BFAFB4;margin-top:16px}
+#resultado{position:fixed;inset:0;z-index:35;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:calc(env(safe-area-inset-top) + 24px) 22px calc(env(safe-area-inset-bottom) + 24px);color:#fff}
+#resultado.verde{background:#1E7A46}
+#resultado.laranja{background:#C46A12}
+#resultado.vermelho{background:#A3262A}
+#resultado .grande-ic{font-size:76px;line-height:1;font-weight:700}
+#resultado h2{font-size:34px;font-weight:700;line-height:1.1;margin-top:12px;letter-spacing:.02em}
+#resultado .rnome{font-family:"Playfair Display",Georgia,serif;font-size:30px;margin-top:18px;line-height:1.15}
+#resultado p{font-size:17px;margin-top:8px;opacity:.95;max-width:30ch}
+#resultado .rinfo{background:rgba(0,0,0,.18);border-radius:16px;padding:12px 16px;margin-top:16px;font-size:16px;max-width:420px;width:100%}
+#resultado .btn{background:#fff;color:#2B1E23;max-width:420px;margin-top:26px}
 </style>
 
 <div id="telaPin" hidden>
@@ -191,6 +230,7 @@ td:first-child{color:var(--muted);width:40%}
     </div>
   </header>
   <main class="wrap">
+    <button class="btn-validar" id="btnValidar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg>Validar entrada</button>
     <section class="resumo" id="resumo" aria-label="Resumo"></section>
     <div id="avisos"></div>
     <div class="busca"><input id="busca" type="search" placeholder="Buscar nome, pedido ou cupom" aria-label="Buscar"></div>
@@ -207,6 +247,21 @@ td:first-child{color:var(--muted);width:40%}
   <button class="fab" id="btnNova"><span style="font-size:20px;line-height:1">+</span> Venda por fora</button>
 </div>
 
+<div id="telaValidar" hidden>
+  <div class="val-topo">
+    <b>Validar entrada<small id="valContador">Entraram 0</small></b>
+    <button class="ic" id="valFechar" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="camera"><video id="video" playsinline muted autoplay></video><div class="mira" id="mira" hidden></div><div class="cam-msg" id="camMsg">Abrindo a câmera...</div></div>
+  <div class="val-corpo">
+    <div class="val-linha"><input id="valCodigo" placeholder="Ou digite o código do ingresso" autocapitalize="characters" spellcheck="false" autocomplete="off"><button id="valConferir">Conferir</button></div>
+    <div class="val-linha"><input id="valNome" type="search" placeholder="Buscar pelo nome" autocomplete="off"></div>
+    <div class="res-busca" id="valResultados"></div>
+    <div class="quem">Quem está na portaria: <button class="link-peq" id="valQuem" style="color:#D8BE92"></button></div>
+  </div>
+</div>
+<div id="resultado" hidden role="alert"></div>
+
 <div class="fundo" id="fundo" hidden><div class="folha" id="folha" role="dialog" aria-modal="true"></div></div>
 <div class="toast" id="toast" hidden></div>
 
@@ -217,7 +272,7 @@ var API = 'https://script.google.com/macros/s/AKfycbyXxIq4D2G8JrMh9shHrqhQFYimb2
 var FORM = 'https://hubdeempreendedores.usevox.com.br/formulario/?pedido=';
 var DEMO = !API || /demo/.test(location.hash);
 var CH = 'hubBilheteriaChave';
-var estado = {vendas:[], respostas:[], vagas:45, temToken:true, agora:''};
+var estado = {vendas:[], respostas:[], entradas:[], vagas:45, temToken:true, temSegredo:true, agora:''};
 var filtro = 'todos';
 
 function $(id){return document.getElementById(id)}
@@ -250,6 +305,7 @@ function receber(r){
   }
   estado.vendas=r.vendas||[];estado.respostas=r.respostas||[];estado.vagas=r.vagas||45;
   estado.temToken=r.temToken!==false;estado.agora=r.agora||'';
+  estado.entradas=r.entradas||[];estado.temSegredo=r.temSegredoIngresso!==false;
   ligarRespostas();desenhar();
 }
 
@@ -313,14 +369,18 @@ function desenhar(){
   var faltam=ok.length-lanc.length;
   var comForm=ok.filter(function(v){return v.resp}).length;
   var pct=Math.min(100,Math.round(ingressos/estado.vagas*100));
+  var entraram=contarEntradas();
   $('atualizado').textContent='1º Encontro · 14/11'+(estado.agora?' · '+estado.agora:'');
+  $('valContador').textContent='Entraram '+entraram+' de '+ingressos;
   $('resumo').innerHTML=
+    '<div class="kpi largo"><div><span>Na portaria</span><small>'+(entraram?'último às '+esc(ultimaHora()):'ninguém entrou ainda')+'</small></div><b>Entraram '+entraram+' <small style="display:inline;font-size:15px">de '+ingressos+'</small></b></div>'+
     '<div class="kpi"><span>Ingressos</span><b>'+ingressos+' <small style="display:inline;font-size:15px">de '+estado.vagas+'</small></b><div class="barra"><i style="width:'+pct+'%"></i></div><small>restam '+Math.max(0,estado.vagas-ingressos)+' vagas</small></div>'+
     '<div class="kpi"><span>Formulários</span><b>'+comForm+' <small style="display:inline;font-size:15px">de '+ok.length+'</small></b><small>'+(ok.length-comForm?(ok.length-comForm)+' sem preencher':'todos preenchidos')+'</small></div>'+
     '<div class="kpi"><span>Valor bruto</span><b>'+brl(bruto)+'</b><small>soma do que foi cobrado</small></div>'+
     '<div class="kpi"><span>Recebido (líquido)</span><b>'+brl(receb)+'</b><small>'+(faltam?faltam+' a lançar':'tudo lançado')+'</small></div>'+
     '<div class="kpi largo"><div><span>Diferença (taxas e impostos)</span><small>nos '+lanc.length+' pedido(s) já lançados</small></div><b>'+brl(dif)+(brutoLanc?' <small style="display:inline;font-size:13px">('+(dif/brutoLanc*100).toLocaleString('pt-BR',{maximumFractionDigits:1})+'%)</small>':'')+'</b></div>';
   var av='';
+  if(!estado.temSegredo&&!DEMO)av+='<div class="aviso erro">A leitura do QR ainda não funciona: falta colar o TICKET_SECRET no servidor.</div>';
   if(!estado.temToken&&!DEMO)av+='<div class="aviso">As vendas novas do site ainda não entram sozinhas: falta colar o token da Nuvemshop no servidor (passo 4 do roteiro).</div>';
   $('avisos').innerHTML=av;
   desenharLista();
@@ -348,9 +408,16 @@ function desenharLista(){
     var val='<div class="valores"><div><span>Bruto</span><b>'+brl(v.bruto)+'</b></div>'+
       (v.recebido==null?'<button class="lancar" data-lancar="'+esc(v.pedido)+'">Lançar valor recebido</button>':
        '<button class="lancado" data-lancar="'+esc(v.pedido)+'"><span>Recebido · tocar para mudar</span><b>'+brl(v.recebido)+'</b></button>')+'</div>';
+    var ents=entradasDe(v),ent='';
+    if(ok){
+      var txt=!ents.length?'Ainda não entrou.':ents.map(function(e){return (v.qtd>1?'Ingresso '+e.i+': ':'')+'entrou às '+esc(horaCurta(e.hora))+' ('+esc(e.como||'')+(e.quem?', '+esc(e.quem):'')+')'}).join('<br>');
+      ent='<div class="entrada-linha"><span>'+txt+(ents.length?' <button class="link-peq" data-desfazer="'+esc(ents[ents.length-1].chave)+'">desfazer</button>':'')+'</span>'+
+        (ents.length<(v.qtd||1)?'<button class="btn-entrada" data-entrar="'+esc(v.pedido)+'">Marcar entrada</button>':'')+'</div>';
+      if(ents.length)selo='<span class="selo entrou">'+(v.qtd>1?ents.length+' de '+v.qtd+' entraram':'Entrou '+esc(horaCurta(ents[ents.length-1].hora)))+'</span>';
+    }
     var falta=ok&&!v.resp?'<div class="falta-form"><span>Ainda não preencheu o formulário.</span><button data-cobrar="'+esc(v.pedido)+'">Enviar mensagem</button></div>':'';
     return '<article class="card'+(ok?'':' apagado')+'"><div class="linha1"><button class="nome" data-perfil="'+esc(v.pedido)+'">'+esc(v.nome)+'</button>'+selo+'</div>'+
-      '<div class="meta">'+meta+'</div>'+fone+(v.obs?'<div class="meta">Obs.: '+esc(v.obs)+'</div>':'')+val+falta+'</article>';
+      '<div class="meta">'+meta+'</div>'+fone+(v.obs?'<div class="meta">Obs.: '+esc(v.obs)+'</div>':'')+val+falta+ent+'</article>';
   }).join('');
 }
 
@@ -360,6 +427,8 @@ $('filtros').addEventListener('click',function(e){
   [].forEach.call(this.children,function(c){c.setAttribute('aria-pressed',c===b?'true':'false')});desenharLista();
 });
 $('lista').addEventListener('click',function(e){
+  var x=e.target.closest('[data-entrar],[data-desfazer]');
+  if(x){if(x.dataset.entrar)marcarManual(acharVenda(x.dataset.entrar));else desfazerEntrada(x.dataset.desfazer);return}
   var t=e.target.closest('[data-perfil],[data-lancar],[data-cobrar]');if(!t)return;
   var v=acharVenda(t.dataset.perfil||t.dataset.lancar||t.dataset.cobrar);if(!v)return;
   if(t.dataset.perfil)abrirPerfil(v);else if(t.dataset.lancar)abrirLancar(v);else cobrarFormulario(v);
@@ -566,6 +635,155 @@ function abrirPerfil(v){
   [].forEach.call($('folha').querySelectorAll('[data-ir]'),function(b){b.addEventListener('click',function(){var o=acharVenda(b.dataset.ir);if(o)abrirPerfil(o)})});
 }
 
+/* ---------- portaria ---------- */
+var QK='hubBilheteriaQuem';
+function lerQuem(){try{return localStorage.getItem(QK)||''}catch(e){return ''}}
+function horaCurta(h){h=String(h||'');var m=/(\d{2}:\d{2})/.exec(h);return m?m[1]:h}
+function entradasDe(v){return estado.entradas.filter(function(e){return String(e.pedido)===String(v.pedido)}).sort(function(a,b){return a.i-b.i})}
+function contarEntradas(){var pagos={};estado.vendas.forEach(function(v){if(pago(v))pagos[v.pedido]=1});return estado.entradas.filter(function(e){return pagos[e.pedido]}).length}
+function ultimaHora(){var h=estado.entradas.map(function(e){return e.hora}).sort();return horaCurta(h[h.length-1])}
+
+var cam={stream:null,rodando:false,pausado:false,ultimo:'',ultimoEm:0,canvas:null,ctx:null,raf:0};
+function carregarJsQR(){
+  if(window.jsQR)return Promise.resolve();
+  return new Promise(function(ok,erro){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js';s.onload=ok;s.onerror=erro;document.head.appendChild(s)});
+}
+var audio=null;
+function bip(tipo){
+  try{
+    audio=audio||new (window.AudioContext||window.webkitAudioContext)();
+    var notas=tipo==='verde'?[[880,.12]]:tipo==='laranja'?[[660,.12],[660,.12]]:[[220,.45]];
+    var t=audio.currentTime;
+    notas.forEach(function(n){var o=audio.createOscillator(),g=audio.createGain();o.frequency.value=n[0];o.type='sine';g.gain.setValueAtTime(.25,t);g.gain.exponentialRampToValueAtTime(.001,t+n[1]);o.connect(g);g.connect(audio.destination);o.start(t);o.stop(t+n[1]);t+=n[1]+.08});
+  }catch(e){}
+  try{if(navigator.vibrate)navigator.vibrate(tipo==='verde'?120:tipo==='laranja'?[120,80,120]:[400])}catch(e){}
+}
+
+$('btnValidar').addEventListener('click',abrirValidar);
+$('valFechar').addEventListener('click',fecharValidar);
+function abrirValidar(){
+  try{audio=audio||new (window.AudioContext||window.webkitAudioContext)()}catch(e){} // libera o som no iPhone (precisa de toque)
+  $('telaValidar').hidden=false;document.body.style.overflow='hidden';
+  $('valQuem').textContent=lerQuem()||'tocar para pôr seu nome';
+  $('valNome').value='';$('valResultados').innerHTML='';$('valCodigo').value='';
+  ligarCamera();
+}
+function fecharValidar(){desligarCamera();$('telaValidar').hidden=true;document.body.style.overflow='';desenhar()}
+$('valQuem').addEventListener('click',function(){
+  var n=prompt('Seu nome (aparece na planilha de entradas):',lerQuem());
+  if(n!==null){try{localStorage.setItem(QK,n.trim().slice(0,40))}catch(e){}$('valQuem').textContent=n.trim()||'tocar para pôr seu nome'}
+});
+
+function ligarCamera(){
+  var msg=$('camMsg');msg.hidden=false;msg.textContent='Abrindo a câmera...';$('mira').hidden=true;
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){msg.textContent='Este navegador não abre a câmera. Use o código ou a busca pelo nome.';return}
+  Promise.all([carregarJsQR(),navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:1280},height:{ideal:720}},audio:false})])
+    .then(function(r){
+      cam.stream=r[1];var v=$('video');v.srcObject=cam.stream;v.setAttribute('playsinline','');
+      return v.play().catch(function(){});
+    }).then(function(){
+      if(!cam.stream)return;
+      msg.hidden=true;$('mira').hidden=false;cam.rodando=true;cam.pausado=false;
+      cam.canvas=cam.canvas||document.createElement('canvas');cam.ctx=cam.ctx||cam.canvas.getContext('2d',{willReadFrequently:true});
+      ler();
+    }).catch(function(e){
+      msg.textContent=e&&e.name==='NotAllowedError'?'A câmera foi bloqueada. Libere nas configurações do navegador ou use o código / o nome.':'Não consegui abrir a câmera. Use o código ou a busca pelo nome.';
+    });
+}
+function desligarCamera(){
+  cam.rodando=false;cancelAnimationFrame(cam.raf);
+  if(cam.stream){cam.stream.getTracks().forEach(function(t){t.stop()});cam.stream=null}
+  $('video').srcObject=null;
+}
+var ultimaLeitura=0;
+function ler(){
+  if(!cam.rodando)return;
+  cam.raf=requestAnimationFrame(ler);
+  var agora=Date.now();if(cam.pausado||agora-ultimaLeitura<120)return;ultimaLeitura=agora;
+  var v=$('video');if(!v.videoWidth)return;
+  var k=Math.min(1,640/Math.max(v.videoWidth,v.videoHeight)),w=Math.round(v.videoWidth*k),h=Math.round(v.videoHeight*k);
+  cam.canvas.width=w;cam.canvas.height=h;cam.ctx.drawImage(v,0,0,w,h);
+  var img=cam.ctx.getImageData(0,0,w,h),q=window.jsQR(img.data,w,h,{inversionAttempts:'attemptBoth'});
+  if(q&&q.data){
+    if(q.data===cam.ultimo&&agora-cam.ultimoEm<4000)return; // mesmo QR parado na frente da câmera
+    cam.ultimo=q.data;cam.ultimoEm=agora;validar(q.data,'qr');
+  }
+}
+$('valConferir').addEventListener('click',function(){var t=$('valCodigo').value.trim();if(t)validar(t,'digitado')});
+$('valCodigo').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();$('valConferir').click()}});
+
+function validar(texto,como){
+  cam.pausado=true;
+  mostrarResultado({resultado:'aguarde'});
+  chamar({acao:'validar',texto:texto,como:como,quem:lerQuem()}).then(function(r){
+    if(!r||r.ok===false){if(r&&r.erro==='sessao'){fecharResultado();fecharValidar();sair();return}r={resultado:'erro',motivo:'O servidor não respondeu. Tente de novo.'}}
+    if(r.entradas)estado.entradas=r.entradas;
+    mostrarResultado(r);
+  }).catch(function(){mostrarResultado({resultado:'erro',motivo:'Sem internet. Confira a conexão e tente de novo.'})});
+}
+function marcarManual(v){
+  if(!v)return;
+  if(!confirm('Marcar a entrada de '+v.nome+(v.qtd>1?' (ingresso '+(entradasDe(v).length+1)+' de '+v.qtd+')':'')+' sem o QR?'))return;
+  mostrarResultado({resultado:'aguarde'});
+  chamar({acao:'entradaManual',pedido:v.pedido,quem:lerQuem()}).then(function(r){
+    if(!r||r.ok===false){r={resultado:'erro',motivo:'Não deu certo. Tente de novo.'}}
+    if(r.entradas)estado.entradas=r.entradas;
+    mostrarResultado(r);
+  }).catch(function(){mostrarResultado({resultado:'erro',motivo:'Sem internet.'})});
+}
+function desfazerEntrada(chave){
+  if(!confirm('Desfazer esta entrada? A pessoa volta a "não entrou".'))return;
+  chamar({acao:'desfazerEntrada',entrada:chave}).then(function(r){if(r&&r.ok){estado.entradas=r.entradas||[];desenhar();toast('Entrada desfeita')}else toast('Não deu certo')}).catch(function(){toast('Sem conexão')});
+}
+
+var timerRes=0;
+function mostrarResultado(r){
+  var el=$('resultado'),v=r.pedido&&r.resultado!=='invalido'?acharVenda(r.pedido):null,resp=v&&v.resp;
+  clearTimeout(timerRes);el.className='';el.hidden=false;
+  if(r.resultado==='aguarde'){el.className='laranja';el.style.background='#3E1727';el.innerHTML='<div class="grande-ic">…</div><h2>Conferindo</h2>';return}
+  el.style.background='';
+  var cor=r.resultado==='liberado'?'verde':r.resultado==='ja'?'laranja':'vermelho';
+  var tit={liberado:'ENTRADA LIBERADA',ja:'JÁ ENTROU',invalido:'INGRESSO INVÁLIDO',bloqueado:'ENTRADA BLOQUEADA',erro:'NÃO CONSEGUI CONFERIR'}[r.resultado]||'ATENÇÃO';
+  var ic={verde:'✓',laranja:'!',vermelho:'✕'}[cor];
+  var nome=r.nome||(v&&v.nome)||'';
+  var info=[];
+  if(r.pedido)info.push('Pedido '+esc(r.pedido)+(r.n?' · ingresso '+esc(r.i)+' de '+esc(r.n):''));
+  if(r.resultado==='ja')info.unshift('<b>Entrou às '+esc(horaCurta(r.hora))+'</b>'+(r.quem?' · '+esc(r.quem):''));
+  if(resp&&r.resultado!=='invalido'){
+    if(resp['Nome no crachá'])info.push('Crachá: <b>'+esc(resp['Nome no crachá'])+'</b>');
+    var rest=resp['Restrição alimentar'];if(rest&&!/^(não|nao|nenhuma?|-)$/i.test(rest.trim()))info.push('Restrição alimentar: <b>'+esc(rest)+'</b>');
+  } else if(v&&pago(v)&&!resp&&r.resultado==='liberado')info.push('Ainda não preencheu o formulário');
+  el.className=cor;
+  el.innerHTML='<div class="grande-ic">'+ic+'</div><h2>'+tit+'</h2>'+(nome?'<div class="rnome">'+esc(nome)+'</div>':'')+
+    (r.motivo?'<p>'+esc(r.motivo)+'</p>':'')+(info.length?'<div class="rinfo">'+info.join('<br>')+'</div>':'')+
+    '<button class="btn" id="resProximo">'+($('telaValidar').hidden?'Fechar':'Ler o próximo')+'</button>';
+  bip(cor);
+  $('resProximo').addEventListener('click',fecharResultado);
+  if(cor==='verde')timerRes=setTimeout(fecharResultado,6000);
+}
+function fecharResultado(){
+  clearTimeout(timerRes);$('resultado').hidden=true;
+  $('valCodigo').value='';cam.pausado=false;
+  if($('telaValidar').hidden)desenhar();else{$('valContador').textContent='Entraram '+contarEntradas()+' de '+estado.vendas.filter(pago).reduce(function(s,v){return s+(v.qtd||1)},0);buscarNome()}
+}
+function buscarNome(){
+  var q=semAcento($('valNome').value.trim());
+  if(q.length<2){$('valResultados').innerHTML='';return}
+  var vs=estado.vendas.filter(function(v){return pago(v)&&semAcento(v.nome+' '+v.pedido+' '+(v.resp?v.resp['Nome no crachá']+' '+v.resp['Nome']:'')).indexOf(q)>=0}).slice(0,8);
+  $('valResultados').innerHTML=vs.length?vs.map(function(v){
+    var e=entradasDe(v),ja=e.length>=(v.qtd||1);
+    return '<button data-man="'+esc(v.pedido)+'"><b>'+esc(v.nome)+'</b><small>Pedido '+esc(v.pedido)+(v.qtd>1?' · '+v.qtd+' ingressos':'')+' · '+(e.length?(ja?'já entrou às '+esc(horaCurta(e[e.length-1].hora)):e.length+' de '+v.qtd+' entraram'):'toque para marcar a entrada')+'</small></button>';
+  }).join(''):'<div style="color:#BFAFB4;font-size:14px">Ninguém com esse nome entre os pagos.</div>';
+}
+$('valNome').addEventListener('input',buscarNome);
+$('valResultados').addEventListener('click',function(e){
+  var b=e.target.closest('[data-man]');if(!b)return;var v=acharVenda(b.dataset.man);if(!v)return;
+  var ents=entradasDe(v);
+  if(ents.length>=(v.qtd||1)){mostrarResultado({resultado:'ja',pedido:v.pedido,nome:v.nome,i:ents.length,n:v.qtd,hora:ents[ents.length-1].hora,quem:ents[ents.length-1].quem});return}
+  marcarManual(v);
+});
+document.addEventListener('visibilitychange',function(){if(document.hidden&&cam.rodando)desligarCamera();else if(!document.hidden&&!$('telaValidar').hidden&&!cam.rodando)ligarCamera()});
+
 /* ---------- demonstração (nomes fictícios, sem servidor) ---------- */
 var demoDb=null;
 function demoServidor(d){
@@ -578,7 +796,25 @@ function demoServidor(d){
    respostas:[
     {'Enviado em':'29/10/2026 10:00','Nome':'Ana Teste Lima','Nome no crachá':'Ana','WhatsApp':'21900000001','Instagram':'@exemplo.ana','Pedido':'301','Atuação':'Empreendedor(a) com negócio próprio','Negócio / profissão':'Loja de roupas femininas','Ramo':'Comércio / varejo','Equipe':'2 a 5 pessoas','Mora em':'Icaraí','Trabalha em':'Niterói','Estado civil':'Casado(a)','Filhos':'2','Idade dos filhos':'6 a 12 anos','Paróquia / movimento':'Paróquia Exemplo, ECC','Horas/semana em burocracia':'Mais de 20 h','Maiores desafios':'Falta de tempo, Caixa e finanças, Usar tecnologia e IA','Uso de IA':'Já testei','O que quer levar':'Organizar o caixa','Quer conhecer':'Contadores e gente de tecnologia','Restrição alimentar':'Lactose','Uso de imagem':'Autorizo'},
     {'Enviado em':'29/10/2026 11:00','Nome':'Diego Fictício Souza','Nome no crachá':'Diego','WhatsApp':'21900000004','Instagram':'','Pedido':'9101','Atuação':'Profissional liberal / autônomo(a)','Negócio / profissão':'Contador e consultor de tecnologia','Ramo':'Serviços','Equipe':'6 a 20 pessoas','Mora em':'Niterói','Trabalha em':'Niterói','Estado civil':'Solteiro(a)','Filhos':'Não tenho','Idade dos filhos':'','Paróquia / movimento':'','Horas/semana em burocracia':'5 a 10 h','Maiores desafios':'Caixa e finanças, Equipe e liderança','Uso de IA':'Uso todo dia','O que quer levar':'Novos clientes','Quer conhecer':'Lojistas','Restrição alimentar':'','Uso de imagem':'Autorizo'}]};
-  var db=demoDb,res=function(x){return Promise.resolve(Object.assign({ok:true,vagas:45,temToken:true,agora:'agora',vendas:db.vendas,respostas:db.respostas},x||{}))};
+  var db=demoDb;db.entradas=db.entradas||[];
+  var res=function(x){return Promise.resolve(Object.assign({ok:true,vagas:45,temToken:true,agora:'agora',vendas:db.vendas,respostas:db.respostas,entradas:db.entradas},x||{}))};
+  var hora=function(){var d=new Date();return '2026-11-14 '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')+':00'};
+  var entrar=function(v,i,como){var ja=db.entradas.filter(function(e){return e.chave===v.pedido+'-'+i})[0];
+    if(ja)return {ok:true,resultado:'ja',pedido:v.pedido,nome:v.nome,i:i,n:v.qtd,hora:ja.hora,quem:ja.quem};
+    db.entradas.push({chave:v.pedido+'-'+i,pedido:v.pedido,i:i,nome:v.nome,hora:hora(),como:como,quem:d.quem||''});
+    return {ok:true,resultado:'liberado',pedido:v.pedido,nome:v.nome,i:i,n:v.qtd,hora:hora(),entradas:db.entradas}};
+  if(d.acao==='validar'){
+    var s=String(d.texto||'');if(s.indexOf('#')>=0)s=s.slice(s.lastIndexOf('#')+1);s=s.replace(/\s+/g,'').toUpperCase();
+    var m=/^(\d+)-(\d+)-(\d+)-([A-Z]+)-([A-Z2-7]{10})$/.exec(s);
+    if(!m)return Promise.resolve({ok:true,resultado:'invalido',motivo:'Este QR não é um ingresso do Hub.'});
+    if(m[5]!=='DEMODEMODE')return Promise.resolve({ok:true,resultado:'invalido',motivo:'Assinatura não confere: ingresso falso ou digitado errado.',pedido:m[1]});
+    var vv=db.vendas.filter(function(x){return x.pedido===m[1]})[0];
+    if(!vv)return Promise.resolve({ok:true,resultado:'bloqueado',motivo:'Pedido '+m[1]+' não está na bilheteria.'});
+    if(vv.situacao!=='Pago')return Promise.resolve({ok:true,resultado:'bloqueado',motivo:'Pedido '+vv.situacao.toLowerCase()+'.',pedido:vv.pedido,nome:vv.nome,i:+m[2],n:+m[3]});
+    return Promise.resolve(entrar(vv,+m[2],d.como==='digitado'?'Digitado':'QR'));
+  }
+  if(d.acao==='entradaManual'){var vm=db.vendas.filter(function(x){return x.pedido===d.pedido})[0],k=1;while(db.entradas.some(function(e){return e.chave===vm.pedido+'-'+k})&&k<vm.qtd)k++;return Promise.resolve(entrar(vm,k,'Manual'))}
+  if(d.acao==='desfazerEntrada'){db.entradas=db.entradas.filter(function(e){return e.chave!==d.entrada});return res()}
   if(d.acao==='entrar')return Promise.resolve({ok:true,chave:'demo'});
   if(d.acao==='salvar'){var v=db.vendas.filter(function(x){return x.pedido===d.pedido})[0];v.recebido=d.recebido===''?null:d.recebido;if(d.bruto!=null)v.bruto=d.bruto;v.obs=d.obs;return res()}
   if(d.acao==='nova'){var n=String(9100+db.vendas.filter(function(x){return x.origem==='Manual'}).length+1);db.vendas.push({pedido:n,origem:'Manual',nome:d.nome,fone:digitos(d.fone),qtd:Number(d.qtd)||1,cupom:d.cupom.toUpperCase(),canal:d.canal,data:'2026-10-30',situacao:'Pago',bruto:d.bruto,recebido:d.recebido,obs:d.obs,analise:''});return res({novo:n})}
