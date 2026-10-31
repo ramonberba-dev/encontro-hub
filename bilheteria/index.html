@@ -415,6 +415,7 @@ function desenharLista(){
         (ents.length<(v.qtd||1)?'<button class="btn-entrada" data-entrar="'+esc(v.pedido)+'">Marcar entrada</button>':'')+'</div>';
       if(ents.length)selo='<span class="selo entrou">'+(v.qtd>1?ents.length+' de '+v.qtd+' entraram':'Entrou '+esc(horaCurta(ents[ents.length-1].hora)))+'</span>';
     }
+    if(ok)ent+='<div class="entrada-linha"><span>'+esc(textoEnvio(v))+'</span><button class="btn-entrada" data-enviar="'+esc(v.pedido)+'">'+(jaEnviado(v)?'Reenviar ingresso':'Enviar ingresso')+'</button></div>';
     var falta=ok&&!v.resp?'<div class="falta-form"><span>Ainda não preencheu o formulário.</span><button data-cobrar="'+esc(v.pedido)+'">Enviar mensagem</button></div>':'';
     return '<article class="card'+(ok?'':' apagado')+'"><div class="linha1"><button class="nome" data-perfil="'+esc(v.pedido)+'">'+esc(v.nome)+'</button>'+selo+'</div>'+
       '<div class="meta">'+meta+'</div>'+fone+(v.obs?'<div class="meta">Obs.: '+esc(v.obs)+'</div>':'')+val+falta+ent+'</article>';
@@ -427,6 +428,7 @@ $('filtros').addEventListener('click',function(e){
   [].forEach.call(this.children,function(c){c.setAttribute('aria-pressed',c===b?'true':'false')});desenharLista();
 });
 $('lista').addEventListener('click',function(e){
+  var y=e.target.closest('[data-enviar]');if(y){enviarIngresso(acharVenda(y.dataset.enviar));return}
   var x=e.target.closest('[data-entrar],[data-desfazer]');
   if(x){if(x.dataset.entrar)marcarManual(acharVenda(x.dataset.entrar));else desfazerEntrada(x.dataset.desfazer);return}
   var t=e.target.closest('[data-perfil],[data-lancar],[data-cobrar]');if(!t)return;
@@ -604,12 +606,17 @@ function conexoes(v){
   }).filter(function(c){return c.pts>=2}).sort(function(a,b){return b.pts-a.pts}).slice(0,4);
 }
 
+var perfilAtual=null;
+$('folha').addEventListener('click',function(e){if(e.target.closest('#pEnviar')&&perfilAtual)enviarIngresso(perfilAtual)});
 function abrirPerfil(v){
+  perfilAtual=v;
   var r=v.resp,ig=r&&insta(r['Instagram']);
   var nome=r&&r['Nome']?r['Nome']:v.nome;
   var html=topoFolha(esc(v.nome),'Pedido '+esc(v.pedido)+' · '+esc(v.canal)+(v.cupom?' · cupom '+esc(v.cupom):'')+(v.qtd>1?' · '+v.qtd+' ingressos':''));
   html+='<div class="botoes">'+(v.fone?'<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/'+waNum(v.fone)+'">WhatsApp</a>':'')+
-    (ig?'<a class="btn ouro" target="_blank" rel="noopener" href="https://instagram.com/'+encodeURIComponent(ig)+'">@'+esc(ig)+'</a>':'')+'</div>';
+    (ig?'<a class="btn ouro" target="_blank" rel="noopener" href="https://instagram.com/'+encodeURIComponent(ig)+'">@'+esc(ig)+'</a>':'')+
+    (pago(v)?'<button class="btn claro" id="pEnviar">'+(jaEnviado(v)?'Reenviar ingresso':'Enviar ingresso')+'</button>':'')+'</div>'+
+    (pago(v)?'<p class="sub" style="margin-top:8px">'+esc(textoEnvio(v))+'</p>':'');
   if(v.obs)html+='<div class="aviso">Obs.: '+esc(v.obs)+'</div>';
   if(!r){
     html+='<div class="aviso erro" style="margin-top:16px"><b>Ainda não preencheu o formulário.</b><br>Sem ele não temos o nome do crachá, a restrição alimentar nem o que '+esc(primeiro(v.nome))+' procura no Encontro.</div>'+
@@ -633,6 +640,57 @@ function abrirPerfil(v){
   html+='<details><summary>Ver todas as respostas</summary><table>'+campos.filter(function(c){return r[c]}).map(function(c){return '<tr><td>'+esc(c)+'</td><td>'+esc(r[c])+'</td></tr>'}).join('')+'</table></details>';
   abrirFolha(html);
   [].forEach.call($('folha').querySelectorAll('[data-ir]'),function(b){b.addEventListener('click',function(){var o=acharVenda(b.dataset.ir);if(o)abrirPerfil(o)})});
+}
+
+/* ---------- enviar ingresso ---------- */
+function jaEnviado(v){return !!v.enviado||v.origem==='Site'}
+function textoEnvio(v){
+  if(v.enviado){
+    var m=/(\d{2}\/\d{2})/.exec(v.enviado),n=/(\d+) envio/.exec(v.enviado);
+    var extra=n?(n[1]>1?n[1]+' envios pelo app':''):v.enviado.replace(/^\s*\d{2}\/\d{2}\s*/,'').replace(/\s*\(([^()]*)\)\s*$/,' pelo $1').trim();
+    return 'Ingresso enviado'+(m?' em '+m[1]:'')+(extra?' ('+extra+')':'');
+  }
+  if(v.origem==='Site')return 'Ingresso enviado por e-mail (compra no site)';
+  return 'Ingresso ainda não enviado';
+}
+function mensagemIngresso(v,links,reenvio){
+  var nome=primeiro(v.nome),form=FORM+encodeURIComponent(v.pedido);
+  var lk=links.length===1?links[0]:links.map(function(l,i){return 'Ingresso '+(i+1)+': '+l}).join('\n');
+  if(!reenvio)return 'Olá, '+nome+'! Aqui é o Ramon, do Hub de Empreendedores Católicos. Que alegria ter você com a gente! 🙏\n\n'+
+    (links.length===1?'Seu ingresso':'Seus ingressos')+' para o 1º Encontro (sábado, 14/11, 10h às 13h30, Coco Bambu Niterói · Plaza Shopping, 4º piso):\n'+lk+'\n\n'+
+    'Para personalizarmos a sua experiência, responda estas perguntas rápidas (2 minutos):\n'+form+'\n\n'+
+    'É só apresentar o QR Code na entrada. Até lá!';
+  return 'Oi, '+nome+'! Aqui está de novo '+(links.length===1?'o seu ingresso':'os seus ingressos')+' para o 1º Encontro do Hub (sábado, 14/11, 10h, Coco Bambu Niterói · Plaza Shopping, 4º piso):\n'+lk+'\n\n'+
+    (v.resp?'':'E, se ainda não deu, responda o formulário rápido (2 minutos), que é com ele que preparamos seu crachá e o almoço:\n'+form+'\n\n')+
+    'É só apresentar o QR Code na entrada. Qualquer coisa, estou por aqui! 🙏';
+}
+function enviarIngresso(v){
+  if(!v)return;
+  abrirFolha(topoFolha(jaEnviado(v)?'Reenviar ingresso':'Enviar ingresso',esc(v.nome)+' · pedido '+esc(v.pedido))+'<div class="vazio">Gerando o ingresso...</div>');
+  chamar({acao:'ingresso',pedido:v.pedido}).then(function(r){
+    if(!r||!r.ok){if(r&&r.erro==='sessao'){sair();return}abrirFolha(topoFolha('Enviar ingresso',esc(v.nome))+'<div class="aviso erro">'+esc(r&&r.motivo||'Não consegui gerar o ingresso. Tente de novo.')+'</div>');return}
+    var reenvio=r.jaEnviado,t=mensagemIngresso(v,r.links,reenvio);
+    var fone=r.fone||v.fone;
+    abrirFolha(topoFolha(reenvio?'Reenviar ingresso':'Enviar ingresso',esc(v.nome)+(fone?' · '+esc(foneBonito(fone)):''))+
+      '<p class="sub" style="margin-top:8px">'+esc(textoEnvio(v))+'. '+(reenvio?'Mensagem curta de reenvio.':'Mensagem de boas-vindas (primeiro envio).')+'</p>'+
+      (v.obs?'<div class="aviso">Obs.: '+esc(v.obs)+'</div>':'')+
+      '<div class="texto-msg" id="msgIngresso">'+esc(t)+'</div>'+
+      '<div class="rapidos"><button type="button" id="trocaMsg">'+(reenvio?'Usar a mensagem de boas-vindas':'Usar a mensagem curta de reenvio')+'</button></div>'+
+      (fone?'<a class="btn wa" id="abrirWa" target="_blank" rel="noopener" href="https://wa.me/'+waNum(fone)+'?text='+encodeURIComponent(t)+'">Abrir no WhatsApp</a>':'<div class="aviso erro">Sem telefone neste pedido: copie a mensagem.</div>')+
+      '<button class="btn claro" id="copiarMsg">Copiar mensagem</button>'+
+      '<p class="sub" style="margin-top:10px">Ao abrir no WhatsApp ou copiar, o envio fica anotado na planilha.</p>');
+    var marcado=false;
+    function marcar(){if(marcado)return;marcado=true;chamar({acao:'marcarEnvio',pedido:v.pedido}).then(function(x){if(x&&x.ok){receber(x)}}).catch(function(){})}
+    $('trocaMsg').addEventListener('click',function(){
+      reenvio=!reenvio;t=mensagemIngresso(v,r.links,reenvio);$('msgIngresso').textContent=t;
+      this.textContent=reenvio?'Usar a mensagem de boas-vindas':'Usar a mensagem curta de reenvio';
+      if($('abrirWa'))$('abrirWa').href='https://wa.me/'+waNum(fone)+'?text='+encodeURIComponent(t);
+    });
+    if($('abrirWa'))$('abrirWa').addEventListener('click',marcar);
+    $('copiarMsg').addEventListener('click',function(){
+      (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){toast('Mensagem copiada');marcar()}).catch(function(){toast('Não consegui copiar')});
+    });
+  }).catch(function(){abrirFolha(topoFolha('Enviar ingresso',esc(v.nome))+'<div class="aviso erro">Sem conexão. Tente de novo.</div>')});
 }
 
 /* ---------- portaria ---------- */
@@ -814,6 +872,11 @@ function demoServidor(d){
     return Promise.resolve(entrar(vv,+m[2],d.como==='digitado'?'Digitado':'QR'));
   }
   if(d.acao==='entradaManual'){var vm=db.vendas.filter(function(x){return x.pedido===d.pedido})[0],k=1;while(db.entradas.some(function(e){return e.chave===vm.pedido+'-'+k})&&k<vm.qtd)k++;return Promise.resolve(entrar(vm,k,'Manual'))}
+  if(d.acao==='ingresso'){var vi=db.vendas.filter(function(x){return x.pedido===d.pedido})[0];
+    if(vi.situacao!=='Pago')return Promise.resolve({ok:false,erro:'naoPago',motivo:'Pedido '+vi.situacao.toLowerCase()+': não dá para enviar ingresso.'});
+    var ls=[];for(var q=1;q<=vi.qtd;q++)ls.push('https://hubdeempreendedores.usevox.com.br/ingresso/#'+vi.pedido+'-'+q+'-'+vi.qtd+'-'+primeiro(vi.nome).toUpperCase()+'-DEMODEMODE');
+    return Promise.resolve({ok:true,pedido:vi.pedido,fone:vi.fone,links:ls,enviado:vi.enviado||'',jaEnviado:!!vi.enviado||vi.origem==='Site'})}
+  if(d.acao==='marcarEnvio'){var ve=db.vendas.filter(function(x){return x.pedido===d.pedido})[0],nn=/(\d+) envio/.exec(ve.enviado||'');ve.enviado='31/10 10:00 · '+(nn?+nn[1]+1:1)+' envio(s) pelo app';return res()}
   if(d.acao==='desfazerEntrada'){db.entradas=db.entradas.filter(function(e){return e.chave!==d.entrada});return res()}
   if(d.acao==='entrar')return Promise.resolve({ok:true,chave:'demo'});
   if(d.acao==='salvar'){var v=db.vendas.filter(function(x){return x.pedido===d.pedido})[0];v.recebido=d.recebido===''?null:d.recebido;if(d.bruto!=null)v.bruto=d.bruto;v.obs=d.obs;return res()}
