@@ -88,6 +88,7 @@ input,select{width:100%;margin-top:6px;font:400 1rem var(--body);color:var(--fg)
 .qtd{display:flex;gap:8px;margin-top:12px}
 .qtd label{margin:0;flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:11px 6px;font-weight:500;font-size:.9rem;cursor:pointer;text-align:center;line-height:1.25}
 .qtd label small{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+.qtd-card label{background:var(--surface-2)}
 .qtd input{width:auto;margin:0;accent-color:var(--bordo)}
 .qtd label:has(input:checked){border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
 .depois{font-size:.88rem;color:var(--muted);margin-top:12px}
@@ -167,6 +168,11 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
   <section class="card" aria-labelledby="t-pix">
     <h2 id="t-pix"><span class="num">1</span>Pague por Pix</h2>
     <p class="lead">Copie o código e cole no app do seu banco, em "Pix copia e cola". O valor de <b class="v-total">R$ 182,00</b> já vem preenchido.</p>
+    <div class="qtd qtd-card" role="radiogroup" aria-label="Quantidade de ingressos">
+      <label><input type="radio" name="qtd-pix" value="1" checked><span>1 ingresso<small>R$ 182,00</small></span></label>
+      <label><input type="radio" name="qtd-pix" value="2"><span>2 ingressos<small>R$ 364,00</small></span></label>
+      <label><input type="radio" name="qtd-pix" value="3"><span>3 ingressos<small>R$ 546,00</small></span></label>
+    </div>
     <div class="qr" aria-label="QR Code do Pix"><div data-q="1">{{QR}}</div><div data-q="2" hidden>{{QR2}}</div><div data-q="3" hidden>{{QR3}}</div></div>
     <div class="codigo" id="pix-codigo" data-pix1="{{PIX}}" data-pix2="{{PIX2}}" data-pix3="{{PIX3}}">{{PIX}}</div>
     <button class="btn btn-accent" type="button" id="copiar">Copiar código Pix</button>
@@ -176,6 +182,11 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
   <section class="card" aria-labelledby="t-cartao">
     <h2 id="t-cartao"><span class="num">1</span>Ou pague no cartão</h2>
     <p class="lead">Pagamento seguro pela InfinitePay.</p>
+    <div class="qtd qtd-card" role="radiogroup" aria-label="Quantidade de ingressos">
+      <label><input type="radio" name="qtd-cartao" value="1" checked><span>1 ingresso<small>R$ 182,00</small></span></label>
+      <label><input type="radio" name="qtd-cartao" value="2"><span>2 ingressos<small>R$ 364,00</small></span></label>
+      <label><input type="radio" name="qtd-cartao" value="3"><span>3 ingressos<small>R$ 546,00</small></span></label>
+    </div>
     <span class="parcela" id="parcela">Em até 2x sem juros de R$ 91,00</span>
     <a class="btn btn-gold" id="link-cartao" href="{{CARTAO}}" data-l1="{{CARTAO}}" data-l2="{{CARTAO2}}" data-l3="{{CARTAO3}}" target="_blank" rel="noopener">Pagar no cartão · 2x sem juros</a>
   </section>
@@ -246,7 +257,16 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
     document.getElementById("bloco-nome2").hidden = q < 2;
     document.getElementById("bloco-nome3").hidden = q < 3;
   }
-  [].forEach.call(document.querySelectorAll('input[name="qtd"]'), function(r){ r.addEventListener("change", aplicaQtd); });
+  // Os três seletores (topo, Pix e cartão) andam juntos.
+  var GRUPOS = ["qtd", "qtd-pix", "qtd-cartao"];
+  GRUPOS.forEach(function(g){
+    [].forEach.call(document.querySelectorAll('input[name="' + g + '"]'), function(r){
+      r.addEventListener("change", function(){
+        GRUPOS.forEach(function(o){ var x = document.querySelector('input[name="' + o + '"][value="' + r.value + '"]'); if (x) x.checked = true; });
+        aplicaQtd();
+      });
+    });
+  });
   aplicaQtd();
 
   function valor(nome){ var r = document.querySelector('input[name="' + nome + '"]:checked'); return r ? r.value : ""; }
