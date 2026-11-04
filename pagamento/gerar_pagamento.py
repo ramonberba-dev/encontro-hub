@@ -12,6 +12,10 @@ CIDADE = "NITEROI"
 VALOR = "182.00"
 TXID = "HUB1411"
 CARTAO = "https://link.infinitepay.io/ramon-berba-vieira/VC1DLTItSQ-fhODTXWSoA-182,00"
+VALOR2 = "364.00"            # 2 ingressos
+CARTAO2 = "https://link.infinitepay.io/ramon-berba-vieira/VC1DLTItSQ-lMs5cQunEX-364,00"
+VALOR3 = "546.00"            # 3 ingressos
+CARTAO3 = "https://link.infinitepay.io/ramon-berba-vieira/VC1DLTItSQ-k0apmj4Yd5-546,00"
 
 def campo(id_, valor):
     return f"{id_}{len(valor):02d}{valor}"
@@ -40,8 +44,12 @@ def qr_svg(texto):
 
 if __name__ == "__main__":
     codigo = pix()
+    codigo2 = pix(VALOR2)
+    codigo3 = pix(VALOR3)
     chave_fmt = f"{CHAVE[:3]}.{CHAVE[3:6]}.{CHAVE[6:9]}-{CHAVE[9:]}"
     html = (PASTA / "modelo.html").read_text(encoding="utf-8")
     html = html.replace("{{PIX}}", codigo).replace("{{QR}}", qr_svg(codigo)).replace("{{CHAVE_FMT}}", chave_fmt).replace("{{CARTAO}}", CARTAO)
+    html = html.replace("{{PIX2}}", codigo2).replace("{{QR2}}", qr_svg(codigo2)).replace("{{CARTAO2}}", CARTAO2)
+    html = html.replace("{{PIX3}}", codigo3).replace("{{QR3}}", qr_svg(codigo3)).replace("{{CARTAO3}}", CARTAO3)
     (PASTA / "index.html").write_text(html, encoding="utf-8")
     print(codigo)
