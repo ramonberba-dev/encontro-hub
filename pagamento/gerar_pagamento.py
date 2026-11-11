@@ -16,8 +16,6 @@ VALOR2 = "311.95"            # 2 ingressos
 CARTAO2 = "https://link.infinitepay.io/ramon-berba-vieira/VC1DLTItSQ-lMs5cQunEX-364,00"
 VALOR3 = "441.90"            # 3 ingressos
 CARTAO3 = "https://link.infinitepay.io/ramon-berba-vieira/VC1DLTItSQ-k0apmj4Yd5-546,00"
-VALORA = "129.95"            # acompanhante de quem já comprou (50%), liberado em 11/11
-CARTAOA = "https://link.infinitepay.io/ramon-berba-vieira/VC1DLTEtSQ-BPkxwCwrh6-129,95"
 
 def campo(id_, valor):
     return f"{id_}{len(valor):02d}{valor}"
@@ -53,7 +51,5 @@ if __name__ == "__main__":
     html = html.replace("{{PIX}}", codigo).replace("{{QR}}", qr_svg(codigo)).replace("{{CHAVE_FMT}}", chave_fmt).replace("{{CARTAO}}", CARTAO)
     html = html.replace("{{PIX2}}", codigo2).replace("{{QR2}}", qr_svg(codigo2)).replace("{{CARTAO2}}", CARTAO2)
     html = html.replace("{{PIX3}}", codigo3).replace("{{QR3}}", qr_svg(codigo3)).replace("{{CARTAO3}}", CARTAO3)
-    codigoa = pix(VALORA, "HUBACOMP")
-    html = html.replace("{{PIXA}}", codigoa).replace("{{QRA}}", qr_svg(codigoa)).replace("{{CARTAOA}}", CARTAOA)
     (PASTA / "index.html").write_text(html, encoding="utf-8")
     print(codigo)

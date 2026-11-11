@@ -86,7 +86,6 @@ input,select{width:100%;margin-top:6px;font:400 1rem var(--body);color:var(--fg)
 .opcoes label{margin:0;flex:1 1 120px;display:flex;align-items:center;gap:8px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-weight:400;cursor:pointer}
 .opcoes input{width:auto;margin:0;accent-color:var(--bordo)}
 .qtd{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.qtd label:has(input[value="a"]){flex:1 1 100%}
 .qtd label{margin:0;flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:11px 6px;font-weight:500;font-size:.9rem;cursor:pointer;text-align:center;line-height:1.25}
 .qtd label small{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
 .qtd-card label{background:var(--surface-2)}
@@ -136,7 +135,6 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
     <label><input type="radio" name="qtd" value="1" checked><span>1 ingresso<small>R$ 182,00</small></span></label>
     <label><input type="radio" name="qtd" value="2"><span>2 ingressos<small>R$ 311,95</small></span></label>
     <label><input type="radio" name="qtd" value="3"><span>3 ingressos<small>R$ 441,90</small></span></label>
-      <label><input type="radio" name="qtd" value="a"><span>Acompanhante<small>R$ 129,95 · 50%</small></span></label>
   </div>
 
   <section class="prazo" id="prazo" aria-label="Prazo do convite">
@@ -175,10 +173,9 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
       <label><input type="radio" name="qtd-pix" value="1" checked><span>1 ingresso<small>R$ 182,00</small></span></label>
       <label><input type="radio" name="qtd-pix" value="2"><span>2 ingressos<small>R$ 311,95</small></span></label>
       <label><input type="radio" name="qtd-pix" value="3"><span>3 ingressos<small>R$ 441,90</small></span></label>
-      <label><input type="radio" name="qtd-pix" value="a"><span>Acompanhante<small>R$ 129,95 · 50%</small></span></label>
     </div>
-    <div class="qr" aria-label="QR Code do Pix"><div data-q="1">{{QR}}</div><div data-q="2" hidden>{{QR2}}</div><div data-q="3" hidden>{{QR3}}</div><div data-q="a" hidden>{{QRA}}</div></div>
-    <div class="codigo" id="pix-codigo" data-pix1="{{PIX}}" data-pix2="{{PIX2}}" data-pix3="{{PIX3}}" data-pixa="{{PIXA}}">{{PIX}}</div>
+    <div class="qr" aria-label="QR Code do Pix"><div data-q="1">{{QR}}</div><div data-q="2" hidden>{{QR2}}</div><div data-q="3" hidden>{{QR3}}</div></div>
+    <div class="codigo" id="pix-codigo" data-pix1="{{PIX}}" data-pix2="{{PIX2}}" data-pix3="{{PIX3}}">{{PIX}}</div>
     <button class="btn btn-accent" type="button" id="copiar">Copiar código Pix</button>
     <p class="chave">Ou use a chave Pix (CPF): <b>{{CHAVE_FMT}}</b> · Ramon Berba Vieira</p>
   </section>
@@ -190,7 +187,6 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
       <label><input type="radio" name="qtd-cartao" value="1" checked><span>1 ingresso<small>R$ 182,00</small></span></label>
       <label><input type="radio" name="qtd-cartao" value="2"><span>2 ingressos<small>R$ 311,95</small></span></label>
       <label><input type="radio" name="qtd-cartao" value="3"><span>3 ingressos<small>R$ 441,90</small></span></label>
-      <label><input type="radio" name="qtd-cartao" value="a"><span>Acompanhante<small>R$ 129,95 · 50%</small></span></label>
     </div>
     <a class="btn btn-gold" id="pedir-cartao" href="#" target="_blank" rel="noopener">Pagamento em cartão? Clique aqui e solicite o link</a>
   </section>
