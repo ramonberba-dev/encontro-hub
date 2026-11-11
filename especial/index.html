@@ -106,6 +106,32 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
 .prazo.prorrogado .prazo-msg{animation:prazo-pisca 1.6s ease-in-out 3}
 @keyframes prazo-pisca{50%{opacity:.35}}
 @media (prefers-reduced-motion:reduce){.prazo.prorrogado .prazo-msg{animation:none}}
+
+/* Conteúdo do evento (página especial) */
+.sec{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 20px}
+.sec .tag{font:600 .72rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink)}
+.sec h2{font-size:1.45rem;margin-top:6px}
+.sec h2 em{color:var(--gold-ink)}
+.sec p{color:var(--muted);font-size:.95rem;margin-top:8px}
+.sec .capa{margin:14px -20px 0;aspect-ratio:16/9;background:center/cover no-repeat}
+.pal{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start;padding:14px 0;border-top:1px solid var(--line)}
+.pal:first-of-type{border-top:0}
+.pal img{width:96px;height:120px;object-fit:cover;border-radius:12px}
+.pal small{display:block;font:600 .7rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink)}
+.pal b{display:block;font-family:var(--display);font-size:1.12rem;line-height:1.2;margin-top:4px;color:var(--fg)}
+.pal span{display:block;font-size:.86rem;color:var(--muted);margin-top:6px}
+.selo-claude{display:inline-flex;align-items:center;gap:8px;border:1.5px solid #D97757;color:#D97757;border-radius:999px;padding:5px 12px;font-weight:600;font-size:.85rem;margin-top:6px}
+.selo-claude svg{width:18px;height:18px}
+.claude-top{display:flex;align-items:center;gap:12px}
+.claude-top svg{width:44px;height:44px;flex:none}
+.citacao{margin-top:14px;border-left:3px solid var(--ouro);padding:4px 0 4px 14px;font-family:var(--display);font-style:italic;color:var(--fg);font-size:1.05rem}
+.citacao small{display:block;font:600 .7rem var(--body);letter-spacing:.12em;color:var(--gold-ink);font-style:normal;margin-top:4px}
+.leva{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:10px}
+.leva li{display:flex;gap:12px;align-items:center;font-size:.95rem}
+.leva li i{font-style:normal;display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ouro);color:#2A1018;font-weight:700;font-size:.85rem;flex:none}
+.agenda{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin-top:12px;font-size:.95rem}
+.agenda b{color:var(--fg)}
+.marca{font-size:.72rem;color:var(--muted);text-align:center;margin-top:14px}
 </style>
 </head>
 <body>
@@ -147,6 +173,56 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
       <div><b id="pz-s">00</b><span>seg</span></div>
       <div class="ms"><b id="pz-ms">000</b><span>ms</span></div>
     </div>
+  </section>
+
+
+  <section class="sec" aria-labelledby="s-enc">
+    <span class="tag">O encontro</span>
+    <h2 id="s-enc">Mais tempo com a família. <em>Mais resultado no trabalho.</em></h2>
+    <p>O Hub nasceu de uma inquietação: muita gente boa trabalhando cada vez mais e tendo cada vez menos tempo para a família. O encontro é para mudar isso.</p>
+    <p>A ideia é sair de lá sabendo usar a inteligência artificial para reduzir o tempo burocrático do dia a dia, cuidar melhor do caixa e crescer no trabalho sem abrir mão de quem a gente ama, tudo à luz da fé e ao lado de outros empreendedores e profissionais católicos.</p>
+    <div class="capa" style="background-image:url(fotos/plateia.jpg)" role="img" aria-label="Plateia assistindo a uma palestra"></div>
+    <div class="agenda">
+      <b>10h</b><span>Credenciamento (o encontro começa pontualmente)</span>
+      <b>·</b><span>Abertura, três palestras, almoço completo, networking e oração</span>
+      <b>13h30</b><span>Encerramento</span>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="s-pal">
+    <span class="tag">Quem sobe ao palco</span>
+    <h2 id="s-pal">Três palestras práticas</h2>
+    <div class="pal">
+      <img src="fotos/washington.jpg" alt="Washington Fernando Veiga palestrando" loading="lazy">
+      <div><small>Palestra 1</small><b>"Faturamento é vaidade, caixa é bênção"</b><span><strong>Washington Fernando Veiga</strong>: 27 anos liderando operações no KFC, Habib's e Outback. Sócio da Segredos da Vilma e pai de três filhos.</span></div>
+    </div>
+    <div class="pal">
+      <img src="fotos/ramon.jpg" alt="Ramon Berba palestrando" loading="lazy">
+      <div><small>Palestra 2 · stand-up</small><b>"A Inteligência Artificial a serviço da Sabedoria Divina"</b><span class="selo-claude"><svg fill="#D97757" aria-hidden="true" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg> Claude</span><span><strong>Ramon Berba</strong>: 22 anos de varejo. Mostra ao vivo como o Claude reduz o tempo burocrático do seu trabalho.</span></div>
+    </div>
+    <div class="pal">
+      <img src="fotos/kevin.jpg" alt="Kevin Eger" loading="lazy">
+      <div><small>Palestra 3 · convidado</small><b>Fé, família e negócios</b><span><strong>Kevin Eger</strong>: empresário, mentor e comunicador católico. Ex-diretor de marketing da Lumine e da Minha Biblioteca Católica.</span></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="s-ia">
+    <div class="claude-top"><svg fill="#D97757" aria-hidden="true" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg><div><span class="tag">IA na prática</span><h2 id="s-ia">O Claude sobe ao palco</h2></div></div>
+    <p>A burocracia não fecha às 18h. Ela vai para casa com você: no celular, na mesa do jantar, no fim de semana. E quem paga a conta é quem te espera em casa.</p>
+    <p>O <b>Claude</b> faz em minutos o trabalho burocrático que hoje leva horas. No encontro, o Ramon mostra ao vivo como começar a usar, passo a passo, mesmo sem entender de tecnologia.</p>
+    <div class="citacao">O Claude não é o seu novo chefe. É o seu novo assistente. Se o Senhor não edificar a casa, em vão trabalham os que a edificam.<small>SALMO 127,1</small></div>
+  </section>
+
+  <section class="sec" aria-labelledby="s-leva">
+    <span class="tag">O que você leva para casa</span>
+    <h2 id="s-leva">Muito além de um almoço</h2>
+    <ul class="leva">
+      <li><i>1</i>O primeiro passo com o Claude</li>
+      <li><i>2</i>E-book de apoio do encontro</li>
+      <li><i>3</i>2 encontros de mentoria grátis</li>
+      <li><i>4</i>Almoço completo e novos contatos da região</li>
+    </ul>
+    <p>Mentorias do Hub a partir de janeiro de 2027, com 30% de desconto para quem participar.</p>
   </section>
 
   <section class="galeria" aria-label="O espaço e o almoço">
@@ -220,7 +296,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
   </section>
 </main>
 
-<footer>Hub de Empreendedores Católicos · Deus à frente dos negócios<br>Dúvidas: WhatsApp (21) 99658-8197</footer>
+<footer>Hub de Empreendedores Católicos · Deus à frente dos negócios<br><span class="marca">Claude é marca da Anthropic. O encontro não tem vínculo oficial com a Anthropic.</span><br>Dúvidas: WhatsApp (21) 99658-8197</footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
