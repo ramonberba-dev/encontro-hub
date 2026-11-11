@@ -134,8 +134,8 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
   </div>
   <div class="qtd" role="radiogroup" aria-label="Quantidade de ingressos">
     <label><input type="radio" name="qtd" value="1" checked><span>1 ingresso<small>R$ 182,00</small></span></label>
-    <label><input type="radio" name="qtd" value="2"><span>2 ingressos<small>R$ 364,00</small></span></label>
-    <label><input type="radio" name="qtd" value="3"><span>3 ingressos<small>R$ 546,00</small></span></label>
+    <label><input type="radio" name="qtd" value="2"><span>2 ingressos<small>R$ 311,95</small></span></label>
+    <label><input type="radio" name="qtd" value="3"><span>3 ingressos<small>R$ 441,90</small></span></label>
       <label><input type="radio" name="qtd" value="a"><span>Acompanhante<small>R$ 129,95 · 50%</small></span></label>
   </div>
 
@@ -170,10 +170,11 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
   <section class="card" aria-labelledby="t-pix">
     <h2 id="t-pix"><span class="num">1</span>Pague por Pix</h2>
     <p class="lead">Copie o código e cole no app do seu banco, em "Pix copia e cola". O valor de <b class="v-total">R$ 182,00</b> já vem preenchido.</p>
+    <p class="lead">Levando mais gente? Do 2º ingresso em diante, cada um sai com <b>50% de desconto</b> (R$ 129,95).</p>
     <div class="qtd qtd-card" role="radiogroup" aria-label="Quantidade de ingressos">
       <label><input type="radio" name="qtd-pix" value="1" checked><span>1 ingresso<small>R$ 182,00</small></span></label>
-      <label><input type="radio" name="qtd-pix" value="2"><span>2 ingressos<small>R$ 364,00</small></span></label>
-      <label><input type="radio" name="qtd-pix" value="3"><span>3 ingressos<small>R$ 546,00</small></span></label>
+      <label><input type="radio" name="qtd-pix" value="2"><span>2 ingressos<small>R$ 311,95</small></span></label>
+      <label><input type="radio" name="qtd-pix" value="3"><span>3 ingressos<small>R$ 441,90</small></span></label>
       <label><input type="radio" name="qtd-pix" value="a"><span>Acompanhante<small>R$ 129,95 · 50%</small></span></label>
     </div>
     <div class="qr" aria-label="QR Code do Pix"><div data-q="1">{{QR}}</div><div data-q="2" hidden>{{QR2}}</div><div data-q="3" hidden>{{QR3}}</div><div data-q="a" hidden>{{QRA}}</div></div>
@@ -184,15 +185,14 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
 
   <section class="card" aria-labelledby="t-cartao">
     <h2 id="t-cartao"><span class="num">1</span>Ou pague no cartão</h2>
-    <p class="lead">Pagamento seguro pela InfinitePay.</p>
+    <p class="lead">Mandamos o link de pagamento seguro da InfinitePay pelo WhatsApp, já com o valor certo.</p>
     <div class="qtd qtd-card" role="radiogroup" aria-label="Quantidade de ingressos">
       <label><input type="radio" name="qtd-cartao" value="1" checked><span>1 ingresso<small>R$ 182,00</small></span></label>
-      <label><input type="radio" name="qtd-cartao" value="2"><span>2 ingressos<small>R$ 364,00</small></span></label>
-      <label><input type="radio" name="qtd-cartao" value="3"><span>3 ingressos<small>R$ 546,00</small></span></label>
+      <label><input type="radio" name="qtd-cartao" value="2"><span>2 ingressos<small>R$ 311,95</small></span></label>
+      <label><input type="radio" name="qtd-cartao" value="3"><span>3 ingressos<small>R$ 441,90</small></span></label>
       <label><input type="radio" name="qtd-cartao" value="a"><span>Acompanhante<small>R$ 129,95 · 50%</small></span></label>
     </div>
-    <span class="parcela" id="parcela">Em até 2x sem juros de R$ 91,00</span>
-    <a class="btn btn-gold" id="link-cartao" href="{{CARTAO}}" data-l1="{{CARTAO}}" data-l2="{{CARTAO2}}" data-l3="{{CARTAO3}}" data-la="{{CARTAOA}}" target="_blank" rel="noopener">Pagar no cartão · 2x sem juros</a>
+    <a class="btn btn-gold" id="pedir-cartao" href="#" target="_blank" rel="noopener">Pagamento em cartão? Clique aqui e solicite o link</a>
   </section>
 
   <section class="card" aria-labelledby="t-aviso">
@@ -248,10 +248,10 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
 
   // Quantidade de ingressos: troca valor, Pix, QR, link do cartão e pede o 2º nome.
   var Q = { 1: { total: "R$ 182,00", cheio: "R$ 259,90", rotulo: "Seu valor com o cupom especial", parcela: "Em até 2x sem juros de R$ 91,00" },
-            2: { total: "R$ 364,00", cheio: "R$ 519,80", rotulo: "2 ingressos com o cupom especial", parcela: "Em até 2x sem juros de R$ 182,00" },
-            3: { total: "R$ 546,00", cheio: "R$ 779,70", rotulo: "3 ingressos com o cupom especial", parcela: "Em até 2x sem juros de R$ 273,00" },
+            2: { total: "R$ 311,95", cheio: "R$ 519,80", rotulo: "2 ingressos · o 2º com 50% de desconto", parcela: "" },
+            3: { total: "R$ 441,90", cheio: "R$ 779,70", rotulo: "3 ingressos · do 2º em diante, 50% de desconto", parcela: "" },
             a: { total: "R$ 129,95", cheio: "R$ 259,90", rotulo: "Acompanhante de quem já comprou · 50%", parcela: "Pagamento seguro no cartão" } };
-  var pixEl = document.getElementById("pix-codigo"), cartao = document.getElementById("link-cartao");
+  var pixEl = document.getElementById("pix-codigo");
   function qtd(){ var r = document.querySelector('input[name="qtd"]:checked'); return r ? (r.value === "a" ? "a" : (parseInt(r.value, 10) || 1)) : 1; }
   function n(q){ return q === "a" ? 1 : q; }
   function aplicaQtd(){
@@ -259,11 +259,9 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
     document.getElementById("valor-total").textContent = d.total;
     document.getElementById("valor-cheio").textContent = d.cheio;
     document.getElementById("valor-rotulo").textContent = d.rotulo;
-    document.getElementById("parcela").textContent = d.parcela;
     [].forEach.call(document.querySelectorAll(".v-total"), function(e){ e.textContent = d.total; });
     [].forEach.call(document.querySelectorAll(".qr [data-q]"), function(e){ e.hidden = e.getAttribute("data-q") !== String(q); });
     pixEl.textContent = pixEl.getAttribute("data-pix" + q);
-    cartao.href = cartao.getAttribute("data-l" + q);
     document.getElementById("bloco-nome2").hidden = n(q) < 2;
     document.getElementById("bloco-nome3").hidden = n(q) < 3;
     document.getElementById("bloco-convidou").hidden = q !== "a";
@@ -280,6 +278,16 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36
   });
   aplicaQtd();
 
+  document.getElementById("pedir-cartao").addEventListener("click", function(){
+    var q = qtd(), nome = document.getElementById("nome").value.trim();
+    var oque = q === "a" ? "1 ingresso de acompanhante (50%)" : q > 1 ? q + " ingressos (do 2º em diante com 50% de desconto)" : "1 ingresso";
+    var msg = "Olá, Ramon! Quero pagar no cartão para o 1º Encontro do Hub (14/11, Coco Bambu Niterói).\n\n" +
+      "Quantidade: " + oque + "\n" +
+      "Valor: " + Q[q].total + "\n" +
+      (nome ? "Nome: " + nome + "\n" : "") +
+      "\nPode me mandar o link de pagamento?";
+    this.href = "https://wa.me/" + ZAP + "?text=" + encodeURIComponent(msg);
+  });
   function valor(nome){ var r = document.querySelector('input[name="' + nome + '"]:checked'); return r ? r.value : ""; }
   document.getElementById("avisar").addEventListener("click", function(e){
     var nome = document.getElementById("nome").value.trim();
