@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>O Funcionário Invisível · Pré-venda</title>
+<meta property="og:title" content="O Funcionário Invisível · Pré-venda do curso de Claude">
+<meta property="og:description" content="Coloque o Claude para trabalhar com você. Condição especial do 1º Encontro do Hub.">
+<meta property="og:image" content="https://hubdeempreendedores.usevox.com.br/curso/midia/capa.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;700;800&display=swap">
+<style>
+/* Pré-venda do curso, na identidade do curso: preto, creme e amarelo; Anton nos títulos, Manrope no texto. */
+:root{
+  --preto:#111111; --amarelo:#F2C230; --creme:#F4F1EA; --branco:#FFFFFF;
+  --bg:#F4F1EA; --surface:#FFFFFF; --surface-2:#EAE5DA; --line:#DAD3C4;
+  --fg:#111111; --muted:#5C5850; --accent:#111111; --accent-ink:#F2C230;
+  --titulo:"Anton", Impact, sans-serif; --texto:"Manrope", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B0B0B; --surface:#161616; --surface-2:#1F1F1F; --line:#2E2E2E;
+  --fg:#F4F1EA; --muted:#B5B0A6; --accent:#F2C230; --accent-ink:#111111; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B0B0B; --surface:#161616; --surface-2:#1F1F1F; --line:#2E2E2E;
+  --fg:#F4F1EA; --muted:#B5B0A6; --accent:#F2C230; --accent-ink:#111111; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--texto);font-size:16px;line-height:1.6}
+h1,h2,h3{font-family:var(--titulo);font-weight:400;line-height:1.05;margin:0;letter-spacing:.01em;text-transform:uppercase}
+p{margin:0}
+.wrap{max-width:600px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{position:relative;color:#fff;background:#111 url(midia/fundo.jpg) center 62%/cover;padding-block:28px 84px}
+header::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,17,17,.55),rgba(17,17,17,.88))}
+header .wrap{position:relative}
+.marca{display:flex;align-items:center;gap:10px;font-weight:800;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
+.marca img{width:34px;height:34px}
+.selo{display:inline-block;margin-top:26px;background:var(--amarelo);color:#111;font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px}
+header h1{font-size:clamp(2.6rem,12vw,4rem);margin-top:14px}
+header h1 span{display:inline-block;background:var(--amarelo);color:#111;padding:2px 10px 0}
+header .sub{margin-top:14px;font-size:1.05rem;color:#E9E5DC;max-width:32ch}
+header .sub b{color:var(--amarelo)}
+main{margin-top:-56px;padding-bottom:40px}
+.valor{background:var(--surface);border:1px solid var(--line);padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.valor small{display:block;color:var(--muted);font-size:.8rem;font-weight:500}
+.valor s{color:var(--muted);font-size:.95rem}
+.valor b{font-family:var(--titulo);font-weight:400;font-size:2.4rem;line-height:1;white-space:nowrap}
+.valor b em{font-style:normal;background:var(--amarelo);color:#111;padding:0 8px}
+.prazo{margin-top:12px;background:#111;color:#F4F1EA;padding:14px 16px;text-align:center}
+.prazo p{font-weight:800;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amarelo)}
+.relogio{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
+.relogio div{border:1px solid #333;padding:6px 2px}
+.relogio b{display:block;font-family:var(--titulo);font-weight:400;font-size:1.6rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.relogio span{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#B5B0A6}
+.sec{margin-top:16px;background:var(--surface);border:1px solid var(--line);padding:22px 20px}
+.tag{display:inline-block;font-weight:800;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;background:var(--amarelo);color:#111;padding:3px 8px}
+.sec h2{font-size:1.9rem;margin-top:10px}
+.sec p{color:var(--muted);margin-top:10px}
+.sec p b{color:var(--fg)}
+video{display:block;width:100%;margin-top:14px;background:#000;aspect-ratio:16/9}
+.formato{display:grid;gap:10px;margin-top:14px}
+.formato div{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;background:var(--surface-2);padding:12px}
+.formato i{font-style:normal;display:grid;place-items:center;width:40px;height:40px;background:#111;color:var(--amarelo);font-family:var(--titulo);font-size:1.3rem}
+.formato b{display:block}
+.formato span{font-size:.9rem;color:var(--muted)}
+.mods{list-style:none;padding:0;margin:14px 0 0;counter-reset:m -1}
+.mods li{counter-increment:m;display:grid;grid-template-columns:44px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.mods li:first-child{border-top:0}
+.mods li::before{content:counter(m,decimal-leading-zero);font-family:var(--titulo);font-size:1.4rem;line-height:1.2;color:var(--fg)}
+.mods b{display:block;font-weight:700}
+.mods span{font-size:.88rem;color:var(--muted)}
+.leva{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px}
+.leva li{display:flex;gap:12px;align-items:flex-start}
+.leva li::before{content:"";flex:none;width:12px;height:12px;margin-top:6px;background:var(--amarelo);outline:2px solid #111}
+.claude{display:inline-flex;align-items:center;gap:6px;color:#D97757;font-weight:800}
+.claude svg{width:18px;height:18px}
+.card{background:var(--surface);border:1px solid var(--line);padding:22px 20px;margin-top:16px}
+.card h2{font-size:1.6rem;display:flex;align-items:center;gap:10px}
+.num{display:inline-grid;place-items:center;width:30px;height:30px;background:var(--amarelo);color:#111;font-family:var(--titulo);font-size:1rem;flex:none}
+.lead{color:var(--muted);font-size:.93rem;margin-top:6px}
+.qr{display:grid;place-items:center;margin:18px auto 4px;background:#fff;padding:12px;width:min(240px,100%)}
+.qr svg{width:100%;height:auto;display:block}
+.codigo{margin-top:14px;font-family:ui-monospace,Consolas,monospace;font-size:.72rem;line-height:1.45;word-break:break-all;background:var(--surface-2);border:1px dashed var(--line);padding:10px 12px;max-height:5.6em;overflow:auto}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:14px;border:0;padding:15px 20px;font:800 1rem var(--texto);cursor:pointer;text-decoration:none;text-align:center;text-transform:uppercase;letter-spacing:.04em}
+.btn-preto{background:var(--accent);color:var(--accent-ink)}
+.btn-amarelo{background:var(--amarelo);color:#111}
+.btn-zap{background:#1F8F4E;color:#fff}
+.btn:focus-visible{outline:3px solid var(--amarelo);outline-offset:3px}
+.chave{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
+label{display:block;font-size:.88rem;font-weight:700;margin-top:14px}
+input{width:100%;margin-top:6px;font:400 1rem var(--texto);color:var(--fg);background:var(--surface-2);border:1px solid var(--line);padding:12px}
+.opcoes{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
+.opcoes label{margin:0;flex:1 1 120px;display:flex;align-items:center;gap:8px;background:var(--surface-2);border:1px solid var(--line);padding:10px 12px;font-weight:500;cursor:pointer}
+.opcoes input{width:auto;margin:0;accent-color:#111}
+.regras{font-size:.84rem;color:var(--muted);margin-top:12px}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 36px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#111;color:var(--amarelo);padding:10px 18px;font-weight:700;font-size:.9rem;opacity:0;transition:.25s;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="marca"><img src="midia/icone.png" alt="">IA para negócios e profissões</div>
+    <span class="selo">Pré-venda · 1º Encontro do Hub</span>
+    <h1>O Funcionário<br><span>Invisível</span></h1>
+    <p class="sub">O curso para colocar o <b>Claude</b> para trabalhar com você. Menos tempo na burocracia, mais tempo com a família e mais resultado.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="valor">
+    <div><small>Exclusivo para quem participou do 1º Encontro</small><s>De R$ 297</s></div>
+    <b><em>R$ 79</em></b>
+  </div>
+  <section class="prazo" aria-label="Prazo da pré-venda">
+    <p id="prazo-msg">Pré-venda até domingo, 16/11, às 23h59</p>
+    <div class="relogio" role="timer" aria-live="off">
+      <div><b id="pz-d">0</b><span>dias</span></div>
+      <div><b id="pz-h">00</b><span>horas</span></div>
+      <div><b id="pz-m">00</b><span>min</span></div>
+      <div><b id="pz-s">00</b><span>seg</span></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="s-apr">
+    <span class="tag">Assista</span>
+    <h2 id="s-apr">Um funcionário que nunca cansa</h2>
+    <p>E-mail, planilha, relatório. O dia acaba e o trabalho não. O curso ensina, do zero, a colocar o <span class="claude"><svg fill="#D97757" aria-hidden="true" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg> Claude</span> para fazer essa parte por você. Feito para empreendedores e profissionais de todas as áreas, sem precisar entender de tecnologia.</p>
+    <video controls playsinline preload="metadata" poster="midia/poster.jpg" src="midia/apresentacao.mp4"></video>
+  </section>
+
+  <section class="sec" aria-labelledby="s-for">
+    <span class="tag">Como são as aulas</span>
+    <h2 id="s-for">Curto, visual e na prática</h2>
+    <div class="formato">
+      <div><i>1</i><p><b>O Ramon abre cada aula</b><span>Em poucos segundos, o que você vai aprender e por que isso importa no seu dia.</span></p></div>
+      <div><i>2</i><p><b>Tela real do Claude</b><span>Você vê cada clique, do jeito que vai fazer no seu computador.</span></p></div>
+      <div><i>3</i><p><b>Animações que explicam</b><span>Os conceitos viram imagens simples, sem "tecnês".</span></p></div>
+      <div><i>4</i><p><b>Uma missão por aula</b><span>No fim de cada aula, uma tarefa curta para aplicar no seu negócio.</span></p></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="s-mod">
+    <span class="tag">O que você aprende</span>
+    <h2 id="s-mod">55 aulas, 12 módulos, cerca de 6h</h2>
+    <ul class="mods">
+      <li><p><b>O que é inteligência artificial</b><span>Sem tecnês: o estagiário que leu toda a biblioteca.</span></p></li>
+      <li><p><b>A contratação</b><span>Conta, instalação, as áreas do Claude, planos e limites.</span></p></li>
+      <li><p><b>A entrevista</b><span>O Claude aprende quem você é: a sua persona.</span></p></li>
+      <li><p><b>Como dar ordens</b><span>O pedido ruim e o pedido bom; arquivos e ajustes.</span></p></li>
+      <li><p><b>O manual da empresa</b><span>Projetos com tudo o que ele precisa saber do seu negócio.</span></p></li>
+      <li><p><b>As chaves da empresa</b><span>Conectores: e-mail, agenda, planilhas e Drive.</span></p></li>
+      <li><p><b>A receita de bolo</b><span>Skills: você ensina uma vez e ele faz igual sempre.</span></p></li>
+      <li><p><b>Redes sociais</b><span>Posts, legendas e uma semana de conteúdo, com prática.</span></p></li>
+      <li><p><b>Apresentações profissionais</b><span>Canva, PowerPoint e PDF prontos para enviar.</span></p></li>
+      <li><p><b>Agentes: montando a equipe</b><span>Cada um com a sua função, trabalhando por você.</span></p></li>
+      <li><p><b>Confie, mas confira</b><span>Como revisar o que a IA entrega.</span></p></li>
+      <li><p><b>Seu plano de 7 dias</b><span>O passo a passo para começar na segunda-feira.</span></p></li>
+    </ul>
+  </section>
+
+  <section class="sec" aria-labelledby="s-pre">
+    <span class="tag">Na pré-venda</span>
+    <h2 id="s-pre">O que está incluso</h2>
+    <ul class="leva">
+      <li><span>Acesso completo ao curso, liberado em <b>15/12/2026</b>.</span></li>
+      <li><span>Preço exclusivo de quem participou do 1º Encontro do Hub: <b>R$ 79</b> em vez de R$ 297.</span></li>
+      <li><span>Garantia: se não gostar, devolvemos 100% do valor em até 7 dias depois da liberação.</span></li>
+    </ul>
+  </section>
+
+  <section class="card" aria-labelledby="t-pix">
+    <h2 id="t-pix"><span class="num">1</span>Pague por Pix</h2>
+    <p class="lead">Copie o código e cole no app do seu banco, em "Pix copia e cola". O valor de <b>R$ 79,00</b> já vem preenchido.</p>
+    <div class="qr" aria-label="QR Code do Pix"><svg width="43mm" height="43mm" version="1.1" viewBox="0 0 43 43" xmlns="http://www.w3.org/2000/svg"><path d="M1,1H2V2H1zM2,1H3V2H2zM3,1H4V2H3zM4,1H5V2H4zM5,1H6V2H5zM6,1H7V2H6zM7,1H8V2H7zM9,1H10V2H9zM10,1H11V2H10zM11,1H12V2H11zM12,1H13V2H12zM14,1H15V2H14zM18,1H19V2H18zM19,1H20V2H19zM21,1H22V2H21zM26,1H27V2H26zM29,1H30V2H29zM30,1H31V2H30zM35,1H36V2H35zM36,1H37V2H36zM37,1H38V2H37zM38,1H39V2H38zM39,1H40V2H39zM40,1H41V2H40zM41,1H42V2H41zM1,2H2V3H1zM7,2H8V3H7zM9,2H10V3H9zM13,2H14V3H13zM14,2H15V3H14zM16,2H17V3H16zM17,2H18V3H17zM19,2H20V3H19zM20,2H21V3H20zM21,2H22V3H21zM22,2H23V3H22zM23,2H24V3H23zM25,2H26V3H25zM26,2H27V3H26zM27,2H28V3H27zM29,2H30V3H29zM35,2H36V3H35zM41,2H42V3H41zM1,3H2V4H1zM3,3H4V4H3zM4,3H5V4H4zM5,3H6V4H5zM7,3H8V4H7zM9,3H10V4H9zM12,3H13V4H12zM13,3H14V4H13zM14,3H15V4H14zM17,3H18V4H17zM20,3H21V4H20zM23,3H24V4H23zM26,3H27V4H26zM27,3H28V4H27zM28,3H29V4H28zM31,3H32V4H31zM35,3H36V4H35zM37,3H38V4H37zM38,3H39V4H38zM39,3H40V4H39zM41,3H42V4H41zM1,4H2V5H1zM3,4H4V5H3zM4,4H5V5H4zM5,4H6V5H5zM7,4H8V5H7zM10,4H11V5H10zM11,4H12V5H11zM13,4H14V5H13zM14,4H15V5H14zM15,4H16V5H15zM16,4H17V5H16zM19,4H20V5H19zM21,4H22V5H21zM25,4H26V5H25zM27,4H28V5H27zM29,4H30V5H29zM31,4H32V5H31zM33,4H34V5H33zM35,4H36V5H35zM37,4H38V5H37zM38,4H39V5H38zM39,4H40V5H39zM41,4H42V5H41zM1,5H2V6H1zM3,5H4V6H3zM4,5H5V6H4zM5,5H6V6H5zM7,5H8V6H7zM9,5H10V6H9zM10,5H11V6H10zM12,5H13V6H12zM13,5H14V6H13zM15,5H16V6H15zM18,5H19V6H18zM21,5H22V6H21zM24,5H25V6H24zM25,5H26V6H25zM30,5H31V6H30zM31,5H32V6H31zM35,5H36V6H35zM37,5H38V6H37zM38,5H39V6H38zM39,5H40V6H39zM41,5H42V6H41zM1,6H2V7H1zM7,6H8V7H7zM10,6H11V7H10zM11,6H12V7H11zM12,6H13V7H12zM13,6H14V7H13zM14,6H15V7H14zM15,6H16V7H15zM16,6H17V7H16zM19,6H20V7H19zM20,6H21V7H20zM22,6H23V7H22zM25,6H26V7H25zM27,6H28V7H27zM31,6H32V7H31zM32,6H33V7H32zM35,6H36V7H35zM41,6H42V7H41zM1,7H2V8H1zM2,7H3V8H2zM3,7H4V8H3zM4,7H5V8H4zM5,7H6V8H5zM6,7H7V8H6zM7,7H8V8H7zM9,7H10V8H9zM11,7H12V8H11zM13,7H14V8H13zM15,7H16V8H15zM17,7H18V8H17zM19,7H20V8H19zM21,7H22V8H21zM23,7H24V8H23zM25,7H26V8H25zM27,7H28V8H27zM29,7H30V8H29zM31,7H32V8H31zM33,7H34V8H33zM35,7H36V8H35zM36,7H37V8H36zM37,7H38V8H37zM38,7H39V8H38zM39,7H40V8H39zM40,7H41V8H40zM41,7H42V8H41zM11,8H12V9H11zM12,8H13V9H12zM14,8H15V9H14zM19,8H20V9H19zM23,8H24V9H23zM26,8H27V9H26zM27,8H28V9H27zM29,8H30V9H29zM1,9H2V10H1zM4,9H5V10H4zM5,9H6V10H5zM6,9H7V10H6zM7,9H8V10H7zM8,9H9V10H8zM9,9H10V10H9zM10,9H11V10H10zM11,9H12V10H11zM12,9H13V10H12zM14,9H15V10H14zM15,9H16V10H15zM18,9H19V10H18zM19,9H20V10H19zM20,9H21V10H20zM24,9H25V10H24zM25,9H26V10H25zM27,9H28V10H27zM28,9H29V10H28zM30,9H31V10H30zM31,9H32V10H31zM33,9H34V10H33zM34,9H35V10H34zM37,9H38V10H37zM39,9H40V10H39zM40,9H41V10H40zM41,9H42V10H41zM1,10H2V11H1zM3,10H4V11H3zM5,10H6V11H5zM10,10H11V11H10zM11,10H12V11H11zM13,10H14V11H13zM16,10H17V11H16zM19,10H20V11H19zM20,10H21V11H20zM22,10H23V11H22zM24,10H25V11H24zM26,10H27V11H26zM27,10H28V11H27zM28,10H29V11H28zM29,10H30V11H29zM32,10H33V11H32zM33,10H34V11H33zM34,10H35V11H34zM37,10H38V11H37zM39,10H40V11H39zM41,10H42V11H41zM2,11H3V12H2zM4,11H5V12H4zM5,11H6V12H5zM7,11H8V12H7zM9,11H10V12H9zM11,11H12V12H11zM12,11H13V12H12zM15,11H16V12H15zM16,11H17V12H16zM17,11H18V12H17zM18,11H19V12H18zM19,11H20V12H19zM22,11H23V12H22zM24,11H25V12H24zM26,11H27V12H26zM28,11H29V12H28zM29,11H30V12H29zM30,11H31V12H30zM33,11H34V12H33zM34,11H35V12H34zM37,11H38V12H37zM39,11H40V12H39zM40,11H41V12H40zM41,11H42V12H41zM8,12H9V13H8zM10,12H11V13H10zM11,12H12V13H11zM13,12H14V13H13zM16,12H17V13H16zM17,12H18V13H17zM19,12H20V13H19zM20,12H21V13H20zM23,12H24V13H23zM26,12H27V13H26zM27,12H28V13H27zM29,12H30V13H29zM32,12H33V13H32zM33,12H34V13H33zM34,12H35V13H34zM36,12H37V13H36zM37,12H38V13H37zM40,12H41V13H40zM41,12H42V13H41zM2,13H3V14H2zM5,13H6V14H5zM7,13H8V14H7zM9,13H10V14H9zM10,13H11V14H10zM11,13H12V14H11zM18,13H19V14H18zM20,13H21V14H20zM21,13H22V14H21zM22,13H23V14H22zM24,13H25V14H24zM28,13H29V14H28zM29,13H30V14H29zM30,13H31V14H30zM31,13H32V14H31zM32,13H33V14H32zM33,13H34V14H33zM35,13H36V14H35zM37,13H38V14H37zM40,13H41V14H40zM41,13H42V14H41zM2,14H3V15H2zM3,14H4V15H3zM9,14H10V15H9zM10,14H11V15H10zM11,14H12V15H11zM12,14H13V15H12zM13,14H14V15H13zM14,14H15V15H14zM18,14H19V15H18zM19,14H20V15H19zM20,14H21V15H20zM23,14H24V15H23zM25,14H26V15H25zM29,14H30V15H29zM31,14H32V15H31zM32,14H33V15H32zM33,14H34V15H33zM37,14H38V15H37zM38,14H39V15H38zM40,14H41V15H40zM41,14H42V15H41zM6,15H7V16H6zM7,15H8V16H7zM10,15H11V16H10zM11,15H12V16H11zM12,15H13V16H12zM13,15H14V16H13zM14,15H15V16H14zM15,15H16V16H15zM16,15H17V16H16zM18,15H19V16H18zM22,15H23V16H22zM26,15H27V16H26zM29,15H30V16H29zM30,15H31V16H30zM31,15H32V16H31zM32,15H33V16H32zM34,15H35V16H34zM35,15H36V16H35zM36,15H37V16H36zM38,15H39V16H38zM40,15H41V16H40zM2,16H3V17H2zM3,16H4V17H3zM10,16H11V17H10zM12,16H13V17H12zM13,16H14V17H13zM15,16H16V17H15zM16,16H17V17H16zM20,16H21V17H20zM25,16H26V17H25zM28,16H29V17H28zM30,16H31V17H30zM33,16H34V17H33zM35,16H36V17H35zM39,16H40V17H39zM41,16H42V17H41zM7,17H8V18H7zM8,17H9V18H8zM10,17H11V18H10zM12,17H13V18H12zM14,17H15V18H14zM17,17H18V18H17zM18,17H19V18H18zM19,17H20V18H19zM20,17H21V18H20zM21,17H22V18H21zM24,17H25V18H24zM27,17H28V18H27zM30,17H31V18H30zM31,17H32V18H31zM32,17H33V18H32zM34,17H35V18H34zM38,17H39V18H38zM39,17H40V18H39zM41,17H42V18H41zM2,18H3V19H2zM3,18H4V19H3zM4,18H5V19H4zM5,18H6V19H5zM6,18H7V19H6zM8,18H9V19H8zM9,18H10V19H9zM11,18H12V19H11zM13,18H14V19H13zM14,18H15V19H14zM16,18H17V19H16zM19,18H20V19H19zM23,18H24V19H23zM25,18H26V19H25zM26,18H27V19H26zM30,18H31V19H30zM34,18H35V19H34zM36,18H37V19H36zM37,18H38V19H37zM40,18H41V19H40zM1,19H2V20H1zM2,19H3V20H2zM3,19H4V20H3zM4,19H5V20H4zM6,19H7V20H6zM7,19H8V20H7zM9,19H10V20H9zM10,19H11V20H10zM13,19H14V20H13zM15,19H16V20H15zM21,19H22V20H21zM22,19H23V20H22zM23,19H24V20H23zM24,19H25V20H24zM28,19H29V20H28zM32,19H33V20H32zM34,19H35V20H34zM36,19H37V20H36zM39,19H40V20H39zM41,19H42V20H41zM2,20H3V21H2zM3,20H4V21H3zM4,20H5V21H4zM6,20H7V21H6zM9,20H10V21H9zM10,20H11V21H10zM12,20H13V21H12zM16,20H17V21H16zM18,20H19V21H18zM19,20H20V21H19zM20,20H21V21H20zM21,20H22V21H21zM23,20H24V21H23zM25,20H26V21H25zM27,20H28V21H27zM28,20H29V21H28zM31,20H32V21H31zM32,20H33V21H32zM33,20H34V21H33zM35,20H36V21H35zM37,20H38V21H37zM38,20H39V21H38zM40,20H41V21H40zM2,21H3V22H2zM3,21H4V22H3zM4,21H5V22H4zM7,21H8V22H7zM8,21H9V22H8zM10,21H11V22H10zM11,21H12V22H11zM12,21H13V22H12zM13,21H14V22H13zM15,21H16V22H15zM16,21H17V22H16zM17,21H18V22H17zM21,21H22V22H21zM22,21H23V22H22zM23,21H24V22H23zM24,21H25V22H24zM25,21H26V22H25zM26,21H27V22H26zM27,21H28V22H27zM28,21H29V22H28zM30,21H31V22H30zM31,21H32V22H31zM35,21H36V22H35zM37,21H38V22H37zM38,21H39V22H38zM40,21H41V22H40zM2,22H3V23H2zM6,22H7V23H6zM10,22H11V23H10zM12,22H13V23H12zM15,22H16V23H15zM16,22H17V23H16zM18,22H19V23H18zM19,22H20V23H19zM21,22H22V23H21zM25,22H26V23H25zM27,22H28V23H27zM29,22H30V23H29zM31,22H32V23H31zM32,22H33V23H32zM35,22H36V23H35zM36,22H37V23H36zM38,22H39V23H38zM40,22H41V23H40zM1,23H2V24H1zM2,23H3V24H2zM7,23H8V24H7zM9,23H10V24H9zM12,23H13V24H12zM14,23H15V24H14zM20,23H21V24H20zM21,23H22V24H21zM23,23H24V24H23zM24,23H25V24H24zM26,23H27V24H26zM27,23H28V24H27zM28,23H29V24H28zM31,23H32V24H31zM35,23H36V24H35zM36,23H37V24H36zM38,23H39V24H38zM39,23H40V24H39zM40,23H41V24H40zM3,24H4V25H3zM4,24H5V25H4zM6,24H7V25H6zM8,24H9V25H8zM9,24H10V25H9zM11,24H12V25H11zM13,24H14V25H13zM15,24H16V25H15zM16,24H17V25H16zM17,24H18V25H17zM18,24H19V25H18zM19,24H20V25H19zM20,24H21V25H20zM23,24H24V25H23zM24,24H25V25H24zM25,24H26V25H25zM29,24H30V25H29zM30,24H31V25H30zM34,24H35V25H34zM36,24H37V25H36zM39,24H40V25H39zM41,24H42V25H41zM4,25H5V26H4zM5,25H6V26H5zM6,25H7V26H6zM7,25H8V26H7zM8,25H9V26H8zM9,25H10V26H9zM11,25H12V26H11zM12,25H13V26H12zM14,25H15V26H14zM16,25H17V26H16zM17,25H18V26H17zM20,25H21V26H20zM21,25H22V26H21zM23,25H24V26H23zM25,25H26V26H25zM28,25H29V26H28zM31,25H32V26H31zM32,25H33V26H32zM34,25H35V26H34zM35,25H36V26H35zM37,25H38V26H37zM39,25H40V26H39zM1,26H2V27H1zM3,26H4V27H3zM4,26H5V27H4zM5,26H6V27H5zM8,26H9V27H8zM11,26H12V27H11zM14,26H15V27H14zM15,26H16V27H15zM17,26H18V27H17zM18,26H19V27H18zM22,26H23V27H22zM24,26H25V27H24zM26,26H27V27H26zM28,26H29V27H28zM33,26H34V27H33zM35,26H36V27H35zM37,26H38V27H37zM38,26H39V27H38zM39,26H40V27H39zM41,26H42V27H41zM1,27H2V28H1zM3,27H4V28H3zM4,27H5V28H4zM5,27H6V28H5zM6,27H7V28H6zM7,27H8V28H7zM8,27H9V28H8zM9,27H10V28H9zM10,27H11V28H10zM11,27H12V28H11zM12,27H13V28H12zM14,27H15V28H14zM15,27H16V28H15zM16,27H17V28H16zM18,27H19V28H18zM19,27H20V28H19zM20,27H21V28H20zM22,27H23V28H22zM25,27H26V28H25zM27,27H28V28H27zM28,27H29V28H28zM29,27H30V28H29zM30,27H31V28H30zM31,27H32V28H31zM32,27H33V28H32zM34,27H35V28H34zM35,27H36V28H35zM36,27H37V28H36zM38,27H39V28H38zM40,27H41V28H40zM41,27H42V28H41zM1,28H2V29H1zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM9,28H10V29H9zM12,28H13V29H12zM13,28H14V29H13zM16,28H17V29H16zM17,28H18V29H17zM20,28H21V29H20zM21,28H22V29H21zM22,28H23V29H22zM24,28H25V29H24zM26,28H27V29H26zM27,28H28V29H27zM29,28H30V29H29zM31,28H32V29H31zM32,28H33V29H32zM33,28H34V29H33zM34,28H35V29H34zM35,28H36V29H35zM39,28H40V29H39zM41,28H42V29H41zM2,29H3V30H2zM4,29H5V30H4zM5,29H6V30H5zM7,29H8V30H7zM10,29H11V30H10zM12,29H13V30H12zM17,29H18V30H17zM19,29H20V30H19zM22,29H23V30H22zM25,29H26V30H25zM26,29H27V30H26zM27,29H28V30H27zM28,29H29V30H28zM30,29H31V30H30zM31,29H32V30H31zM33,29H34V30H33zM34,29H35V30H34zM36,29H37V30H36zM37,29H38V30H37zM38,29H39V30H38zM40,29H41V30H40zM1,30H2V31H1zM2,30H3V31H2zM4,30H5V31H4zM12,30H13V31H12zM13,30H14V31H13zM14,30H15V31H14zM15,30H16V31H15zM17,30H18V31H17zM18,30H19V31H18zM23,30H24V31H23zM24,30H25V31H24zM29,30H30V31H29zM35,30H36V31H35zM36,30H37V31H36zM37,30H38V31H37zM41,30H42V31H41zM1,31H2V32H1zM2,31H3V32H2zM4,31H5V32H4zM6,31H7V32H6zM7,31H8V32H7zM8,31H9V32H8zM9,31H10V32H9zM11,31H12V32H11zM14,31H15V32H14zM15,31H16V32H15zM17,31H18V32H17zM18,31H19V32H18zM19,31H20V32H19zM20,31H21V32H20zM23,31H24V32H23zM25,31H26V32H25zM26,31H27V32H26zM27,31H28V32H27zM28,31H29V32H28zM29,31H30V32H29zM30,31H31V32H30zM33,31H34V32H33zM34,31H35V32H34zM35,31H36V32H35zM36,31H37V32H36zM37,31H38V32H37zM38,31H39V32H38zM39,31H40V32H39zM40,31H41V32H40zM41,31H42V32H41zM1,32H2V33H1zM2,32H3V33H2zM3,32H4V33H3zM4,32H5V33H4zM8,32H9V33H8zM11,32H12V33H11zM12,32H13V33H12zM15,32H16V33H15zM17,32H18V33H17zM18,32H19V33H18zM19,32H20V33H19zM20,32H21V33H20zM21,32H22V33H21zM23,32H24V33H23zM24,32H25V33H24zM26,32H27V33H26zM27,32H28V33H27zM30,32H31V33H30zM31,32H32V33H31zM32,32H33V33H32zM33,32H34V33H33zM34,32H35V33H34zM37,32H38V33H37zM38,32H39V33H38zM40,32H41V33H40zM1,33H2V34H1zM2,33H3V34H2zM4,33H5V34H4zM5,33H6V34H5zM6,33H7V34H6zM7,33H8V34H7zM8,33H9V34H8zM10,33H11V34H10zM11,33H12V34H11zM12,33H13V34H12zM14,33H15V34H14zM17,33H18V34H17zM18,33H19V34H18zM19,33H20V34H19zM20,33H21V34H20zM22,33H23V34H22zM23,33H24V34H23zM24,33H25V34H24zM25,33H26V34H25zM26,33H27V34H26zM29,33H30V34H29zM33,33H34V34H33zM34,33H35V34H34zM35,33H36V34H35zM36,33H37V34H36zM37,33H38V34H37zM40,33H41V34H40zM41,33H42V34H41zM9,34H10V35H9zM12,34H13V35H12zM13,34H14V35H13zM15,34H16V35H15zM16,34H17V35H16zM19,34H20V35H19zM21,34H22V35H21zM22,34H23V35H22zM24,34H25V35H24zM25,34H26V35H25zM27,34H28V35H27zM30,34H31V35H30zM33,34H34V35H33zM37,34H38V35H37zM39,34H40V35H39zM1,35H2V36H1zM2,35H3V36H2zM3,35H4V36H3zM4,35H5V36H4zM5,35H6V36H5zM6,35H7V36H6zM7,35H8V36H7zM9,35H10V36H9zM13,35H14V36H13zM15,35H16V36H15zM17,35H18V36H17zM18,35H19V36H18zM19,35H20V36H19zM20,35H21V36H20zM21,35H22V36H21zM23,35H24V36H23zM25,35H26V36H25zM27,35H28V36H27zM29,35H30V36H29zM30,35H31V36H30zM31,35H32V36H31zM32,35H33V36H32zM33,35H34V36H33zM35,35H36V36H35zM37,35H38V36H37zM38,35H39V36H38zM1,36H2V37H1zM7,36H8V37H7zM9,36H10V37H9zM11,36H12V37H11zM12,36H13V37H12zM13,36H14V37H13zM18,36H19V37H18zM20,36H21V37H20zM22,36H23V37H22zM23,36H24V37H23zM24,36H25V37H24zM25,36H26V37H25zM27,36H28V37H27zM29,36H30V37H29zM30,36H31V37H30zM33,36H34V37H33zM37,36H38V37H37zM41,36H42V37H41zM1,37H2V38H1zM3,37H4V38H3zM4,37H5V38H4zM5,37H6V38H5zM7,37H8V38H7zM9,37H10V38H9zM10,37H11V38H10zM11,37H12V38H11zM12,37H13V38H12zM13,37H14V38H13zM14,37H15V38H14zM15,37H16V38H15zM16,37H17V38H16zM17,37H18V38H17zM18,37H19V38H18zM19,37H20V38H19zM20,37H21V38H20zM21,37H22V38H21zM22,37H23V38H22zM24,37H25V38H24zM25,37H26V38H25zM26,37H27V38H26zM27,37H28V38H27zM29,37H30V38H29zM31,37H32V38H31zM33,37H34V38H33zM34,37H35V38H34zM35,37H36V38H35zM36,37H37V38H36zM37,37H38V38H37zM40,37H41V38H40zM41,37H42V38H41zM1,38H2V39H1zM3,38H4V39H3zM4,38H5V39H4zM5,38H6V39H5zM7,38H8V39H7zM9,38H10V39H9zM11,38H12V39H11zM12,38H13V39H12zM13,38H14V39H13zM16,38H17V39H16zM18,38H19V39H18zM20,38H21V39H20zM21,38H22V39H21zM22,38H23V39H22zM26,38H27V39H26zM31,38H32V39H31zM36,38H37V39H36zM40,38H41V39H40zM1,39H2V40H1zM3,39H4V40H3zM4,39H5V40H4zM5,39H6V40H5zM7,39H8V40H7zM12,39H13V40H12zM13,39H14V40H13zM15,39H16V40H15zM16,39H17V40H16zM20,39H21V40H20zM24,39H25V40H24zM28,39H29V40H28zM31,39H32V40H31zM33,39H34V40H33zM37,39H38V40H37zM39,39H40V40H39zM40,39H41V40H40zM41,39H42V40H41zM1,40H2V41H1zM7,40H8V41H7zM10,40H11V41H10zM11,40H12V41H11zM12,40H13V41H12zM14,40H15V41H14zM16,40H17V41H16zM17,40H18V41H17zM19,40H20V41H19zM21,40H22V41H21zM23,40H24V41H23zM25,40H26V41H25zM27,40H28V41H27zM29,40H30V41H29zM31,40H32V41H31zM32,40H33V41H32zM33,40H34V41H33zM34,40H35V41H34zM37,40H38V41H37zM41,40H42V41H41zM1,41H2V42H1zM2,41H3V42H2zM3,41H4V42H3zM4,41H5V42H4zM5,41H6V42H5zM6,41H7V42H6zM7,41H8V42H7zM9,41H10V42H9zM10,41H11V42H10zM13,41H14V42H13zM20,41H21V42H20zM21,41H22V42H21zM23,41H24V42H23zM24,41H25V42H24zM25,41H26V42H25zM26,41H27V42H26zM27,41H28V42H27zM29,41H30V42H29zM31,41H32V42H31zM33,41H34V42H33zM34,41H35V42H34zM36,41H37V42H36zM37,41H38V42H37zM38,41H39V42H38z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></div>
+    <div class="codigo" id="pix-codigo">00020126330014br.gov.bcb.pix011105193091709520400005303986540579.005802BR5918RAMON BERBA VIEIRA6007NITEROI62120508HUBCURSO630414D1</div>
+    <button class="btn btn-preto" type="button" id="copiar">Copiar código Pix</button>
+    <p class="chave">Ou use a chave Pix (CPF): <b>051.930.917-09</b> · Ramon Berba Vieira</p>
+  </section>
+
+  <section class="card" aria-labelledby="t-cartao">
+    <h2 id="t-cartao"><span class="num">1</span>Ou pague no cartão</h2>
+    <p class="lead">Mandamos o link de pagamento seguro pelo WhatsApp, já com o valor certo.</p>
+    <a class="btn btn-amarelo" id="pedir-cartao" href="#" target="_blank" rel="noopener">Pagamento em cartão? Solicite o link</a>
+  </section>
+
+  <section class="card" aria-labelledby="t-aviso">
+    <h2 id="t-aviso"><span class="num">2</span>Avise que pagou</h2>
+    <p class="lead">Depois de pagar, toque no botão para mandar a mensagem pronta no WhatsApp e envie o comprovante na conversa.</p>
+    <label for="nome">Seu nome completo</label>
+    <input id="nome" autocomplete="name" placeholder="Como vai sair no certificado">
+    <label for="email">Seu e-mail</label>
+    <input id="email" type="email" autocomplete="email" placeholder="Para receber o acesso em 15/12">
+    <label>Como você pagou?</label>
+    <div class="opcoes">
+      <label><input type="radio" name="forma" value="Pix" checked> Pix</label>
+      <label><input type="radio" name="forma" value="cartão"> Cartão</label>
+    </div>
+    <a class="btn btn-zap" id="avisar" href="#" target="_blank" rel="noopener">Informar pagamento</a>
+    <p class="regras">O acesso chega no seu e-mail e no WhatsApp em 15/12/2026. Você pode desistir da compra em até 7 dias depois da liberação e recebe o valor de volta.</p>
+  </section>
+</main>
+
+<footer>O Funcionário Invisível · Hub de Empreendedores Católicos<br>Claude é marca da Anthropic. O curso não tem vínculo oficial com a Anthropic.<br>Dúvidas: WhatsApp (21) 99658-8197</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var ZAP = "5521996588197", VALOR = "R$ 79,00";
+  var toast = document.getElementById("toast"), tId;
+  function aviso(t){ toast.textContent = t; toast.classList.add("on"); clearTimeout(tId); tId = setTimeout(function(){ toast.classList.remove("on"); }, 2200); }
+
+  document.getElementById("copiar").addEventListener("click", function(){
+    var txt = document.getElementById("pix-codigo").textContent.trim(), b = this;
+    function ok(){ b.textContent = "Código copiado ✓"; aviso("Agora cole no app do banco, em Pix copia e cola"); setTimeout(function(){ b.textContent = "Copiar código Pix"; }, 3000); }
+    function fallback(){ var t = document.createElement("textarea"); t.value = txt; t.setAttribute("readonly",""); t.style.position = "fixed"; t.style.opacity = "0"; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); ok(); } catch(e) { aviso("Toque e segure o código para copiar"); } t.remove(); }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(txt).then(ok, fallback); else fallback();
+  });
+
+  document.getElementById("pedir-cartao").addEventListener("click", function(){
+    var nome = document.getElementById("nome").value.trim();
+    var msg = "Olá, Ramon! Quero garantir a pré-venda do curso O Funcionário Invisível no cartão.\n\nValor: " + VALOR + "\n" + (nome ? "Nome: " + nome + "\n" : "") + "\nPode me mandar o link de pagamento?";
+    this.href = "https://wa.me/" + ZAP + "?text=" + encodeURIComponent(msg);
+  });
+
+  document.getElementById("avisar").addEventListener("click", function(e){
+    var nome = document.getElementById("nome").value.trim(), email = document.getElementById("email").value.trim();
+    if (!nome){ e.preventDefault(); aviso("Escreva seu nome"); document.getElementById("nome").focus(); return; }
+    if (!/^\S+@\S+\.\S+$/.test(email)){ e.preventDefault(); aviso("Escreva um e-mail válido"); document.getElementById("email").focus(); return; }
+    var forma = (document.querySelector('input[name="forma"]:checked') || {}).value || "Pix";
+    var msg = "Olá, Ramon! Acabei de pagar a pré-venda do curso O Funcionário Invisível.\n\nNome: " + nome + "\nE-mail: " + email + "\nPagamento: " + VALOR + " por " + forma + "\n\nVou enviar o comprovante aqui na conversa.";
+    this.href = "https://wa.me/" + ZAP + "?text=" + encodeURIComponent(msg);
+  });
+
+  // Prazo real da pré-venda: domingo, 16/11/2026, 23h59 (horário de Brasília).
+  var FIM = new Date("2026-11-16T23:59:59-03:00").getTime();
+  var el = { d: document.getElementById("pz-d"), h: document.getElementById("pz-h"), m: document.getElementById("pz-m"), s: document.getElementById("pz-s") };
+  function dois(n){ return (n < 10 ? "0" : "") + n; }
+  function tique(){
+    var falta = Math.max(0, FIM - Date.now()), r = Math.floor(falta / 1000);
+    if (!falta) document.getElementById("prazo-msg").textContent = "A pré-venda terminou. Fale com a gente no WhatsApp";
+    el.d.textContent = Math.floor(r / 86400); el.h.textContent = dois(Math.floor(r % 86400 / 3600));
+    el.m.textContent = dois(Math.floor(r % 3600 / 60)); el.s.textContent = dois(r % 60);
+  }
+  tique(); setInterval(tique, 1000);
+})();
+</script>
+</body>
+</html>
