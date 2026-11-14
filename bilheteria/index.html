@@ -211,7 +211,7 @@ td:first-child{color:var(--muted);width:40%}
         <div><b>HUB</b><i>de Empreendedores Católicos</i></div>
       </div>
       <h1>Bilheteria do <em>1º Encontro</em></h1>
-      <p class="sub">Sábado, 14/11 · Coco Bambu Niterói · 45 vagas</p>
+      <p class="sub">Sábado, 14/11 · Coco Bambu Niterói · 40 vagas</p>
       <form class="cartao-pin" id="formPin" autocomplete="off">
         <label for="pin">PIN de acesso</label>
         <div class="pin-campo">
@@ -279,7 +279,7 @@ var API = 'https://script.google.com/macros/s/AKfycbyXxIq4D2G8JrMh9shHrqhQFYimb2
 var FORM = 'https://hubdeempreendedores.usevox.com.br/formulario/?pedido=';
 var DEMO = !API || /demo/.test(location.hash);
 var CH = 'hubBilheteriaChave';
-var estado = {vendas:[], respostas:[], entradas:[], vagas:45, temToken:true, temSegredo:true, agora:''};
+var estado = {vendas:[], respostas:[], entradas:[], vagas:40, temToken:true, temSegredo:true, agora:''};
 var filtro = 'todos';
 
 function $(id){return document.getElementById(id)}
@@ -310,7 +310,7 @@ function receber(r){
     if(r&&r.erro==='sessao'){sair();return}
     toast(r&&r.erro==='falha'?'O servidor deu erro. Tente de novo.':'Não deu certo. Tente de novo.');return;
   }
-  estado.vendas=r.vendas||[];estado.respostas=r.respostas||[];estado.vagas=r.vagas||45;
+  estado.vendas=r.vendas||[];estado.respostas=r.respostas||[];estado.vagas=40;
   estado.temToken=r.temToken!==false;estado.agora=r.agora||'';
   estado.entradas=r.entradas||[];estado.temSegredo=r.temSegredoIngresso!==false;
   ligarRespostas();desenhar();
@@ -876,7 +876,7 @@ function demoServidor(d){
     {'Enviado em':'29/10/2026 10:00','Nome':'Ana Teste Lima','Nome no crachá':'Ana','WhatsApp':'21900000001','Instagram':'@exemplo.ana','Pedido':'301','Atuação':'Empreendedor(a) com negócio próprio','Negócio / profissão':'Loja de roupas femininas','Ramo':'Comércio / varejo','Equipe':'2 a 5 pessoas','Mora em':'Icaraí','Trabalha em':'Niterói','Estado civil':'Casado(a)','Filhos':'2','Idade dos filhos':'6 a 12 anos','Paróquia / movimento':'Paróquia Exemplo, ECC','Horas/semana em burocracia':'Mais de 20 h','Maiores desafios':'Falta de tempo, Caixa e finanças, Usar tecnologia e IA','Uso de IA':'Já testei','O que quer levar':'Organizar o caixa','Quer conhecer':'Contadores e gente de tecnologia','Restrição alimentar':'Lactose','Uso de imagem':'Autorizo'},
     {'Enviado em':'29/10/2026 11:00','Nome':'Diego Fictício Souza','Nome no crachá':'Diego','WhatsApp':'21900000004','Instagram':'','Pedido':'9101','Atuação':'Profissional liberal / autônomo(a)','Negócio / profissão':'Contador e consultor de tecnologia','Ramo':'Serviços','Equipe':'6 a 20 pessoas','Mora em':'Niterói','Trabalha em':'Niterói','Estado civil':'Solteiro(a)','Filhos':'Não tenho','Idade dos filhos':'','Paróquia / movimento':'','Horas/semana em burocracia':'5 a 10 h','Maiores desafios':'Caixa e finanças, Equipe e liderança','Uso de IA':'Uso todo dia','O que quer levar':'Novos clientes','Quer conhecer':'Lojistas','Restrição alimentar':'','Uso de imagem':'Autorizo'}]};
   var db=demoDb;db.entradas=db.entradas||[];
-  var res=function(x){return Promise.resolve(Object.assign({ok:true,vagas:45,temToken:true,agora:'agora',vendas:db.vendas,respostas:db.respostas,entradas:db.entradas},x||{}))};
+  var res=function(x){return Promise.resolve(Object.assign({ok:true,vagas:40,temToken:true,agora:'agora',vendas:db.vendas,respostas:db.respostas,entradas:db.entradas},x||{}))};
   var hora=function(){var d=new Date();return '2026-11-14 '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')+':00'};
   var entrar=function(v,i,como){var ja=db.entradas.filter(function(e){return e.chave===v.pedido+'-'+i})[0];
     if(ja)return {ok:true,resultado:'ja',pedido:v.pedido,nome:v.nome,i:i,n:v.qtd,hora:ja.hora,quem:ja.quem};
