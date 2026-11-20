@@ -245,6 +245,25 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   .ticket{animation:rise .8s .2s ease both}
 }
 @keyframes rise{from{transform:translateY(12px)}to{transform:none}}
+
+/* galeria completa do 1º Encontro */
+.galeria-todas{columns:3 260px;column-gap:12px;margin-top:28px}
+.galeria-todas button{all:unset;display:block;cursor:zoom-in;margin:0 0 12px;break-inside:avoid;border-radius:10px;overflow:hidden;background:var(--surface-2)}
+.galeria-todas img{display:block;width:100%;height:auto;transition:transform .35s ease}
+.galeria-todas button:hover img,.galeria-todas button:focus-visible img{transform:scale(1.03)}
+.galeria-todas button:focus-visible{outline:3px solid var(--ouro)}
+.lightbox{position:fixed;inset:0;z-index:999;background:rgba(20,8,13,.92);display:none;align-items:center;justify-content:center;padding:16px}
+.lightbox.on{display:flex}
+.lightbox img{max-width:100%;max-height:86vh;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.lightbox .lb-btn{position:absolute;background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:50%;width:46px;height:46px;font-size:24px;cursor:pointer}
+.lightbox .lb-x{top:14px;right:14px}.lightbox .lb-prev{left:10px;top:50%}.lightbox .lb-next{right:10px;top:50%}
+.lightbox .lb-cont{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#D9C7B9;font-size:.85rem}
+/* daqui pra frente */
+.passos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:24px}
+.passo{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.passo .n{font-family:var(--display);font-style:italic;font-size:2rem;color:var(--gold-ink);line-height:1}
+.passo h3{font-family:var(--display);font-weight:500;font-size:1.25rem;margin:10px 0 8px;color:var(--fg)}
+.passo p{margin:0;color:var(--muted);line-height:1.55}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -403,6 +422,57 @@ footer .apoio b{font-weight:500;color:var(--fg)}
   </div>
 </section>
 
+
+<section id="fotos" style="background:var(--surface-2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Fotos do Encontro</span>
+      <h2>Quem esteve lá, à mesa e na conversa.</h2>
+      <p class="lead">Empreendedores e profissionais de todas as áreas reunidos no 1º Encontro. Toque numa foto para ampliar.</p>
+    </div>
+    <div class="galeria-todas">
+      <button type="button" aria-label="Ampliar foto 1 do 1º Encontro"><img src="midia/encontro-1/galeria/01.jpg" alt="Participantes do 1º Encontro do Hub, foto 1" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 2 do 1º Encontro"><img src="midia/encontro-1/galeria/02.jpg" alt="Participantes do 1º Encontro do Hub, foto 2" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 3 do 1º Encontro"><img src="midia/encontro-1/galeria/03.jpg" alt="Participantes do 1º Encontro do Hub, foto 3" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 4 do 1º Encontro"><img src="midia/encontro-1/galeria/04.jpg" alt="Participantes do 1º Encontro do Hub, foto 4" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 5 do 1º Encontro"><img src="midia/encontro-1/galeria/05.jpg" alt="Participantes do 1º Encontro do Hub, foto 5" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 6 do 1º Encontro"><img src="midia/encontro-1/galeria/06.jpg" alt="Participantes do 1º Encontro do Hub, foto 6" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 7 do 1º Encontro"><img src="midia/encontro-1/galeria/07.jpg" alt="Participantes do 1º Encontro do Hub, foto 7" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 8 do 1º Encontro"><img src="midia/encontro-1/galeria/08.jpg" alt="Participantes do 1º Encontro do Hub, foto 8" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 9 do 1º Encontro"><img src="midia/encontro-1/galeria/09.jpg" alt="Participantes do 1º Encontro do Hub, foto 9" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 10 do 1º Encontro"><img src="midia/encontro-1/galeria/10.jpg" alt="Participantes do 1º Encontro do Hub, foto 10" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 11 do 1º Encontro"><img src="midia/encontro-1/galeria/11.jpg" alt="Participantes do 1º Encontro do Hub, foto 11" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 12 do 1º Encontro"><img src="midia/encontro-1/galeria/12.jpg" alt="Participantes do 1º Encontro do Hub, foto 12" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 13 do 1º Encontro"><img src="midia/encontro-1/galeria/13.jpg" alt="Participantes do 1º Encontro do Hub, foto 13" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 14 do 1º Encontro"><img src="midia/encontro-1/galeria/14.jpg" alt="Participantes do 1º Encontro do Hub, foto 14" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 15 do 1º Encontro"><img src="midia/encontro-1/galeria/15.jpg" alt="Participantes do 1º Encontro do Hub, foto 15" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 16 do 1º Encontro"><img src="midia/encontro-1/galeria/16.jpg" alt="Participantes do 1º Encontro do Hub, foto 16" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 17 do 1º Encontro"><img src="midia/encontro-1/galeria/17.jpg" alt="Participantes do 1º Encontro do Hub, foto 17" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 18 do 1º Encontro"><img src="midia/encontro-1/galeria/18.jpg" alt="Participantes do 1º Encontro do Hub, foto 18" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 19 do 1º Encontro"><img src="midia/encontro-1/galeria/19.jpg" alt="Participantes do 1º Encontro do Hub, foto 19" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 20 do 1º Encontro"><img src="midia/encontro-1/galeria/20.jpg" alt="Participantes do 1º Encontro do Hub, foto 20" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 21 do 1º Encontro"><img src="midia/encontro-1/galeria/21.jpg" alt="Participantes do 1º Encontro do Hub, foto 21" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 22 do 1º Encontro"><img src="midia/encontro-1/galeria/22.jpg" alt="Participantes do 1º Encontro do Hub, foto 22" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 23 do 1º Encontro"><img src="midia/encontro-1/galeria/23.jpg" alt="Participantes do 1º Encontro do Hub, foto 23" loading="lazy" width="732" height="1100"></button>
+      <button type="button" aria-label="Ampliar foto 24 do 1º Encontro"><img src="midia/encontro-1/galeria/24.jpg" alt="Participantes do 1º Encontro do Hub, foto 24" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 25 do 1º Encontro"><img src="midia/encontro-1/galeria/25.jpg" alt="Participantes do 1º Encontro do Hub, foto 25" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 26 do 1º Encontro"><img src="midia/encontro-1/galeria/26.jpg" alt="Participantes do 1º Encontro do Hub, foto 26" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 27 do 1º Encontro"><img src="midia/encontro-1/galeria/27.jpg" alt="Participantes do 1º Encontro do Hub, foto 27" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 28 do 1º Encontro"><img src="midia/encontro-1/galeria/28.jpg" alt="Participantes do 1º Encontro do Hub, foto 28" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 29 do 1º Encontro"><img src="midia/encontro-1/galeria/29.jpg" alt="Participantes do 1º Encontro do Hub, foto 29" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 30 do 1º Encontro"><img src="midia/encontro-1/galeria/30.jpg" alt="Participantes do 1º Encontro do Hub, foto 30" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 31 do 1º Encontro"><img src="midia/encontro-1/galeria/31.jpg" alt="Participantes do 1º Encontro do Hub, foto 31" loading="lazy" width="732" height="1100"></button>
+      <button type="button" aria-label="Ampliar foto 32 do 1º Encontro"><img src="midia/encontro-1/galeria/32.jpg" alt="Participantes do 1º Encontro do Hub, foto 32" loading="lazy" width="732" height="1100"></button>
+      <button type="button" aria-label="Ampliar foto 33 do 1º Encontro"><img src="midia/encontro-1/galeria/33.jpg" alt="Participantes do 1º Encontro do Hub, foto 33" loading="lazy" width="732" height="1100"></button>
+      <button type="button" aria-label="Ampliar foto 34 do 1º Encontro"><img src="midia/encontro-1/galeria/34.jpg" alt="Participantes do 1º Encontro do Hub, foto 34" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 35 do 1º Encontro"><img src="midia/encontro-1/galeria/35.jpg" alt="Participantes do 1º Encontro do Hub, foto 35" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 36 do 1º Encontro"><img src="midia/encontro-1/galeria/36.jpg" alt="Participantes do 1º Encontro do Hub, foto 36" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 37 do 1º Encontro"><img src="midia/encontro-1/galeria/37.jpg" alt="Participantes do 1º Encontro do Hub, foto 37" loading="lazy" width="732" height="1100"></button>
+      <button type="button" aria-label="Ampliar foto 38 do 1º Encontro"><img src="midia/encontro-1/galeria/38.jpg" alt="Participantes do 1º Encontro do Hub, foto 38" loading="lazy" width="732" height="1100"></button>
+    </div>
+  </div>
+</section>
+
 <section id="frases" style="background:var(--surface-2)">
   <div class="wrap">
     <div class="sec-head">
@@ -462,6 +532,23 @@ footer .apoio b{font-weight:500;color:var(--fg)}
         <p>Quem pensa como você, perto de você. Indicações e negócios entre os membros da rede.</p>
       </article>
     </div>
+  </div>
+</section>
+
+<section id="daqui">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Daqui pra frente</span>
+      <h2>O Encontro acabou. A rede continua.</h2>
+      <p class="lead">O 1º Encontro foi o começo. É assim que o Hub segue a partir de agora:</p>
+    </div>
+    <div class="passos">
+      <article class="passo"><span class="n">1</span><h3>Grupo do WhatsApp</h3><p>É onde o Hub acontece no dia a dia: avisos em primeira mão, conteúdos curtos de fé e negócio e gente da região para trocar experiência e fazer parcerias.</p></article>
+      <article class="passo"><span class="n">2</span><h3>Próximos encontros</h3><p>O 2º Encontro está em preparação. Quem está no grupo fica sabendo antes, com data, local e como participar.</p></article>
+      <article class="passo"><span class="n">3</span><h3>Conteúdo toda semana</h3><p>No Instagram @hub.catolico: carrosséis e vídeos sobre gestão, caixa, família e o Claude reduzindo o tempo burocrático.</p></article>
+      <article class="passo"><span class="n">4</span><h3>Mentoria do Hub</h3><p>Uma turma pequena começa em janeiro de 2027. As informações saem primeiro no grupo, e quem esteve no 1º Encontro tem condição especial.</p></article>
+    </div>
+    <div class="sponsor-cta" style="margin-top:24px"><a class="btn btn-gold btn-wa" href="grupo/"><svg><use href="#i-wa"/></svg>Entrar no grupo do WhatsApp</a></div>
   </div>
 </section>
 
@@ -555,6 +642,31 @@ footer .apoio b{font-weight:500;color:var(--fg)}
   // touchstart cobre celulares mais antigos; pointerdown cobre o resto (o intervalo de 60 ms evita onda dupla)
   addEventListener("touchstart", e => { const t = e.touches[0]; if (t) splash(t.clientX, t.clientY); }, {passive:true});
   addEventListener("pointerdown", e => splash(e.clientX, e.clientY), {passive:true});
+})();
+</script>
+
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <button class="lb-btn lb-x" type="button" aria-label="Fechar">×</button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Foto anterior">‹</button>
+  <img alt="">
+  <button class="lb-btn lb-next" type="button" aria-label="Próxima foto">›</button>
+  <div class="lb-cont"></div>
+</div>
+<script>
+(function(){
+  var bts=[].slice.call(document.querySelectorAll('.galeria-todas button'));
+  var lb=document.getElementById('lb'); if(!lb||!bts.length) return;
+  var img=lb.querySelector('img'), cont=lb.querySelector('.lb-cont'), at=0;
+  function abre(i){at=(i+bts.length)%bts.length;var s=bts[at].querySelector('img');img.src=s.src;img.alt=s.alt;cont.textContent=(at+1)+' de '+bts.length;lb.classList.add('on');}
+  function fecha(){lb.classList.remove('on');bts[at].focus();}
+  bts.forEach(function(b,i){b.addEventListener('click',function(){abre(i)})});
+  lb.querySelector('.lb-x').onclick=fecha;
+  lb.querySelector('.lb-prev').onclick=function(){abre(at-1)};
+  lb.querySelector('.lb-next').onclick=function(){abre(at+1)};
+  lb.addEventListener('click',function(e){if(e.target===lb)fecha()});
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')fecha();if(e.key==='ArrowLeft')abre(at-1);if(e.key==='ArrowRight')abre(at+1);});
+  var x0=null;lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  lb.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)abre(at+(dx<0?1:-1));x0=null});
 })();
 </script>
 </body></html>
