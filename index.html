@@ -469,6 +469,24 @@ footer .apoio b{font-weight:500;color:var(--fg)}
       <button type="button" aria-label="Ampliar foto 36 do 1º Encontro"><img src="midia/encontro-1/galeria/36.jpg" alt="Participantes do 1º Encontro do Hub, foto 36" loading="lazy" width="1100" height="732"></button>
       <button type="button" aria-label="Ampliar foto 37 do 1º Encontro"><img src="midia/encontro-1/galeria/37.jpg" alt="Participantes do 1º Encontro do Hub, foto 37" loading="lazy" width="732" height="1100"></button>
       <button type="button" aria-label="Ampliar foto 38 do 1º Encontro"><img src="midia/encontro-1/galeria/38.jpg" alt="Participantes do 1º Encontro do Hub, foto 38" loading="lazy" width="732" height="1100"></button>
+      <button type="button" aria-label="Ampliar foto 39 do 1º Encontro"><img src="midia/encontro-1/galeria/39.jpg" alt="Participantes do 1º Encontro do Hub, foto 39" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 40 do 1º Encontro"><img src="midia/encontro-1/galeria/40.jpg" alt="Participantes do 1º Encontro do Hub, foto 40" loading="lazy" width="732" height="1100"></button>
+      <button type="button" aria-label="Ampliar foto 41 do 1º Encontro"><img src="midia/encontro-1/galeria/41.jpg" alt="Participantes do 1º Encontro do Hub, foto 41" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 42 do 1º Encontro"><img src="midia/encontro-1/galeria/42.jpg" alt="Participantes do 1º Encontro do Hub, foto 42" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 43 do 1º Encontro"><img src="midia/encontro-1/galeria/43.jpg" alt="Participantes do 1º Encontro do Hub, foto 43" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 44 do 1º Encontro"><img src="midia/encontro-1/galeria/44.jpg" alt="Participantes do 1º Encontro do Hub, foto 44" loading="lazy" width="732" height="1100"></button>
+      <button type="button" aria-label="Ampliar foto 45 do 1º Encontro"><img src="midia/encontro-1/galeria/45.jpg" alt="Participantes do 1º Encontro do Hub, foto 45" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 46 do 1º Encontro"><img src="midia/encontro-1/galeria/46.jpg" alt="Participantes do 1º Encontro do Hub, foto 46" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 47 do 1º Encontro"><img src="midia/encontro-1/galeria/47.jpg" alt="Participantes do 1º Encontro do Hub, foto 47" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 48 do 1º Encontro"><img src="midia/encontro-1/galeria/48.jpg" alt="Participantes do 1º Encontro do Hub, foto 48" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 49 do 1º Encontro"><img src="midia/encontro-1/galeria/49.jpg" alt="Participantes do 1º Encontro do Hub, foto 49" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 50 do 1º Encontro"><img src="midia/encontro-1/galeria/50.jpg" alt="Participantes do 1º Encontro do Hub, foto 50" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 51 do 1º Encontro"><img src="midia/encontro-1/galeria/51.jpg" alt="Participantes do 1º Encontro do Hub, foto 51" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 52 do 1º Encontro"><img src="midia/encontro-1/galeria/52.jpg" alt="Participantes do 1º Encontro do Hub, foto 52" loading="lazy" width="732" height="1100"></button>
+      <button type="button" aria-label="Ampliar foto 53 do 1º Encontro"><img src="midia/encontro-1/galeria/53.jpg" alt="Participantes do 1º Encontro do Hub, foto 53" loading="lazy" width="732" height="1100"></button>
+      <button type="button" aria-label="Ampliar foto 54 do 1º Encontro"><img src="midia/encontro-1/galeria/54.jpg" alt="Participantes do 1º Encontro do Hub, foto 54" loading="lazy" width="732" height="1100"></button>
+      <button type="button" aria-label="Ampliar foto 55 do 1º Encontro"><img src="midia/encontro-1/galeria/55.jpg" alt="Participantes do 1º Encontro do Hub, foto 55" loading="lazy" width="1100" height="732"></button>
+      <button type="button" aria-label="Ampliar foto 56 do 1º Encontro"><img src="midia/encontro-1/galeria/56.jpg" alt="Participantes do 1º Encontro do Hub, foto 56" loading="lazy" width="1100" height="732"></button>
     </div>
   </div>
 </section>
@@ -667,6 +685,59 @@ footer .apoio b{font-weight:500;color:var(--fg)}
   document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')fecha();if(e.key==='ArrowLeft')abre(at-1);if(e.key==='ArrowRight')abre(at+1);});
   var x0=null;lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
   lb.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)abre(at+(dx<0?1:-1));x0=null});
+})();
+</script>
+
+<style id="interesse">
+/* Botão flutuante: mostrar interesse no próximo encontro */
+.fab-int{position:fixed;right:16px;bottom:calc(86px + env(safe-area-inset-bottom,0px));z-index:30;display:inline-flex;align-items:center;gap:10px;background:var(--bordo);color:#fff;border:2px solid var(--ouro);border-radius:999px;padding:13px 20px;font-family:var(--body);font-weight:500;font-size:.95rem;cursor:pointer;box-shadow:0 8px 24px rgba(62,23,39,.35);animation:fab-pulso 2.6s ease-in-out infinite}
+.fab-int:hover{transform:translateY(-2px)}
+.fab-int .ic{font-size:1.15rem;line-height:1}
+@keyframes fab-pulso{0%,100%{box-shadow:0 8px 24px rgba(62,23,39,.35),0 0 0 0 rgba(184,159,119,.55)}50%{box-shadow:0 8px 24px rgba(62,23,39,.35),0 0 0 10px rgba(184,159,119,0)}}
+@media (prefers-reduced-motion:reduce){.fab-int{animation:none}}
+@media (max-width:560px){.fab-int{left:16px;right:16px;justify-content:center;white-space:nowrap;font-size:.86rem;padding:12px 14px;gap:8px;bottom:calc(78px + env(safe-area-inset-bottom,0px))}}
+.int-modal{position:fixed;inset:0;z-index:1000;background:rgba(20,8,13,.7);display:none;align-items:flex-end;justify-content:center;padding:16px}
+.int-modal.on{display:flex}
+@media (min-width:640px){.int-modal{align-items:center}}
+.int-box{background:var(--surface,#FBF7F1);color:var(--fg);width:100%;max-width:440px;border-radius:18px;padding:26px 22px 22px;position:relative;border-top:4px solid var(--ouro)}
+.int-box h3{font-family:var(--display);font-size:1.5rem;margin:0 0 6px;color:var(--bordo)}
+.int-box p{margin:0 0 16px;color:var(--muted);font-size:.95rem}
+.int-box label{display:block;font-size:.85rem;font-weight:500;margin:12px 0 6px}
+.int-box input{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid rgba(90,36,57,.3);border-radius:10px;font:inherit;background:#fff;color:#2B1E23}
+.int-box .btn{width:100%;margin-top:18px}
+.int-x{position:absolute;top:10px;right:12px;background:none;border:0;font-size:26px;color:var(--muted);cursor:pointer;line-height:1}
+:root[data-theme="dark"] .int-box{background:#2A1A20}
+</style>
+<button type="button" class="fab-int" id="fab-int" aria-haspopup="dialog"><span class="ic" aria-hidden="true">🙋</span>Mostrar interesse no próximo encontro</button>
+<div class="int-modal" id="int-modal" role="dialog" aria-modal="true" aria-labelledby="int-tit">
+  <form class="int-box" id="int-form">
+    <button type="button" class="int-x" aria-label="Fechar">×</button>
+    <h3 id="int-tit">Quero ir ao próximo encontro</h3>
+    <p>Deixe seu nome e a gente te avisa primeiro quando a data e as vagas abrirem.</p>
+    <label for="int-nome">Seu nome</label>
+    <input id="int-nome" name="nome" type="text" autocomplete="name" required>
+    <label for="int-oque">O que você faz? <span style="font-weight:400;color:var(--muted)">opcional</span></label>
+    <input id="int-oque" name="oque" type="text" placeholder="Ex.: dentista, loja de roupas, consultor">
+    <button class="btn btn-gold" type="submit">Enviar pelo WhatsApp</button>
+  </form>
+</div>
+<script>
+(function(){
+  var fab=document.getElementById('fab-int'),m=document.getElementById('int-modal'),f=document.getElementById('int-form');
+  if(!fab||!m||!f) return;
+  function abre(){m.classList.add('on');setTimeout(function(){document.getElementById('int-nome').focus()},50)}
+  function fecha(){m.classList.remove('on');fab.focus()}
+  fab.addEventListener('click',abre);
+  m.querySelector('.int-x').addEventListener('click',fecha);
+  m.addEventListener('click',function(e){if(e.target===m)fecha()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('on'))fecha()});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var nome=f.nome.value.trim(),oque=f.oque.value.trim();
+    var t='Olá, Ramon! Tenho interesse no próximo Encontro do Hub de Empreendedores Católicos.'+String.fromCharCode(10)+'Nome: '+nome+(oque?String.fromCharCode(10)+'O que faço: '+oque:'');
+    window.open('https://wa.me/5521996588197?text='+encodeURIComponent(t),'_blank','noopener');
+    fecha();
+  });
 })();
 </script>
 </body></html>
