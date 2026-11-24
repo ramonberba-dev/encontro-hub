@@ -718,8 +718,18 @@ footer .apoio b{font-weight:500;color:var(--fg)}
     <input id="int-nome" name="nome" type="text" autocomplete="name" required>
     <label for="int-oque">O que você faz? <span style="font-weight:400;color:var(--muted)">opcional</span></label>
     <input id="int-oque" name="oque" type="text" placeholder="Ex.: dentista, loja de roupas, consultor">
-    <button class="btn btn-gold" type="submit">Enviar pelo WhatsApp</button>
+    <label for="int-zap">Seu WhatsApp <span style="font-weight:400;color:var(--muted)">com DDD, para te avisarmos</span></label>
+    <input id="int-zap" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(21) 99999-9999" required>
+    <input name="site" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    <p class="int-msg" id="int-msg" role="status" style="margin:12px 0 0;min-height:0"></p>
+    <button class="btn btn-gold" type="submit" id="int-env">Quero ser avisado</button>
   </form>
+  <div class="int-box" id="int-ok" hidden>
+    <button type="button" class="int-x" aria-label="Fechar">×</button>
+    <h3>Prontinho! 🙏</h3>
+    <p>Seu nome está na lista do próximo encontro. Assim que a data e as vagas abrirem, você fica sabendo primeiro.</p>
+    <a class="btn btn-gold" href="grupo/" style="width:100%;box-sizing:border-box">Entrar no grupo do Hub</a>
+  </div>
 </div>
 <script>
 (function(){
@@ -728,15 +738,20 @@ footer .apoio b{font-weight:500;color:var(--fg)}
   function abre(){m.classList.add('on');setTimeout(function(){document.getElementById('int-nome').focus()},50)}
   function fecha(){m.classList.remove('on');fab.focus()}
   fab.addEventListener('click',abre);
-  m.querySelector('.int-x').addEventListener('click',fecha);
+  [].forEach.call(m.querySelectorAll('.int-x'),function(b){b.addEventListener('click',fecha)});
   m.addEventListener('click',function(e){if(e.target===m)fecha()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('on'))fecha()});
+  var ok=document.getElementById('int-ok'),msg=document.getElementById('int-msg'),env=document.getElementById('int-env');
   f.addEventListener('submit',function(e){
     e.preventDefault();
-    var nome=f.nome.value.trim(),oque=f.oque.value.trim();
-    var t='Olá, Ramon! Tenho interesse no próximo Encontro do Hub de Empreendedores Católicos.'+String.fromCharCode(10)+'Nome: '+nome+(oque?String.fromCharCode(10)+'O que faço: '+oque:'');
-    window.open('https://wa.me/5521996588197?text='+encodeURIComponent(t),'_blank','noopener');
-    fecha();
+    var dados={nome:f.nome.value.trim(),oque:f.oque.value.trim(),whatsapp:f.whatsapp.value.trim(),site:f.site.value,evento:'2º Encontro'};
+    if(dados.whatsapp.replace(/\D/g,'').length<10){msg.textContent='Escreva o WhatsApp com DDD.';f.whatsapp.focus();return;}
+    env.disabled=true;env.textContent='Enviando…';msg.textContent='';
+    fetch('https://angelus.ramonberba.workers.dev/interesse',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(dados)})
+      .then(function(r){return r.json().then(function(j){if(!r.ok||!j.ok)throw new Error(j.erro||'Não foi possível enviar.');})})
+      .then(function(){f.hidden=true;ok.hidden=false;try{localStorage.setItem('hubInteresse','1')}catch(_){} })
+      .catch(function(err){msg.textContent=err.message+' Tente de novo.';})
+      .then(function(){env.disabled=false;env.textContent='Quero ser avisado';});
   });
 })();
 </script>
